@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="css/style.css" media="all, screen, projection">
+	<link rel="stylesheet" href="css/dropkick.css" media="all, screen, projection">
+	<!-- <link rel="stylesheet" href="css/print.css" media="print"> -->
+
+	<script type="text/javascript" src="javascript/libs/html5shiv.js"></script>
+	<script type="text/javascript" src="javascript/libs/jquery.js"></script>
+	<script type="text/javascript" src="javascript/libs/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="javascript/libs/jquery.dropkick-1.0.0.js"></script>
+	<script type="text/javascript" src="javascript/libs/ui_inputs.js"></script>
+	<script type="text/javascript" src="javascript/main.js"></script>
+	
+
+</head>
+<body>
+	<div class="sitewrap">
+		<header class="header" role="header">
+			<div class="wrap">
+				<div class="header__func">
+					<div class="header__func_item cart"><a href="#" class="header__func_link">Корзина</a></div>
+					<div class="header__func_item delivery"><a href="#" class="header__func_link">Доставка</a></div>
+				</div>
+				<a href="#" class="logo_link">
+					<img src="images/logo.png" alt="Sweet Mix">
+				</a>
+				<div class="header__contact_func">
+					<a href="tel:89132341212" class="header__tel">+7 (913) 234-1212</a>
+					<div class="btn call">Заказать звонок</div>
+				</div>
+				<ul class="header__nav" role="navigation">
+					<li class="header_nav_item">
+						Мюсли
+						<ul class="header_subnav">
+							<li class="header_subnav_item"><a href="#" class="header_subnav_link">Создать мюсли</a></li>
+							<li class="header_subnav_item"><a href="#" class="header_subnav_link">Готовые рецепты</a></li>
+						</ul>
+					</li>
+					<li class="header_nav_item">
+						Выпечка
+						<ul class="header_subnav">
+							<li class="header_subnav_item"><a href="#" class="header_subnav_link">Кексы</a></li>
+							<li class="header_subnav_item"><a href="#" class="header_subnav_link">Песочные человечки</a></li>
+							<li class="header_subnav_item"><a href="#" class="header_subnav_link">Макаруны</a></li>
+						</ul>
+					</li>
+					<li class="header_nav_item"><a href="#" class="header_nav_link">Мороженое</a></li>
+					<li class="header_nav_item"><a href="#" class="header_nav_link">Йогурт</a></li>
+				</ul>
+			</div>
+		</header>
+
+		<div class="main" role="content">
+			<h1 class="title">Оформление заказа</h1>
+			<div class="wrap content">
+				<div class="checkout">
+					<div class="inputs_block">
+						<div class="input_wrap">
+							<label for="name">Ваше имя</label>
+							<input type="text" name="name" id="name">
+							<label for="lastname">Фамилия</label>
+							<input type="text" name="lastname" id="lastname">
+						</div><div class="input_wrap">
+							<label for="phone">Телефон</label>
+							<input type="text" name="phone" id="phone">
+							<label for="email">E-maill</label>
+							<input type="text" name="email" id="email" placeholder="На этот E-mail прдет копия заказа">
+						</div>
+					</div>
+					<div class="inputs_block">
+						<div class="input_wrap check_delivery_date">
+							<label for="delivery_date">Дата доставки</label>
+							<select name="delivery_date" id="delivery_date">
+								<option value="11 сентября" selected>11 сентября</option>
+								<option value="12 сентября">12 сентября</option>
+								<option value="13 сентября">13 сентября</option>
+							</select> 
+							<span>в</span>
+							<select name="delivery_time" id="delivery_time">
+								<option value="c 10:00 до 14:00" selected>c 10:00 до 14:00ч</option>
+								<option value="c 14:00 до 18:00">c 14:00 до 18:00ч</option>
+								<option value="c 18:00 до 21:00">c 18:00 до 21:00ч</option>
+							</select>
+						</div><div class="input_wrap check_delivery_city">
+							<label for="city">Город</label>
+							<select name="city" id="city">
+								<option value="Красноярск" selected>Красноярск</option>
+								<option value="Сосновоборск">Сосновоборск</option>
+								<option value="Железногорск">Железногорск</option>
+							</select>
+						</div>
+					</div>	
+					<div class="input_wrap fullsize">
+						<label for="address">Адрес доставки</label>
+						<input type="text" name="address" id="address">
+					</div>
+					<div class="input_wrap fullsize">
+						<label for="delivery_comment">Комментарии к доставке</label>
+						<input type="text" name="delivery_comment" id="delivery_comment">
+					</div>
+					<div class="input_wrap fullsize payment">
+						<p>Способы оплаты:</p>
+						<input type="radio" name="payment" value="cash" id="cash" class="pradio">
+						<label for="cash" class="radio_anatation">Наличными курьеру</label> 
+						<input type="radio" name="payment" value="card" id="card"  class="pradio">
+						<label for="card" class="radio_anatation">Оплата онлайн  (Visa/Mastercard)</label> 
+					</div>
+				</div>	
+				<ul class="totals_list">
+					<li class="total_item">Корзина<span class="delivery_value">1400</span></li>
+					<li class="total_item">Доставка<span class="delivery_value">100</span></li>
+					<li class="total_item">Всего к оплате<span class="delivery_value">1500</span></li>
+				</ul>
+				<div class="submit_wrap elems_at_sides">
+					<a href="#" class="btn type2">Вернуться в корзину</a>
+					<input type="submit" class="btn" value="Сделать заказ">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer class="footer" role="footer">
+		<div class="wrap">
+			<div class="footer__info_block">
+				<h3 class="footer__title">О нас:</h3>
+				<ul class="footer__nav">
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Контактная информация</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Сертификаты</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Вакансии</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Партнеры</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Отзывы</a></li>
+				</ul>
+			</div>
+			<div class="footer__info_block">
+				<h3 class="footer__title">Наша продукция:</h3>
+				<ul class="footer__nav">
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Мюсли</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Выпечка</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Мороженое</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Йогурты</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Горячие предложения</a></li>
+				</ul>
+			</div>
+			<div class="footer__info_block">
+				<h3 class="footer__title">Полезная информация:</h3>
+				<ul class="footer__nav">
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Срок годности</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Информация о доставке</a></li>
+				</ul>
+			</div>
+			<div class="footer__info_block">
+				<h3 class="footer__title">Служба поддержки:</h3>
+				<ul class="footer__nav">
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Вопросы и ответы</a></li>
+					<li class="footer__nav_item"><a href="#" class="footer__nav_link">Советы диетолога</a></li>
+				</ul>
+				<ul class="social_list">
+					<li class="social_item"><a href="#" class="social_link in">Instagram</a></li>
+					<li class="social_item"><a href="#" class="social_link yt">YouTube</a></li>
+					<li class="social_item"><a href="#" class="social_link vk">ВКонтакте</a></li>
+					<li class="social_item"><a href="#" class="social_link ok">Одноклассники</a></li>
+					<li class="social_item"><a href="#" class="social_link fb">Facebook</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<div class="popup_wrap">
+		<div class="overlay"></div>
+		<div class="popup call_form">
+			<div class="popup_closer"></div>
+			<h2 class="title">Заказать звонок</h2>
+			<div class="input_wrap">
+				<label for="calling_name">Имя*</label>
+				<input type="text" id="calling_name" value="">
+			</div>
+			<div class="input_wrap">
+				<label for="calling_tel">Телефон*</label>
+				<input type="text" d="calling_tel" value="">
+			</div>
+			<div class="ahtung">*Незаполнены необходимые поля</div>
+			<input type="submit" class="btn" value="Свяжитесь со мной">
+		</div>
+	</div>
+</body>
+</html>
