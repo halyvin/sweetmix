@@ -1214,6 +1214,43 @@ textarea:focus {
 							height:44px;
 							}
 
+.custom_quantity {
+	position:relative;
+	width:78px;
+	background:#fff;
+	border-radius:4px;
+	box-shadow: 0 3px 0 1px rgba(0,0,0,.1);
+	margin-top:45px;
+	}
+.custom_quantity:hover {
+	box-shadow: 0px 0px 0 1px rgba(0,0,0,.1), 0 3px 0 0 rgba(0,0,0,.1);
+	}
+.custom_quantity:active {
+	background:#f6f7f1;
+	}
+	.cq_output {
+		font:18px/30px 'AcademyC', Arial, serif;
+		color:#1b1000;
+		padding-left:12px;
+		}
+	.cq_up, .cq_down {
+		width:27px;
+		height:15px;
+		position:absolute;
+		background:red;
+		border-radius:4px;
+		top:0;
+		right:0;
+		background: url('../images/quantity_arr.png') no-repeat top left;
+		cursor:pointer;
+
+		}
+	.cq_down {
+		top:auto;
+		bottom:0;
+		background: url('../images/quantity_arr.png') no-repeat bottom left;
+		}		
+
 /* Master 
 ___________________________________*/
 .filters {
