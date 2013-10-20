@@ -101,18 +101,30 @@
 						<label for="delivery_comment">Комментарии к доставке</label>
 						<input type="text" name="delivery_comment" id="delivery_comment">
 					</div>
-					<div class="input_wrap fullsize payment">
-						<p>Способы оплаты:</p>
-						<input type="radio" name="payment" value="cash" id="cash" class="pradio">
-						<label for="cash" class="radio_anatation">Наличными курьеру</label> 
-						<input type="radio" name="payment" value="card" id="card"  class="pradio">
-						<label for="card" class="radio_anatation">Оплата онлайн  (Visa/Mastercard)</label> 
-					</div>
+					<div class="payment">
+						<h2 class="payment_title">Способы оплаты:</h2>
+						<div class="input_wrap fullsize">
+							<input type="radio" name="payment" value="cash" id="cash" class="pradio">
+							<label for="cash" class="radio_anatation">Наличными курьеру</label> 
+							<input type="radio" name="payment" value="card" id="card"  class="pradio">
+							<label for="card" class="radio_anatation">Оплата онлайн  (Visa/Mastercard)</label> 
+						</div>
+						<div class="input_wrap fullsize">
+							<input type="checkbox" class="pcheckbox" id="promo">
+							<label for="cash" class="radio_anatation">У меня есть промо код:</label>
+							<input type="text">
+						</div>
+						<div class="input_wrap fullsize">
+							<input type="checkbox" class="pcheckbox" id="soglasen">
+							<label for="cash" class="radio_anatation">Согласен на всё,только продайте мне еще печенек</label>
+						</div>
+					</div>	
 				</div>	
 				<ul class="totals_list">
-					<li class="total_item">Корзина<span class="delivery_value">1400</span></li>
-					<li class="total_item">Доставка<span class="delivery_value">100</span></li>
-					<li class="total_item">Всего к оплате<span class="delivery_value">1500</span></li>
+					<li class="total_item">Корзина<span class="delivery_value">1400р</span></li>
+					<li class="total_item">Доставка<span class="delivery_value">100р</span></li>
+					<li class="total_item">Скидка по купону<span class="delivery_value">100р</span></li>
+					<li class="total_item">Всего к оплате<span class="delivery_value">1500р</span></li>
 				</ul>
 				<div class="submit_wrap elems_at_sides">
 					<a href="#" class="btn type2">Вернуться в корзину</a>

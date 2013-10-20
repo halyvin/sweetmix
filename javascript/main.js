@@ -2,6 +2,7 @@ $(document).ready(function(){
 	// custom ui
 	if ($('select').size()) $('select').dropkick();
 	if ($('.pradio').size()) customRadio();
+	if ($('.pcheckbox').size()) customCheckbox();
 
 
 	// call popup
@@ -13,10 +14,10 @@ $(document).ready(function(){
 	});
 
 	// questions
-	$('.question').not('.current').on('click', function(){
-		$('.question').removeClass('current');
-		$(this).addClass('current');
+	$('.question').on('click', function(){
+		$(this).toggleClass('current');
 	});
+
 
 	$('.func_reply').on('click', function(event){
 		$('.add_comment_form').removeClass('current');

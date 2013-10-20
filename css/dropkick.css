@@ -14,20 +14,24 @@
 .dk_container {
   color:#1b1000;
   background-color:#fff;
-  font:18px/31px 'AcademyC', Arial, sans-serif;
+  padding-top:4px;
+  font:18px/29px 'AcademyC', Arial, sans-serif;
   float:none !important;
   display:inline-block !important;
   border-radius:5px;
-  box-shadow:0 4px 0 0 rgba(0,0,0,.13);
+  box-shadow:inset 0 4px 0 0 rgba(0,0,0,.18);
   position:relative;
   }
+/*.checkout .dk_container {
+  box-shadow:inset 0 4px 0 0 rgba(0,0,0,.13);
+  }*/
 .dk_container:after {
   position:absolute;
   content:'';
   width:11px;
   height:8px;
   right:9px;
-  top:12px;
+  top:14px;
   background: url('../images/dropkick_arr.gif') no-repeat;
   }
   .dk_container:focus {
@@ -50,9 +54,11 @@
 .dk_toggle {
   color:#1b1000 !important;
   width:100% !important;
-  padding: 0px 20px 0px 12px; 
+  padding:0px 20px 0px 12px; 
   white-space:nowrap;
   z-index:3;
+  /*position:relative;*/
+  /*top:4px;*/
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
