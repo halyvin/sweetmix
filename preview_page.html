@@ -2,7 +2,15 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>SweetMix - оn-line кондитерская</title>
+
+	<meta name='yandex-verification' content='463cac3e5778ddea' />
+
+	<!-- Open Graph tags for social networks -->
+  <meta property="og:title" content="SweetMix - оn-line кондитерская" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/prev_logo.png" />
+
 	<link rel="stylesheet" href="css/style.css" media="all, screen, projection">
 	<!-- <link rel="stylesheet" href="css/print.css" media="print"> -->
 
@@ -22,13 +30,15 @@
 				<img  class="preview_logo" src="images/prev_logo.png" alt="">
 				<h1 class="title">Скоро открытие</h1>
 
-				<form class="preview_form" method="">
-					<p>Если Вы хотите узнать об открытии сайта, оставьте пожалуйста,  свой e-mail:</p>
+				<!-- MAILCHIMP sign up form -->
+				<form class="preview_form" action="http://sweetmix.us7.list-manage.com/subscribe/post?u=1196018f24d3747223e30631e&amp;id=e7e8251dbf" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+					<p>Если Вы хотите узнать об открытии сайта, оставьте пожалуйста,  свой e-mail</p>
 					<div class="input_wrap fullsize">
-						<input type="text" placeholder="Ваш Email">
+						<input type="email" value="" name="EMAIL" placeholder="Ваш Email" required>
 					</div>
-					<input type="submit" value="Оставить почту" class="btn">
+					<input type="submit" value="Оставить почту" name="subscribe" class="btn">
 				</form>
+
 			</div>	
 		</div>
 	</div>
@@ -36,13 +46,39 @@
 	<footer class="footer" role="footer">
 		<div class="wrap">
 			<ul class="social_list">
+				<!--
 				<li class="social_item"><a href="#" class="social_link in">Instagram</a></li>
 				<li class="social_item"><a href="#" class="social_link yt">YouTube</a></li>
-				<li class="social_item"><a href="#" class="social_link vk">ВКонтакте</a></li>
-				<li class="social_item"><a href="#" class="social_link ok">Одноклассники</a></li>
-				<li class="social_item"><a href="#" class="social_link fb">Facebook</a></li>
+				-->
+				<li class="social_item"><a href="http://vkontakte.ru/share.php?url=http://sweetmix.su/" class="social_link vk" target="_blank">ВКонтакте</a></li>
+				<li class="social_item"><a href="http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1&st._surl=http://sweetmix.su/" class="social_link ok" target="_blank">Одноклассники</a></li>
+				<li class="social_item"><a href="https://www.facebook.com/sharer/sharer.php?u=http://sweetmix.su/" class="social_link fb" target="_blank">Facebook</a></li>
 			</ul>
 		</div>
 	</footer>
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter22648775 = new Ya.Metrika({id:22648775,
+	                    trackLinks:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/22648775" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
 </body>
 </html>
