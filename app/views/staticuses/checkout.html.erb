@@ -1,0 +1,79 @@
+<div class="main" role="content">
+  <h1 class="title">Оформление заказа</h1>
+  <div class="wrap content">
+    <div class="checkout">
+      <div class="inputs_block">
+        <div class="input_wrap">
+          <label for="name">Ваше имя</label>
+          <input type="text" name="name" id="name">
+          <label for="lastname">Фамилия</label>
+          <input type="text" name="lastname" id="lastname">
+        </div><div class="input_wrap">
+          <label for="phone">Телефон</label>
+          <input type="text" name="phone" id="phone">
+          <label for="email">E-maill</label>
+          <input type="text" name="email" id="email" placeholder="На этот E-mail прдет копия заказа">
+        </div>
+      </div>
+      <div class="inputs_block">
+        <div class="input_wrap check_delivery_date">
+          <label for="delivery_date">Дата доставки</label>
+          <select name="delivery_date" id="delivery_date">
+            <option value="11 сентября" selected>11 сентября</option>
+            <option value="12 сентября">12 сентября</option>
+            <option value="13 сентября">13 сентября</option>
+          </select> 
+          <span>в</span>
+          <select name="delivery_time" id="delivery_time">
+            <option value="c 10:00 до 14:00" selected>c 10:00 до 14:00ч</option>
+            <option value="c 14:00 до 18:00">c 14:00 до 18:00ч</option>
+            <option value="c 18:00 до 21:00">c 18:00 до 21:00ч</option>
+          </select>
+        </div><div class="input_wrap check_delivery_city">
+          <label for="city">Город</label>
+          <select name="city" id="city">
+            <option value="Красноярск" selected>Красноярск</option>
+            <option value="Сосновоборск">Сосновоборск</option>
+            <option value="Железногорск">Железногорск</option>
+          </select>
+        </div>
+      </div>  
+      <div class="input_wrap fullsize">
+        <label for="address">Адрес доставки</label>
+        <input type="text" name="address" id="address">
+      </div>
+      <div class="input_wrap fullsize">
+        <label for="delivery_comment">Комментарии к доставке</label>
+        <input type="text" name="delivery_comment" id="delivery_comment">
+      </div>
+      <div class="payment">
+        <h2 class="payment_title">Способы оплаты:</h2>
+        <div class="input_wrap fullsize">
+          <input type="radio" name="payment" value="cash" id="cash" class="pradio">
+          <label for="cash" class="radio_anatation">Наличными курьеру</label> 
+          <input type="radio" name="payment" value="card" id="card"  class="pradio">
+          <label for="card" class="radio_anatation">Оплата онлайн  (Visa/Mastercard)</label> 
+        </div>
+        <div class="input_wrap fullsize">
+          <input type="checkbox" class="pcheckbox" id="promo">
+          <label for="cash" class="radio_anatation">У меня есть промо код:</label>
+          <input type="text">
+        </div>
+        <div class="input_wrap fullsize">
+          <input type="checkbox" class="pcheckbox" id="soglasen">
+          <label for="cash" class="radio_anatation">Согласен на всё,только продайте мне еще печенек</label>
+        </div>
+      </div>  
+    </div>  
+    <ul class="totals_list">
+      <li class="total_item">Корзина<span class="delivery_value">1400р</span></li>
+      <li class="total_item">Доставка<span class="delivery_value">100р</span></li>
+      <li class="total_item">Скидка по купону<span class="delivery_value">100р</span></li>
+      <li class="total_item">Всего к оплате<span class="delivery_value">1500р</span></li>
+    </ul>
+    <div class="submit_wrap elems_at_sides">
+      <a href="#" class="btn type2">Вернуться в корзину</a>
+      <input type="submit" class="btn" value="Сделать заказ">
+    </div>
+  </div>
+</div>
