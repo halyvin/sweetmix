@@ -76,9 +76,9 @@ gem 'jquery-rails', '~>2.3'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano', '~> 2'
 # gem 'capistrano-ext'
-# gem 'capistrano_colors'
+gem 'capistrano_colors'
 
 # To use debugger
 # gem 'debugger'
