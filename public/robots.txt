@@ -1,0 +1,42 @@
+#        _
+#       ( )
+#        H
+#        H
+#       _H_ 
+#    .-'-.-'-.
+#   /         \
+#  |           |
+#  |   .-------'._
+#  |  / /  '.' '. \
+#  |  \ \ @   @ / / 
+#  |   '---------'        
+#  |    _______|  
+#  |  .'-+-+-+|      
+#  |  '.-+-+-+|  ------ KILL ALL HUMANS!
+#  |    """""" |
+#  '-.__   __.-'
+#       """  sul
+#
+#   Art by Sulliwan Sucks
+#
+#
+#! User-agent: Yandex
+#! Disallow: /assets/
+#! Disallow: /admin/
+#! Allow: /
+#! Host: example.com
+#! 
+#! User-agent: Googlebot
+#! Disallow: /assets/
+#! Disallow: /admin/
+#! Allow: /
+#! 
+#! User-agent: *
+#! Disallow: /assets/
+#! Disallow: /admin/
+#! Disallow:
+#! 
+#! Sitemap: http://sweetmix.su/sitemap.xml
+
+User-agent:
+Disallow: /

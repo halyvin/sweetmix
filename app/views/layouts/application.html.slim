@@ -1,0 +1,65 @@
+doctype html
+html lang=I18n.locale
+  head
+    meta charset=Rails.application.config.encoding
+
+    / / Hack for old IE browsers but gives wrong validation
+    / meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+    
+    / / Responsive or adaptive functionality
+    / meta name="viewport" content="width=device-width, initial-scale=1.0"
+    
+    meta name="keywords" content=seo.keywords
+    meta name="description" content=seo.page_description
+
+    / Open Graph tags for social networks
+    meta property="og:title" content=seo.page_title
+    meta property="og:type" content="website"
+    / meta property="og:url" content=
+    meta property="og:description" content=seo.page_description
+    meta property="og:image" content="#{root_path}ico/fvc144x144_trans.png"
+
+    / meta name="asset_host" content=Rails.application.config.action_controller.asset_host
+    
+    title = seo.page_title
+
+    link rel="author" type="text/plain" href="#{root_path}humans.txt"
+
+    /! Fav and touch icons
+    link rel="icon" type="image/png" href="#{root_path}ico/fvc32x32.png"
+    link rel="shortcut icon" href="#{root_path}favicon.ico"
+    link rel="apple-touch-icon-precomposed" sizes="144x144" href="#{root_path}ico/fvc144x144.png"
+    link rel="apple-touch-icon-precomposed" sizes="114x114" href="#{root_path}ico/fvc114x114.png"
+    link rel="apple-touch-icon-precomposed" sizes="72x72"   href="#{root_path}ico/fvc72x72.png"
+    link rel="apple-touch-icon-precomposed"                 href="#{root_path}ico/fvc57x57.png"
+
+    = stylesheet_link_tag "application", :media => "all"
+    = csrf_meta_tags
+
+    /[if lt IE 9]
+      script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
+  body
+    - if flash[:notice] || flash[:alert]
+      #flmsg style="display:none"
+        - if flash[:notice]
+          p.notice = flash[:notice]
+        - if flash[:alert]
+          p.alert = flash[:alert]
+
+    #wrap
+      header#header
+        
+        nav.main-nav
+          ul
+            - @main_nav_items.each do |mni|
+              - item_css_class = (mni == @active_main_nav_item) ? "active" : ""
+              li class="#{item_css_class}" = link_to mni.title, mni.url
+
+      = yield
+      .dilator
+
+    footer#footer
+      
+
+    /! Le javascript =================================
+    == javascript_include_tag "application"

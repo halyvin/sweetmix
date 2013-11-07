@@ -1,0 +1,59 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   body.active_admin {
+//      .status_tag { background: #6090DB; }
+//   }
+//
+// Notice that Active Admin CSS rules are nested within a
+// 'body.active_admin' selector to prevent conflicts with
+// other pages in the app. It is best to wrap your changes in a 
+// namespace so they are properly recognized. You have options
+// if you e.g. want different styles for different namespaces:
+//
+// .active_admin       applies to any Active Admin namespace
+// .admin_namespace    applies to the admin namespace (eg: /admin)
+// .other_namespace    applies to a custom namespace named other (eg: /other)
+
+.image-guard {
+  position: relative;
+  img { max-width: 100%; }
+}
+
+// CSS for IndexAsAncestryRootsBlock
+.page-line {
+  margin-bottom: 6px !important;
+  line-height: 26px;
+
+  .inner { overflow: hidden; padding: 2px 8px; height: 26px; background: #eee; }
+  .children { padding-top: 6px; }
+  .controls { float: right; margin-left: 12px; }
+  .prior { float: right; margin-left: 12px; font-weight: bold; }
+  .behavior-type {
+    float: left;
+    margin-right: 12px;
+    width: 26px;
+    height: 26px;
+    background: url('admin/content_page_types.png') no-repeat left top;
+    &.redirect { background-position: left -26px; }
+  }
+  .base a {
+    color: #000 !important;
+    text-decoration: none !important;
+    &.title { font-size: 16px; }
+    &:hover { text-decoration: underline !important; }
+  }
+}

@@ -1,0 +1,15 @@
+WARNING!
+
+Redactor have some changes from source version!
+Save this changes when update redactor.
+
+This changes fixes bug with appearing junk span tags and style attributes when paste text and adding some elements.
+
+Find changes with diff. Or just follow the list:
+
+- new 2420 line in 'exec' method: `if (cmd === 'inserthtml') { this.insertHtmlAdvanced(param, false); }`
+- change 2421 line in 'exec' method: `else { this.document.execCommand(cmd, false, param); }`
+- change 3756 line in 'insertHtml' method: `if ($html.contents().length > 1 && currBlock && false`
+- change 3756 line in 'insertHtml' method: `|| $html.contents().is('p, :header, ul, ol, div, table, blockquote, pre, address, section, header, footer, aside, article') && false)`
+- comment line 3825 in 'insertText' method: `// else this.document.execCommand('inserthtml', false, html);`
+- new 3826 line in 'insertText' method: `else this.insertHtmlAdvanced(html, false);`
