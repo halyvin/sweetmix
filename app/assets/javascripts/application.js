@@ -11,7 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 // do not require_tree .
-//= require jquery
+//= require html5shiv
+//= require jquery-1.7.1
 //= require jquery_ujs
+//= require jquery-ui.min
+//= require jquery.dropkick-1.0.0
+//= require ui_inputs
 //= require jquery.popapilus
 //= require flash_message
+//= require main

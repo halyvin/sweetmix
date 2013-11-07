@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'a_Romanus';
+  src: url('a_romanus-webfont.eot');
+  src: url('a_romanus-webfont.eot?#iefix') format('embedded-opentype'),
+       url('a_romanus-webfont.woff') format('woff'),
+       url('a_romanus-webfont.ttf') format('truetype'),
+       url('a_romanus-webfont.svg#a_Romanus') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AcademyC';
+  src: url('academyc-webfont.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
