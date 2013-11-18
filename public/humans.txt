@@ -2,6 +2,13 @@
 /* humanstxt.org */
 
 /* TEAM */
+  Founder: Pavel Kameko
+  Contact: 2805250 [at] gmail.com
+  Phone: +79130305250
+  Facebook: www.facebook.com/profile.php?id=100001671118846
+
+  Designer: mistical girlfriend of Vova Khalturin
+
   HTML&CSS maker: Vova Khalturin
 
   Back&Front developer: Ivan Dymkov

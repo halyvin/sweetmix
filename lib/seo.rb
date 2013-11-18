@@ -24,7 +24,7 @@ module Seo
       if @_title.present?
         answ = @_title
         unless @_no_postfix
-          answ += " :: " + SiteSetting.value_of('default_page_title')
+          answ += " | " + SiteSetting.value_of('default_page_title')
         end
       else
         answ = SiteSetting.value_of('default_page_title')

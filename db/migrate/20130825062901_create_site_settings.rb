@@ -14,7 +14,7 @@ class CreateSiteSettings < ActiveRecord::Migration
           ident: "default_page_description",
           name: "Описание сайта по умолчанию",
           descr: "SweetMix - оn-line кондитерская",
-          set_val: "The page of Mayak Rails Site Template"
+          set_val: "Онлайн-кондитерская, в которой вы можете выбрать готовую продукцию или создать её самостоятельно!"
         },
         {
           ident: "default_page_keywords",
