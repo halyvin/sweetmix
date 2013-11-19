@@ -1,6 +1,7 @@
 class FrontendController < ApplicationController
 
-  before_filter :determine_page, :collect_main_nav_items
+  before_filter :determine_page, :collect_main_nav_items,
+                :collect_pages_nav_columns, :collect_social_links
 
   add_breadcrumb "Home", :root_path
 
@@ -49,5 +50,24 @@ class FrontendController < ApplicationController
         end
       end
     end
+  end
+
+  def collect_pages_nav_columns
+    @pages_nav_columns = []
+    ContentPage.roots.visibles.by_prior.each do |rootpage|
+      unless rootpage.home?
+        column_data = {}
+        column_data[:title] = rootpage.title
+        column_data[:pages] = []
+        rootpage.children.visibles.by_prior.each do |childpage|
+          column_data[:pages] << childpage
+        end
+        @pages_nav_columns << column_data
+      end
+    end
+  end
+
+  def collect_social_links
+    @social_links = SocialLink.visibles
   end
 end

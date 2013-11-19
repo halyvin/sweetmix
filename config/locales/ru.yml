@@ -68,6 +68,11 @@ ru:
         few:   "Товара"
         many:  "Товаров"
         other: "Товары"
+      social_link:
+        one:   "Социальная ссылка"
+        few:   "Социальные ссылки"
+        many:  "Социальных ссылок"
+        other: "Социальные ссылки"
     attributes:
       admin_user:
         email: "Email"
@@ -167,4 +172,11 @@ ru:
         pack: "Упаковка"
         basis: "Основа"
         ingridients: "Ингридиенты"
+      social_link:
+        social_type: "Соцсеть"
+        url: "Ссылка"
+        prior: "Порядок"
+        hided: "Скрыт?"
+        created_at: "Создан"
+        updated_at: "Обновлён"
 

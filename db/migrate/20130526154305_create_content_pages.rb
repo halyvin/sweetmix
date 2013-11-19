@@ -2,7 +2,7 @@
 class CreateContentPages < ActiveRecord::Migration
   def migrate(direction)
     super
-    ContentPage.create!(id: 1, title: "Главная", slug: "", body: "<p>Добро пожаловать!</p>", prior: 1) if direction == :up
+    ContentPage.create!(id: 1, title: "Главная", slug: "", body: "", prior: 1) if direction == :up
   end
 
   def change

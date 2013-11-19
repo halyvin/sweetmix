@@ -82,47 +82,25 @@
 
   <footer class="footer" role="footer">
     <div class="wrap">
-      <div class="footer__info_block">
-        <h3 class="footer__title">О нас:</h3>
-        <ul class="footer__nav">
-          <li class="footer__nav_item"><a href="/about/contacts" class="footer__nav_link">Контактная информация</a></li>
-          <li class="footer__nav_item"><a href="/about/certificate" class="footer__nav_link">Сертификаты</a></li>
-          <li class="footer__nav_item"><a href="/about/vacancy" class="footer__nav_link">Вакансии</a></li>
-          <li class="footer__nav_item"><a href="/about/partners" class="footer__nav_link">Партнеры</a></li>
-          <li class="footer__nav_item"><a href="/about/comments" class="footer__nav_link">Отзывы</a></li>
-        </ul>
-      </div>
-      <div class="footer__info_block">
-        <h3 class="footer__title">Наша продукция:</h3>
-        <ul class="footer__nav">
-          <li class="footer__nav_item"><a href="/sweets/constructor" class="footer__nav_link">Мюсли</a></li>
-          <li class="footer__nav_item"><a href="/sweets/shop" class="footer__nav_link">Выпечка</a></li>
-          <li class="footer__nav_item"><a href="/sweets/shop" class="footer__nav_link">Мороженое</a></li>
-          <li class="footer__nav_item"><a href="/sweets/shop" class="footer__nav_link">Йогурты</a></li>
-          <li class="footer__nav_item"><a href="javascript:void(0)" class="footer__nav_link">Горячие предложения</a></li>
-        </ul>
-      </div>
-      <div class="footer__info_block">
-        <h3 class="footer__title">Полезная информация:</h3>
-        <ul class="footer__nav">
-          <li class="footer__nav_item"><a href="javascript:void(0)" class="footer__nav_link">Срок годности</a></li>
-          <li class="footer__nav_item"><a href="/info/delivery" class="footer__nav_link">Информация о доставке</a></li>
-        </ul>
-      </div>
-      <div class="footer__info_block">
-        <h3 class="footer__title">Служба поддержки:</h3>
-        <ul class="footer__nav">
-          <li class="footer__nav_item"><a href="/support/questions" class="footer__nav_link">Вопросы и ответы</a></li>
-          <li class="footer__nav_item"><a href="javascript:void(0)" class="footer__nav_link">Советы диетолога</a></li>
-        </ul>
-        <ul class="social_list">
-          <li class="social_item"><a href="javascript:void(0)" class="social_link in">Instagram</a></li>
-          <li class="social_item"><a href="javascript:void(0)" class="social_link yt">YouTube</a></li>
-          <li class="social_item"><a href="javascript:void(0)" class="social_link vk">ВКонтакте</a></li>
-          <li class="social_item"><a href="javascript:void(0)" class="social_link ok">Одноклассники</a></li>
-          <li class="social_item"><a href="javascript:void(0)" class="social_link fb">Facebook</a></li>
-        </ul>
-      </div>
+      <% @pages_nav_columns.each do |pages_nav_column| %>
+        <div class="footer__info_block">
+          <h3 class="footer__title"><%= pages_nav_column[:title] %>:</h3>
+          <ul class="footer__nav">
+            <% pages_nav_column[:pages].each do |nav_page| %>
+            <li class="footer__nav_item"><%= link_to(nav_page.title, nav_page.page_path, :class => "footer__nav_link") %></li>
+            <% end %>
+          </ul>
+          <% if pages_nav_column == @pages_nav_columns.last && @social_links %>
+            <ul class="social_list">
+              <% @social_links.each do |social_link| %>
+                <li class="social_item">
+                  <%= link_to social_link.name, social_link.url, :class => "social_link #{social_link.social_type_short}" %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </footer>
   <div class="popup_wrap">

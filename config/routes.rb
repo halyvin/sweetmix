@@ -16,15 +16,15 @@ Sweetmix::Application.routes.draw do
   get 'sweets/constructor/next' => 'staticuses#create_edited' # create_edited.html
   get 'sweets/constructor' => 'staticuses#create_edited_pack' # create_edited_pack.html
 
-  get 'support/questions' => 'staticuses#questions' # questions.html
+  # get 'support/questions' => 'staticuses#questions' # questions.html
 
-  get 'about/comments' => 'staticuses#comments'       # comments.html
-  get 'about/partners' => 'staticuses#partners'       # partners.html
-  get 'about/vacancy' => 'staticuses#vacancy'         # vacancy.html
-  get 'about/certificate' => 'staticuses#certificate' # certificate.html
-  get 'about/contacts' => 'staticuses#contacts'       # contacts.html
+  # get 'about/comments' => 'staticuses#comments'       # comments.html
+  # get 'about/partners' => 'staticuses#partners'       # partners.html
+  # get 'about/vacancy' => 'staticuses#vacancy'         # vacancy.html
+  # get 'about/certificate' => 'staticuses#certificate' # certificate.html
+  # get 'about/contacts' => 'staticuses#contacts'       # contacts.html
 
-  get 'info/delivery' => 'staticuses#delivery' # delivery.html
+  # get 'info/delivery' => 'staticuses#delivery' # delivery.html
 
   get 'checkout' => 'staticuses#checkout' # checkout.html
   get 'basket' => 'staticuses#basket'     # basket.html

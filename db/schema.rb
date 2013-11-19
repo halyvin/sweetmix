@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131118214827) do
+ActiveRecord::Schema.define(:version => 20131119153503) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -196,6 +196,18 @@ ActiveRecord::Schema.define(:version => 20131118214827) do
 
   add_index "site_settings", ["hided"], :name => "index_site_settings_on_hided"
   add_index "site_settings", ["ident"], :name => "index_site_settings_on_ident"
+
+  create_table "social_links", :force => true do |t|
+    t.integer  "social_type",                    :null => false
+    t.string   "url",                            :null => false
+    t.integer  "prior",       :default => 10,    :null => false
+    t.boolean  "hided",       :default => false, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "social_links", ["hided"], :name => "index_social_links_on_hided"
+  add_index "social_links", ["prior"], :name => "index_social_links_on_prior"
 
   create_table "static_images", :force => true do |t|
     t.string   "image",      :null => false

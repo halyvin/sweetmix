@@ -12,10 +12,10 @@ class ContentPageValidator < ActiveModel::Validator
         page.errors[:parent_id] << "У Главной страницы не может быть дочерних страниц"
       end
 
-      # Can't use redirect to first children without any children
-      if page.behavior_type == 1 && page.is_childless?
-        page.errors[:behavior_type] << "Нельзя указывать данный тип редиректа, когда нет дочерних страниц"
-      end
+      # # Can't use redirect to first children without any children
+      # if page.behavior_type == 1 && page.is_childless?
+      #   page.errors[:behavior_type] << "Нельзя указывать данный тип редиректа, когда нет дочерних страниц"
+      # end
     end
 
     # Homepage must be slugless
