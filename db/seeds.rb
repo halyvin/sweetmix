@@ -7,15 +7,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-category = ProductCategory.create name_one: "Keks", slug: "keks"
-pack = ProductPack.create name: "Big pack", category: category, capacity: 1200
-basis = ProductBasis.create name: "Choko"
-
-basis.bases_packs_relations << BasesPacksRelation.create({
-  product_pack: pack,
-  price: 240,
-  weight: 960
+category = ProductCategory.create({
+  name_one: "Кекс",
+  name_few: "Кекса",
+  name_many: "Кексов",
+  name_other: "Кексы",
+  slug: "keks"
 })
+pkcateg = ProductCategory.create({
+  name_one: "Подарочная карта",
+  name_few: "Подарочных карты",
+  name_many: "Подарочных карт",
+  name_other: "Подарочные карты",
+  slug: "presents"
+})
+pack = ProductPack.create name: "Большая упаковка (12 штук)",
+                          category: category,
+                          capacity: 1200
+basis = ProductBasis.create name: "Шоколадный кекс",
+                            descr: "Это вкусно!",
+                            composition: "тесто\nшоколад"
+
+basis.bases_packs_relations << BasesPacksRelation.create(product_pack: pack,
+                                                         price: 240,
+                                                         weight: 960)
 
 ingridient_types = ProductIngridientType.create([
   { name: "Ягоды" }, { name: "Орехи" }, { name: "Фрукты" },
@@ -54,24 +69,27 @@ products = Product.create([
   {
     name: "Шоколадно-ореховый кекс",
     article: "KKS001",
-    pcba: true,
     category: category,
+    pcba: true,
     pack: pack,
     basis: basis,
+    price: 1000,
     ingridients: [ ingridients[3], ingridients[4] ]
   },
   {
     name: "Фруктово-ореховый кекс",
     article: "KKS002",
-    pcba: true,
     category: category,
+    pcba: true,
     pack: pack,
     basis: basis,
+    price: 800,
     ingridients: [ ingridients[5], ingridients[7] ]
   },
   {
     name: "Подарочная карта 500",
     article: "PSK001",
+    category: pkcateg,
     pcba: true,
     plain: true,
     price: 500

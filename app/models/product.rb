@@ -11,5 +11,5 @@ class Product < ActiveRecord::Base
                   :category, :category_id, :pack, :pack_id, :basis, :basis_id,
                   :ingridients
 
-  validates :price, presence: true
+  validates :price, :category, presence: true
 end

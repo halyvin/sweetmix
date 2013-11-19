@@ -28,6 +28,41 @@ ru:
         few:    "Пункта главного меню"
         many:   "Пунктов главного меню"
         other:  "Главное меню"
+      product_category:
+        one:   "Категория"
+        few:   "Категории"
+        many:  "Категорий"
+        other: "Категории"
+      product_pack:
+        one:   "Упаковка"
+        few:   "Упаковки"
+        many:  "Упаковок"
+        other: "Упаковки"
+      product_basis:
+        one:   "Основа"
+        few:   "Основы"
+        many:  "Основ"
+        other: "Основы"
+      bases_packs_relation:
+        one:   "Для упаковок"
+        few:   "Для упаковок"
+        many:  "Для упаковок"
+        other: "Для упаковок"
+      product_ingridient_type:
+        one:   "Тип ингридиентов"
+        few:   "Типа ингридиентов"
+        many:  "Типов ингридиентов"
+        other: "Типы ингридиентов"
+      product_ingridient:
+        one:   "Ингридиент"
+        few:   "Ингридиента"
+        many:  "Ингридиентов"
+        other: "Ингридиенты"
+      product:
+        one:   "Товар"
+        few:   "Товара"
+        many:  "Товаров"
+        other: "Товары"
     attributes:
       admin_user:
         email: "Email"
@@ -81,3 +116,45 @@ ru:
         hided: "Скрыт?"
         created_at: "Создан"
         updated_at: "Обновлён"
+      product_category:
+        name: "Название"
+        name_one: "Название (кекс)"
+        name_other: "Множ. число (кексы)"
+        name_few: "Два.. (кекса)"
+        name_many: "Пять.. (кексов) "
+        slug: "SLUG"
+        icon: "Иконка"
+      product_pack:
+        name: "Название"
+        capacity: "Ёмкость"
+        category: "Категория"
+        image: "Изображение"
+      product_basis:
+        name: "Название"
+        image: "Изображение"
+        descr: "Описание"
+        composition: "Состав"
+      bases_packs_relation:
+        product_basis: "Основа"
+        product_pack: "Упаковка"
+        proce: "Стоимость"
+        weight: "Вес"
+      product_ingridient_type:
+       name: "Название"
+      product_ingridient:
+        name: "Название"
+        image: "Изображение"
+        type: "Тип"
+      product:
+        article: "Артикул"
+        image: "Изображение"
+        name: "Название"
+        pcba: "Готовый товар"
+        plain: "Не сборный"
+        price: "Стоимость"
+        weight: "Вес"
+        category: "Категория"
+        pack: "Упаковка"
+        basis: "Основа"
+        ingridients: "Ингридиенты"
+
