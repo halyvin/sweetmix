@@ -1,36 +1,79 @@
 # -*- encoding : utf-8 -*-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# DEMO DATA
 
-category = ProductCategory.create({
-  name_one: "Кекс",
-  name_few: "Кекса",
-  name_many: "Кексов",
-  name_other: "Кексы",
-  slug: "keks"
-})
-pkcateg = ProductCategory.create({
-  name_one: "Подарочная карта",
-  name_few: "Подарочных карты",
-  name_many: "Подарочных карт",
-  name_other: "Подарочные карты",
-  slug: "presents"
-})
-pack = ProductPack.create name: "Большая упаковка (12 штук)",
-                          category: category,
-                          capacity: 1200
-basis = ProductBasis.create name: "Шоколадный кекс",
-                            descr: "Это вкусно!",
-                            composition: "тесто\nшоколад"
+seed_files_dir = File.join(Rails.root, "db/seed_files/")
 
-basis.bases_packs_relations << BasesPacksRelation.create(product_pack: pack,
-                                                         price: 240,
-                                                         weight: 960)
+categories = ProductCategory.create([
+  {
+    name_one: "Мюсли",
+    name_few: "Мюсли",
+    name_many: "Мюсли",
+    name_other: "Мюсли",
+    slug: "muesli"
+  },
+  {
+    name_one: "Кекс",
+    name_few: "Кекса",
+    name_many: "Кексов",
+    name_other: "Кексы",
+    slug: "keks"
+  },
+  {
+    name_one: "Подарочная карта",
+    name_few: "Подарочных карты",
+    name_many: "Подарочных карт",
+    name_other: "Подарочные карты",
+    slug: "presents"
+  }
+])
+
+packs = ProductPack.create([
+  {
+    name: "Большая упаковка на 1 неделю.",
+    category: categories[0],
+    capacity: 900
+  },
+  {
+    name: "Маленькая упаковка на 1 день.",
+    category: categories[0],
+    capacity: 180
+  },
+  {
+    name: "Большая упаковка (12 штук)",
+    category: categories[1],
+    capacity: 1200
+  }
+])
+packs[0].image = File.open File.join(seed_files_dir, "pack_muesli_01.png")
+packs[0].save
+packs[1].image = File.open File.join(seed_files_dir, "pack_muesli_02.png")
+packs[1].save
+
+bases = ProductBasis.create([
+  { name: "Шоколадно-ореховая гранола" },
+  { name: "Молочно-чайная гранола" },
+  { name: "Фруктово-ягодная гранола" },
+  { name: "Шоколадный кекс" },
+  { name: "Ванильный кекс" }
+])
+bases[0].image = File.open File.join(seed_files_dir, "basis_muesli.png")
+bases[0].save
+bases[1].image = File.open File.join(seed_files_dir, "basis_muesli.png")
+bases[1].save
+bases[2].image = File.open File.join(seed_files_dir, "basis_muesli.png")
+bases[2].save
+bases[3].image = File.open File.join(seed_files_dir, "basis_keks.png")
+bases[3].save
+bases[4].image = File.open File.join(seed_files_dir, "basis_keks.png")
+bases[4].save
+bases[0].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[0], price: 240, weight: 360)
+bases[0].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[1], price: 80, weight: 80)
+bases[1].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[0], price: 260, weight: 360)
+bases[1].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[1], price: 86, weight: 80)
+bases[2].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[0], price: 72, weight: 360)
+bases[2].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[1], price: 240, weight: 80)
+bases[3].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[2], price: 440, weight: 960)
+bases[4].bases_packs_relations << BasesPacksRelation.create(product_pack: packs[2], price: 400, weight: 960)
 
 ingridient_types = ProductIngridientType.create([
   { name: "Ягоды" }, { name: "Орехи" }, { name: "Фрукты" },
@@ -39,7 +82,7 @@ ingridient_types = ProductIngridientType.create([
 
 ingridients = ProductIngridient.create([
   { name: "Клубника", type: ingridient_types[0] },
-  { name: "Голубика", type: ingridient_types[0] },
+  { name: "Черника", type: ingridient_types[0] },
   { name: "Малина", type: ingridient_types[0] },
   { name: "Фундук", type: ingridient_types[1] },
   { name: "Арахис", type: ingridient_types[1] },
@@ -47,49 +90,99 @@ ingridients = ProductIngridient.create([
   { name: "Апельсин", type: ingridient_types[2] },
   { name: "Персик", type: ingridient_types[2] }
 ])
+ingridients[0].image = File.open File.join(seed_files_dir, "ingrid_001.jpg")
+ingridients[0].save
+ingridients[1].image = File.open File.join(seed_files_dir, "ingrid_002.jpg")
+ingridients[1].save
+ingridients[2].image = File.open File.join(seed_files_dir, "ingrid_003.jpg")
+ingridients[2].save
+ingridients[3].image = File.open File.join(seed_files_dir, "ingrid_004.jpg")
+ingridients[3].save
+ingridients[4].image = File.open File.join(seed_files_dir, "ingrid_005.jpg")
+ingridients[4].save
+ingridients[5].image = File.open File.join(seed_files_dir, "ingrid_006.jpg")
+ingridients[5].save
+ingridients[6].image = File.open File.join(seed_files_dir, "ingrid_007.jpg")
+ingridients[6].save
+ingridients[7].image = File.open File.join(seed_files_dir, "ingrid_008.jpg")
+ingridients[7].save
 
 ingridients[0].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 40, weight: 80 })
+  product_pack: packs[0], price: 70, weight: 40 })
 ingridients[1].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 30, weight: 80 })
+  product_pack: packs[0], price: 50, weight: 40 })
 ingridients[2].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 40, weight: 80 })
+  product_pack: packs[0], price: 70, weight: 40 })
 ingridients[3].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 30, weight: 80 })
+  product_pack: packs[0], price: 50, weight: 40 })
 ingridients[4].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 40, weight: 80 })
+  product_pack: packs[0], price: 80, weight: 40 })
 ingridients[5].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 30, weight: 80 })
+  product_pack: packs[0], price: 50, weight: 40 })
 ingridients[6].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 40, weight: 80 })
+  product_pack: packs[0], price: 70, weight: 40 })
 ingridients[7].ingridients_packs_relations << IngridientsPacksRelation.create({
-  product_pack: pack, price: 50, weight: 80 })
+  product_pack: packs[0], price: 100, weight: 40 })
+
+ingridients[0].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 40, weight: 10 })
+ingridients[1].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 30, weight: 10 })
+ingridients[2].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 40, weight: 10 })
+ingridients[3].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 30, weight: 10 })
+ingridients[4].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 40, weight: 10 })
+ingridients[5].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 30, weight: 10 })
+ingridients[6].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 40, weight: 10 })
+ingridients[7].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[1], price: 50, weight: 10 })
+
+ingridients[0].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 80, weight: 60 })
+ingridients[1].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 60, weight: 60 })
+ingridients[2].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 80, weight: 60 })
+ingridients[3].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 60, weight: 60 })
+ingridients[4].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 90, weight: 60 })
+ingridients[5].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 60, weight: 60 })
+ingridients[6].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 80, weight: 60 })
+ingridients[7].ingridients_packs_relations << IngridientsPacksRelation.create({
+  product_pack: packs[2], price: 110, weight: 60 })
 
 products = Product.create([
   {
     name: "Шоколадно-ореховый кекс",
     article: "KKS001",
-    category: category,
+    category: categories[1],
     pcba: true,
-    pack: pack,
-    basis: basis,
+    pack: packs[2],
+    basis: bases[4],
     price: 1000,
     ingridients: [ ingridients[3], ingridients[4] ]
   },
   {
     name: "Фруктово-ореховый кекс",
     article: "KKS002",
-    category: category,
+    category: categories[1],
     pcba: true,
-    pack: pack,
-    basis: basis,
+    pack: packs[2],
+    basis: bases[4],
     price: 800,
     ingridients: [ ingridients[5], ingridients[7] ]
   },
   {
     name: "Подарочная карта 500",
     article: "PSK001",
-    category: pkcateg,
+    category: categories[2],
     pcba: true,
     plain: true,
     price: 500
@@ -97,7 +190,6 @@ products = Product.create([
 ])
 
 
-# seed_files_dir = File.join(Rails.root, "db/seed_files/")
 # sig = StaticImage.new
 # sig.image = File.open File.join(seed_files_dir, "example_pic.jpg")
 # sig.save

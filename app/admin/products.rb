@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
   config.sort_order = "article_asc"
   config.batch_actions = false
 
-  menu priority: 1, parent: "Товары"
+  menu false # priority: 1, parent: "Товары"
 
   filter :article
   filter :name

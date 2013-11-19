@@ -24,6 +24,16 @@ ActiveAdmin.register ProductIngridientType do
         end
       end
     end
+    panel "Ингридиенты", style: "overflow: hidden" do
+      ingrtype.ingridients.each do | ingr |
+        div(:style => "float: left; margin: 0 14px 14px 0; border: 1px dashed #666; padding: 0 6px;") do
+          attributes_table_for ingr do
+            row :name, label: ""
+            row(:image) { image_tag(ingr.image.url) }
+          end
+        end
+      end
+    end if ingrtype.ingridients.any?
     active_admin_comments
   end
 

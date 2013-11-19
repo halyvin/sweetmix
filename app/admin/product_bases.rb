@@ -9,6 +9,9 @@ ActiveAdmin.register ProductBasis do
   filter :name
 
   index download_links: false do
+    column :image do |basis|
+      image_tag basis.image.url
+    end
     column :name
     default_actions
   end
@@ -16,10 +19,13 @@ ActiveAdmin.register ProductBasis do
   show do |basis|
     attributes_table do
       row :name
+      row :image do
+        basis.image.blank? ? "" : image_tag(basis.image.url)
+      end
       row :descr
       row :composition
     end
-    panel "Для упаковок" do
+    panel "Относительно упаковок" do
       table_for basis.bases_packs_relations do
         column "Название", :product_pack do |bpr|
           link_to bpr.product_pack.name, admin_product_pack_path(bpr.product_pack)
@@ -34,6 +40,7 @@ ActiveAdmin.register ProductBasis do
   form do |f|
     f.inputs "" do
       f.input :name
+      f.input :image, hint: ("Допустимые форматы .jpg, .jpeg, .png, .gif" + (f.object.image.present? && !f.object.new_record? ? "<br />Текущее изображение:<br />" + image_tag(f.object.image.url) : "")).html_safe
       f.input :descr
       f.input :composition
     end

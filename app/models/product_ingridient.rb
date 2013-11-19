@@ -7,8 +7,7 @@ class ProductIngridient < ActiveRecord::Base
 
   accepts_nested_attributes_for :ingridients_packs_relations, :allow_destroy => true, :reject_if => :all_blank
 
-  # TODO
-  # mount_uploader :image, ProductIngridientImageUploader
+  mount_uploader :image, ProductIngridientImageUploader
 
   attr_accessible :image, :name, :type, :type_id,
                   :ingridients_packs_relations_attributes

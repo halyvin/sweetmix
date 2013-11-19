@@ -23,14 +23,19 @@ ActiveAdmin.register ProductCategory do
       row :name_many
       row :slug
     end
-    panel "Упаковки" do
-      table_for categ.packs do
-        column "Название", :name do |pk|
-          link_to pk.name, admin_product_pack_path(pk)
+    
+    panel "Упаковки", style: "overflow: hidden" do
+      categ.packs.each do | pack |
+        div(:style => "float: left; margin: 0 14px 14px 0; border: 1px dashed #666; padding: 0 6px;") do
+          attributes_table_for pack do
+            row :name
+            row :capacity
+            row(:image) { image_tag(pack.image.url) }
+          end
         end
-        column "Ёмкость", :capacity
       end
-    end
+    end if categ.packs.any?
+
     active_admin_comments
   end
 

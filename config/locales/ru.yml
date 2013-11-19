@@ -44,10 +44,10 @@ ru:
         many:  "Основ"
         other: "Основы"
       bases_packs_relation:
-        one:   "Для упаковок"
-        few:   "Для упаковок"
-        many:  "Для упаковок"
-        other: "Для упаковок"
+        one:   "Относительно упаковок"
+        few:   "Относительно упаковок"
+        many:  "Относительно упаковок"
+        other: "Относительно упаковок"
       product_ingridient_type:
         one:   "Тип ингридиентов"
         few:   "Типа ингридиентов"
@@ -58,6 +58,11 @@ ru:
         few:   "Ингридиента"
         many:  "Ингридиентов"
         other: "Ингридиенты"
+      ingridients_packs_relation:
+        one:   "Относительно упаковок"
+        few:   "Относительно упаковок"
+        many:  "Относительно упаковок"
+        other: "Относительно упаковок"
       product:
         one:   "Товар"
         few:   "Товара"
@@ -137,7 +142,7 @@ ru:
       bases_packs_relation:
         product_basis: "Основа"
         product_pack: "Упаковка"
-        proce: "Стоимость"
+        price: "Стоимость"
         weight: "Вес"
       product_ingridient_type:
        name: "Название"
@@ -145,6 +150,11 @@ ru:
         name: "Название"
         image: "Изображение"
         type: "Тип"
+      ingridients_packs_relation:
+        product_ingridient: "Ингридиент"
+        product_pack: "Упаковка"
+        price: "Стоимость"
+        weight: "Вес"
       product:
         article: "Артикул"
         image: "Изображение"

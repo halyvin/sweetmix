@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 class StaticImageUploader < BaseImageUploader
   
   def store_dir

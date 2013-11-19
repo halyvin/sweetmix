@@ -6,8 +6,7 @@ class ProductBasis < ActiveRecord::Base
 
   accepts_nested_attributes_for :bases_packs_relations, :allow_destroy => true, :reject_if => :all_blank
 
-  # TODO
-  # mount_uploader :image, ProductBasisImageUploader
+  mount_uploader :image, ProductBasisImageUploader
 
   # TODO nutr_val as object collection ( store )
 

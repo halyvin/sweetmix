@@ -10,6 +10,9 @@ ActiveAdmin.register ProductIngridient do
   filter :type
 
   index download_links: false do
+    column :image do |ingr|
+      image_tag ingr.image.url
+    end
     column :name
     column :type
     default_actions
@@ -19,8 +22,11 @@ ActiveAdmin.register ProductIngridient do
     attributes_table do
       row :name
       row :type
+      row :image do
+        ingr.image.blank? ? "" : image_tag(ingr.image.url)
+      end
     end
-    panel "Для упаковок" do
+    panel "Относительно упаковок" do
       table_for ingr.ingridients_packs_relations do
         column "Название", :product_pack do |ipr|
           link_to ipr.product_pack.name, admin_product_pack_path(ipr.product_pack)
@@ -36,6 +42,7 @@ ActiveAdmin.register ProductIngridient do
     f.inputs "" do
       f.input :name
       f.input :type
+      f.input :image, hint: ("Допустимые форматы .jpg, .jpeg, .png, .gif" + (f.object.image.present? && !f.object.new_record? ? "<br />Текущее изображение:<br />" + image_tag(f.object.image.url) : "")).html_safe
     end
     f.inputs do
       f.has_many :ingridients_packs_relations do |nlink|

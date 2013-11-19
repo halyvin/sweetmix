@@ -8,8 +8,7 @@ class ProductPack < ActiveRecord::Base
   has_many :ingridients, through: :ingridients_packs_relations,
                          source: :product_ingridient
 
-  # TODO
-  # mount_uploader :image, ProductPackImageUploader
+  mount_uploader :image, ProductPackImageUploader
 
   attr_accessible :capacity, :category, :category_id, :image, :name
 
