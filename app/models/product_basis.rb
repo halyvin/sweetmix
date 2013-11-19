@@ -1,7 +1,8 @@
 class ProductBasis < ActiveRecord::Base
   has_many :products, foreign_key: "basis_id"
-  has_many :packs, through: :product_packs_bases,
-                   foreign_key: "product_pack_id"
+  has_many :bases_packs_relations
+  has_many :packs, through: :bases_packs_relations,
+                   source: :product_pack
 
   # TODO
   # mount_uploader :image, ProductBasisImageUploader

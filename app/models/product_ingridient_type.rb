@@ -1,5 +1,6 @@
 class ProductIngridientType < ActiveRecord::Base
-  has_and_belongs_to_many :ingridients, foreign_key: "product_ingridient_id"
+  has_many :ingridients, class_name: "ProductIngridient",
+                         foreign_key: "product_type_id"
 
   attr_accessible :name
 

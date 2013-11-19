@@ -1,10 +1,10 @@
-class CreateProductsProductIngridients < ActiveRecord::Migration
+class CreateProductIngridientsProducts < ActiveRecord::Migration
   def change
-    create_table :products_product_ingridients, id: false do |t|
+    create_table :product_ingridients_products, id: false do |t|
       t.references :product_ingridient, null: false
       t.references :product,            null: false
     end
-    add_index :products_product_ingridients, :product_ingridient_id
-    add_index :products_product_ingridients, :product_id
+    add_index :product_ingridients_products, :product_ingridient_id
+    add_index :product_ingridients_products, :product_id
   end
 end

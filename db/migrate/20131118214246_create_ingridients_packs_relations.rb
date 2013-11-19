@@ -1,6 +1,6 @@
-class CreateProductPacksIngridients < ActiveRecord::Migration
+class CreateIngridientsPacksRelations < ActiveRecord::Migration
   def change
-    create_table :product_packs_ingridients do |t|
+    create_table :ingridients_packs_relations do |t|
       t.references :product_pack,       null: false
       t.references :product_ingridient, null: false
       t.integer :weight,                null: false
@@ -8,7 +8,7 @@ class CreateProductPacksIngridients < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :product_packs_ingridients, :product_pack_id
-    add_index :product_packs_ingridients, :product_ingridient_id
+    add_index :ingridients_packs_relations, :product_pack_id
+    add_index :ingridients_packs_relations, :product_ingridient_id
   end
 end

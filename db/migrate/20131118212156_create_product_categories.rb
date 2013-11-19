@@ -1,6 +1,6 @@
-class CreateProductsCategories < ActiveRecord::Migration
+class CreateProductCategories < ActiveRecord::Migration
   def change
-    create_table :products_categories do |t|
+    create_table :product_categories do |t|
       t.string :name_one
       t.string :name_few
       t.string :name_many
@@ -8,6 +8,6 @@ class CreateProductsCategories < ActiveRecord::Migration
       t.string :slug, null: false
       t.string :icon
     end
-    add_index :products_categories, :slug, unique: true
+    add_index :product_categories, :slug, unique: true
   end
 end

@@ -1,12 +1,12 @@
 class ProductPack < ActiveRecord::Base
   belongs_to :category, class_name: "ProductCategory"
   has_many :products, foreign_key: "pack_id"
-  has_many :product_packs_bases
-  has_many :bases, through: :product_packs_bases,
-                   foreign_key: "product_basis_id"
-  has_many :product_packs_ingridients
-  has_many :ingridients, through: :product_packs_ingridients,
-                         foreign_key: "product_ingridient_id"
+  has_many :bases_packs_relations
+  has_many :bases, through: :bases_packs_relations,
+                   source: :product_basis
+  has_many :ingridients_packs_relations
+  has_many :ingridients, through: :ingridients_packs_relations,
+                         source: :product_ingridient
 
   # TODO
   # mount_uploader :image, ProductPackImageUploader

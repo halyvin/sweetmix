@@ -1,4 +1,4 @@
-class ProductsCategory < ActiveRecord::Base
+class ProductCategory < ActiveRecord::Base
   has_many :packs, class_name: "ProductPack", foreign_key: "category_id"
   has_many :products, foreign_key: "category_id"
 
@@ -15,5 +15,6 @@ class ProductsCategory < ActiveRecord::Base
       Russian.p numb, name_one, name_few, name_many, name_other
     else
       name_one
+    end
   end
 end
