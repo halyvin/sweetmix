@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ContentPagesController < FrontendController
   def show
     if @page.nil?
