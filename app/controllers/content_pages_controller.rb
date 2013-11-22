@@ -25,6 +25,40 @@ class ContentPagesController < FrontendController
         end
       else
         if @page.redirector?
+
+          SiteSetting.create!([
+            {
+              ident: "manager_email",
+              name: "Email менеджера сайта",
+              descr: "Адрес электронной почты, на который будут приходить уведомления с сайта: заказы звонков, сообщения со страницы контактов, сообщения о заказах",
+              set_val: "mstrdymio@gmail.com"
+            },
+            {
+              ident: "major_site_phone",
+              name: "Главный телефон сайта",
+              descr: "Телефон, который отображается в шапке сайта",
+              set_val: "+7 (913) 234-1212"
+            },
+            {
+              ident: "page_of_contacts",
+              name: "Страница с контактной информацией",
+              descr: "Контентная страница, на которой расположена контактная информация; на этой странице расположена форма контактных данных",
+              val_type: 4
+            },
+            {
+              ident: "page_of_sertificates",
+              name: "Страница с сертификатами",
+              descr: "Контентная страница, на которой расположены подарочные сертификаты",
+              val_type: 4
+            },
+            {
+              ident: "page_of_comments",
+              name: "Страница с отзывами о сайте",
+              descr: "Контентная страница, на которой расположены отзывы о сайте и форма добавления нового отзыва",
+              val_type: 4
+            }
+          ])
+
           # Redirection
           redirect_url = root_url # by default
 
