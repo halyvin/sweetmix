@@ -142,8 +142,6 @@ class ContentPage < ActiveRecord::Base
     answer
   end
 
-  private
-
   def make_auto_slug
     if self.slug.blank? && !self.home?
       self.slug = Russian::transliterate(self.title).

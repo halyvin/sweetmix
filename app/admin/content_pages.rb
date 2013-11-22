@@ -23,13 +23,18 @@ ActiveAdmin.register ContentPage do
         end
         row :parent
       end
-      row :behavior_type do
-        page.behavior_type_humanized
+
+      unless (page == SiteSetting.value_of('page_of_contacts') ||
+              page == SiteSetting.value_of('page_of_sertificates') ||
+              page == SiteSetting.value_of('page_of_comments') )
+        row :behavior_type do
+          page.behavior_type_humanized
+        end
+        row :rct_page if page.behavior_type == 2
+        row :rct_lnk do
+          page.rct_lnk.present? ? link_to(page.rct_lnk, page.rct_lnk) : ""
+        end if page.behavior_type == 3
       end
-      row :rct_page if page.behavior_type == 2
-      row :rct_lnk do
-        page.rct_lnk.present? ? link_to(page.rct_lnk, page.rct_lnk) : ""
-      end if page.behavior_type == 3
       unless page.redirector?
         row :body do
           page.body.nil? ? '' : page.body.html_safe
@@ -67,14 +72,18 @@ ActiveAdmin.register ContentPage do
                 include_blank: true,
                 input_html: { :class => 'chzn-select' }
       end
-      f.input :behavior_type,
-              as: :radio,
-              collection: ContentPage.behavior_type_variants,
-              include_blank: false
-      f.input :rct_page,
-              collection: content_pages_tree_ordered_collection(false, f.object),
-              input_html: { :class => 'chzn-select' }
-      f.input :rct_lnk
+      unless (f.object == SiteSetting.value_of('page_of_contacts') ||
+              f.object == SiteSetting.value_of('page_of_sertificates') ||
+              f.object == SiteSetting.value_of('page_of_comments') )
+        f.input :behavior_type,
+                as: :radio,
+                collection: ContentPage.behavior_type_variants,
+                include_blank: false
+        f.input :rct_page,
+                collection: content_pages_tree_ordered_collection(false, f.object),
+                input_html: { :class => 'chzn-select' }
+        f.input :rct_lnk
+      end
       f.input :body, input_html: { :class => 'editor' }
       f.input :prior, hint: "Меньше значение => Раньше в списке"
       f.input :hided

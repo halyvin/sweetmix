@@ -1,0 +1,24 @@
+<div class="main" role="content">
+  <div class="wrap content">
+    <h1 class="title">Контактная информация</h1>
+    <div class="contacts_info">
+      <%= @page.body.nil? ? "" : @page.body.html_safe %>
+    </div>
+    <div class="contacts_info">
+      <h2 class="title">Пишите нам!</h2>
+      <div class="input_wrap fullsize">
+        <label for="comment">Текст комментария:</label>
+        <textarea name="comment" id="comment"></textarea>
+      </div>
+      <div class="input_wrap fullsize">
+        <label for="email">E-mail:</label>
+        <input type="text" name="email" id="email">
+      </div>
+      <div class="input_wrap fullsize">
+        <label for="name">Ваше имя (Название организации):</label>
+        <input type="text" name="name" id="name">
+      </div>
+      <input type="submit" value="Отправить" class="btn">
+    </div>  
+  </div>
+</div>
