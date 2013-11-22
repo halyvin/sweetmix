@@ -44,7 +44,8 @@
           <%= image_tag "logo.png", alt: "Sweet Mix" %>
         </a>
         <div class="header__contact_func">
-          <a href="tel:89132341212" class="header__tel">+7 (913) 234-1212</a>
+        <% major_phone = SiteSetting.value_of('major_site_phone') %>
+          <a href="tel:<%= major_phone.gsub(/[^0-9\+]+/, '') %>" class="header__tel"><%= major_phone %></a>
           <div class="btn call">Заказать звонок</div>
         </div>
 
