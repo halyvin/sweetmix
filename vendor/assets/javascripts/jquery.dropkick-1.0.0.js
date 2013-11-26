@@ -13,7 +13,8 @@
   var ie6 = false;
 
   // Help prevent flashes of unstyled content
-  if ($.browser.msie && $.browser.version.substr(0, 1) < 7) {
+  if ($.browser.msie && $.browser.version.substr(0, 1) < 7 && ! $.browser.version.substring(0, 2) >= 10) {
+
     ie6 = true;
   } else {
     document.documentElement.className = document.documentElement.className + ' dk_fouc';
