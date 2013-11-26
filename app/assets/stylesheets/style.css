@@ -22,6 +22,8 @@ a:visited {
 	
 	}
 
+b, strong { font-weight: bold; }
+
 .hide,
 .hidden {
 	display:none;
@@ -56,7 +58,7 @@ h3.title {
 .btn {
 	min-height:30px;
 	display:inline-block;
-	font:18px/30px 'AcademyC', Arial, sans-serif;
+	font:18px/30px 'Academy', Arial, sans-serif;
 	padding:0 24px;
 	background:#b55861;
 	border-radius:3px;
@@ -101,7 +103,7 @@ h3.title {
 input[type=text],
 input[type=email],
 textarea {
-	font-family: 'AcademyC', Arial, serif;
+	font-family: 'Academy', Arial, serif;
 	font-size: 18px;
 	}
 input[type=text]:focus,
@@ -193,7 +195,7 @@ textarea:focus {
 			.header__tel {
 				position:relative;
 				padding-left:25px;
-				font:16px 'AcademyC', Arial, sans-serif;
+				font:16px 'Academy', Arial, sans-serif;
 				color:#674e38 !important;
 				text-decoration:none;
 				text-shadow:1px 1px 0 #fff;
@@ -209,7 +211,7 @@ textarea:focus {
 			.btn.call {
 				margin-top:7px;
 				min-height:25px;
-				font:16px/26px 'AcademyC', Arial, serif;
+				font:16px/26px 'Academy', Arial, serif;
 				text-align:center;
 				display:inline-block;
 				width:auto;
@@ -223,7 +225,7 @@ textarea:focus {
 			.header_nav_item {
 				display:inline-block;
 				vertical-align:top;
-				font:20px/14px 'AcademyC', Arial, sans-serif;
+				font:20px/14px 'Academy', Arial, sans-serif;
 				color:#31170f !important;
 				text-decoration:none !important;
 				text-shadow:1px 1px 0 #fff;
@@ -284,7 +286,7 @@ textarea:focus {
 						border:none;
 						}	
 						.header_subnav .header_subnav_item .header_subnav_link {
-							font:20px/38px 'AcademyC', Arial, sans-serif;
+							font:20px/38px 'Academy', Arial, sans-serif;
 							text-decoration:none;
 							color:#edf0e3 !important;
 							padding-left:10px;
@@ -309,7 +311,7 @@ textarea:focus {
 					display:block;
 					color:#f7faec !important;
 					text-decoration:none;
-					font:18px/40px 'AcademyC', Arial, sans-serif;
+					font:18px/40px 'Academy', Arial, sans-serif;
 					text-shadow:1px 1px 0 rgba(79,15,0,.61);
 					margin:0 12px;
 					border-radius:5px;
@@ -415,7 +417,7 @@ textarea:focus {
 						margin-bottom:14px;
 						}
 					.slide_text p {
-						font:18px/18px 'AcademyC', Arial, sans-serif;
+						font:18px/18px 'Academy', Arial, sans-serif;
 						margin-bottom:20px;
 						}	
 					.slide_text .btn {
@@ -605,7 +607,7 @@ textarea:focus {
 				display:block;
 				text-align:center;
 				color:#674e38 !important;
-				font:20px/20px 'AcademyC', Arial, sans-serif;
+				font:20px/20px 'Academy', Arial, sans-serif;
 				text-decoration:none;
 				}
 			.content_sitenav__link:hover {
@@ -676,7 +678,7 @@ textarea:focus {
 				vertical-align:top;
 				width:280px;
 				text-align:justify;
-				font:18px/20px 'AcademyC', Arial, sans-serif;
+				font:18px/20px 'Academy', Arial, sans-serif;
 				color:#1b1000;
 				margin:40px 0 65px 60px;
 				}	
@@ -698,7 +700,7 @@ textarea:focus {
 	.total_item {
 		position:relative;
 		right:-10px;
-		font:18px/24px 'AcademyC', Arial, sans-serif;
+		font:18px/24px 'Academy', Arial, sans-serif;
 		}
 		.delivery_value {
 			color:#b6515a;
@@ -768,9 +770,9 @@ textarea:focus {
 		text-align:left;
 		}
 	.content p {
-		font:18px/18px 'AcademyC', Arial, sans-serif;
+		font:18px/18px 'Academy', Arial, sans-serif;
 		color:#1b1000;
-		}	
+		}
 /*questions*/		
 	.questions_list {
 		counter-reset:li;
@@ -782,7 +784,7 @@ textarea:focus {
 
 			}	
 			.question {
-				font:20px/30px 'AcademyC', Arial, sans-serif;
+				font:20px/30px 'Academy', Arial, sans-serif;
 				color:#b55861;
 				cursor:pointer;
 				}	
@@ -797,7 +799,7 @@ textarea:focus {
 			.answer {
 				padding-left:36px;
 				color:#1b1000;
-				font:18px/18px 'AcademyC', Arial, sans-serif;
+				font:18px/18px 'Academy', Arial, sans-serif;
 				}	
 			.question+.answer {
 				margin:0;
@@ -853,11 +855,11 @@ textarea:focus {
 
 							}		
 							.comment_date {
-								font:14px/18px 'AcademyC', Arial, sans-serif;
+								font:14px/18px 'Academy', Arial, sans-serif;
 								color:#1b1000;
 								}
 							.func_reply {
-								font:14px/18px 'AcademyC', Arial, sans-serif;
+								font:14px/18px 'Academy', Arial, sans-serif;
 								color:#b6515a;
 								text-transform:lowercase;
 								cursor:pointer;
@@ -869,7 +871,7 @@ textarea:focus {
 								opacity:0.5;
 								}
 							.comment {
-								font:18px/18px 'AcademyC', Arial, sans-serif;
+								font:18px/18px 'Academy', Arial, sans-serif;
 								color:#1b1000;
 								margin-top:7px;
 								}		
@@ -919,7 +921,7 @@ textarea:focus {
 				margin-left:0 !important;
 				}
 				.input_wrap label {
-					font:18px/18px 'AcademyC', Arial, sans-serif;
+					font:18px/18px 'Academy', Arial, sans-serif;
 					color:#1b1000;
 					margin-bottom:2px;
 					display:block;
@@ -997,7 +999,7 @@ textarea:focus {
 			text-align:left;
 			}
 		.vacancy p {
-			font:18px/18px 'AcademyC', Arial, sans-serif;
+			font:18px/18px 'Academy', Arial, sans-serif;
 			color:#1b1000;
 			margin-bottom:10px;
 			}	
@@ -1042,7 +1044,7 @@ textarea:focus {
 	width:45%;
 	}
 	.contacts_info p {
-		font:18px/30px 'AcademyC', Arial, sans-serif;
+		font:18px/30px 'Academy', Arial, sans-serif;
 		color:#1b1000;
 		}
 	.contacts_info h2.title {
@@ -1051,7 +1053,7 @@ textarea:focus {
 		text-shadow:1px 1px 0 #fff;
 		}	
 	.our_contacts {
-		font:18px/30px 'AcademyC', Arial, sans-serif;
+		font:18px/30px 'Academy', Arial, sans-serif;
 		}
 		.contacts_list {
 			display:inline-block;
@@ -1074,7 +1076,7 @@ textarea:focus {
 	color:#1b1000;
 	}
 	.delivery p, .delivery_rules_list {
-		font:18px/30px 'AcademyC', Arial, sans-serif
+		font:18px/30px 'Academy', Arial, sans-serif
 		}
 	.delivery_rules_list {
 		margin-bottom:50px;
@@ -1120,7 +1122,7 @@ textarea:focus {
 			}
 	.payment .payment_title{
 		margin-bottom:22px;
-		font:18px/18px 'AcademyC', Arial, serif;
+		font:18px/18px 'Academy', Arial, serif;
 		}
 		.payment label {
 			display:inline-block;
@@ -1185,7 +1187,7 @@ textarea:focus {
 .basket_table {
 	margin-top:-40px;
 	margin-left:-10px;
-	font:18px/16px 'AcademyC', Arial, sans-serif;
+	font:18px/16px 'Academy', Arial, sans-serif;
 	width:100%;
 	width:-webkit-calc(100% + 20px);
 	width:calc(100% + 20px);
@@ -1194,7 +1196,7 @@ textarea:focus {
 		
 		}
 		.basket_thead .basket_tr {
-			font:20px/68px 'AcademyC', Arial, sans-serif;
+			font:20px/68px 'Academy', Arial, sans-serif;
 			color:#8a0a00;
 			text-shadow:1px 1px 0 #fff;
 			}
@@ -1306,7 +1308,7 @@ textarea:focus {
 	background:#f6f7f1;
 	}
 	.cq_output {
-		font:18px/30px 'AcademyC', Arial, serif;
+		font:18px/30px 'Academy', Arial, serif;
 		color:#1b1000;
 		padding-left:12px;
 		}
@@ -1477,7 +1479,7 @@ ___________________________________*/
 			color:#8a0a00;
 			}
 		.weight {
-			font:14px/32px 'AcademyC', Arial, sans-serif;
+			font:14px/32px 'Academy', Arial, sans-serif;
 			margin-bottom:7px;
 			}
 		.pack_pic_wrapper {
@@ -1559,7 +1561,7 @@ ___________________________________*/
 					}
 					.basis_consist_item {
 						position:relative;
-						font:18px/18px 'AcademyC', Arial, sans-serif;
+						font:18px/18px 'Academy', Arial, sans-serif;
 						color:#1b1000;
 						}	
 					.basis_consist_item:before {
@@ -1683,7 +1685,7 @@ ___________________________________*/
 				}
 			.ingredients_aside .total_item {
 				text-align:left;
-				font:18px/18px 'AcademyC', Arial, sans-serif;
+				font:18px/18px 'Academy', Arial, sans-serif;
 				margin-left:-10px;
 				}					
 	.ingredients_content {
@@ -1751,7 +1753,7 @@ ___________________________________*/
 			}
 			.nutritional_value_item {
 				text-align:right;
-				font:14px/18px 'AcademyC', Arial, sans-serif;
+				font:14px/18px 'Academy', Arial, sans-serif;
 				color:#1b1000;
 				border-bottom:1px dotted #1b1000;
 				}
@@ -1795,7 +1797,7 @@ ___________________________________*/
 					}
 				.ingredient_name {
 					color:#1b1000;
-					font:14px/18px 'AcademyC', Arial, sans-serif;
+					font:14px/18px 'Academy', Arial, sans-serif;
 					display:inline-block;
 					text-align:center;
 					position:relative;
@@ -1834,7 +1836,7 @@ ___________________________________*/
 					display:block;
 					text-align:center;
 					color:#b6515a;
-					font:18px/18px 'AcademyC', Arial, sans-serif;
+					font:18px/18px 'Academy', Arial, sans-serif;
 					}	
 			.ingredients_item:hover:before {
 				position:absolute;
@@ -1891,7 +1893,7 @@ ___________________________________*/
 
 					}	
 					.footer__nav_link {
-						font:18px/30px 'AcademyC', Times;
+						font:18px/30px 'Academy', Times;
 						color:#edf0e3 !important;
 						text-decoration:none;
 						text-shadow:0 1px 0 rgba(47,54,2,.7);
@@ -2014,7 +2016,7 @@ ___________________________________*/
 		.ahtung {
 			/*display:none;*/
 			color:#891d00;
-			font:16px/16px 'AcademyC', Arial, serif;
+			font:16px/16px 'Academy', Arial, serif;
 			margin-top:10px;
 			margin-bottom:-15px;
 			}	
@@ -2048,7 +2050,7 @@ ___________________________________*/
 		box-shadow:0 4px 0 1px rgba(0,0,0,.12);
 		}
 		.preview_form p {
-			font:16px/16px 'AcademyC', Arial, serif;
+			font:16px/16px 'Academy', Arial, serif;
 			color:#705c4b;
 			text-align:center;
 			margin-bottom:10px;

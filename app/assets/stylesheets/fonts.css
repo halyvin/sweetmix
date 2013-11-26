@@ -1,17 +1,32 @@
 @font-face {
-  font-family: 'a_Romanus';
-  src: url('a_romanus-webfont.eot');
-  src: url('a_romanus-webfont.eot?#iefix') format('embedded-opentype'),
-       url('a_romanus-webfont.woff') format('woff'),
-       url('a_romanus-webfont.ttf') format('truetype'),
-       url('a_romanus-webfont.svg#a_Romanus') format('svg');
+  font-family: "a_Romanus";
+  src: url("a_romanus-webfont.eot");
+  src: url("a_romanus-webfont.eot?#iefix") format("embedded-opentype"),
+       url("a_romanus-webfont.woff") format("woff"),
+       url("a_romanus-webfont.ttf") format("truetype"),
+       url("a_romanus-webfont.svg#a_Romanus") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'AcademyC';
-  src: url('academyc-webfont.ttf');
+  font-family: "Academy";
+  src: url("292008_0_0.eot");
+  src: url("292008_0_0.eot?#iefix") format("embedded-opentype"),
+       url("292006_0_0.woff") format("woff"),
+       url("292006_0_0.ttf") format("truetype"),
+       url("292008_0_0.svg#academy-bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Academy";
+  src: url("292006_1_0.eot");
+  src: url("292006_1_0.eot?#iefix") format("embedded-opentype"),
+       url("292006_1_0.woff") format("woff"),
+       url("292006_1_0.ttf") format("truetype")
+       url("292008_1_0.svg#academy-regular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
