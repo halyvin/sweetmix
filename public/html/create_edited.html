@@ -153,14 +153,70 @@
 							<option value="Маленькая - 180г">Маленькая - 180г</option>
 						</select>
 						<ul class="units_list">
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
-							<li class="unit"><img src="" alt="" class="unit_pic"></li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
+							<li class="unit" data-allready-checked-size="0">
+								<img src="" alt="" class="unit_pic">
+								<ul class="unit_currents_list">
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+									<li class="unit_item"></li>
+								</ul>
+							</li>
 						</ul>
 						<h2 class="title">Пищевая ценность на 100г:</h2>
 						<ul class="nutritional_value_list">
@@ -187,12 +243,34 @@
 						<input type="radio" name="ingredients" value="list1" id="list1" checked="true">
 						<label for="list1" class="group_label">Ягода</label>
 						<ul class="list1 checked_ingedients">
-							<li class="ingredients_item" data-checked-count="0" data-id="ing1">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+							<li class="ingredients_item" data-checked-count="0" data-id="ing0">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing0">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing0" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing0"></label>
+											<h2 class="title">Заголовок</h2>
+											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
+										</div>
+									</div>
+								</div>
+								<div class="ingredient_price">200р</div>
+							</li><li class="ingredients_item" data-checked-count="0" data-id="ing1">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
+								<div class="ingredient_name">
+									Черника
+									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing1">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing1" name="ingrediens">
+										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing1"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -200,11 +278,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing2">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
-									Черника
+									Черника111
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing2">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing2" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing2"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -212,11 +295,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing3">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
-									Черника111
+									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing3">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing3" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing3"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -224,11 +312,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing4">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing4">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing4" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing4"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -236,11 +329,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing5">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing5">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing5" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing5"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -248,11 +346,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing6">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing6">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing6" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing6"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -260,11 +363,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing7">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing7">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing7" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing7"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -272,11 +380,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing8">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing8">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing8" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing8"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -284,11 +397,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing9">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing9">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing9" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing9"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -296,11 +414,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing10">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing10">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing10" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing10"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -308,23 +431,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing11">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
-								<div class="ingredient_name">
-									Черника
-									<div class="ing_desc_wrap">
-										<div class="ing_desc_wrapper">
-											<h2 class="title">Заголовок</h2>
-											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
-										</div>
-									</div>
-								</div>
-								<div class="ingredient_price">200р</div>
-							</li><li class="ingredients_item" data-checked-count="0" data-id="ing12">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника111
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing11">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing11" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing11"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -332,23 +448,33 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing12">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing12">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing12" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing12"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
 									</div>
 								</div>
 								<div class="ingredient_price">200р</div>
-							</li><li class="ingredients_item" data-checked-count="0" data-id="ing13">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+							</li><li class="ingredients_item" data-checked-count="0" data-id="ing113">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing13">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing13" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing13"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -356,11 +482,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing14">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing14">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing14" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing14"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -374,11 +505,16 @@
 						<label for="list2" class="group_label">Орехи</label>
 						<ul class="list1 checked_ingedients">
 							<li class="ingredients_item" data-checked-count="0" data-id="ing15">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника222
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing15">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing15" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing15"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -386,11 +522,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing16">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing16">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing16" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing16"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -398,11 +539,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing17">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing17">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing17" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing17"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -410,11 +556,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing18">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing18">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing18" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing18"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -422,11 +573,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing19">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing19">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing19" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing19"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -434,11 +590,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing20">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing20">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing20" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing20"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -446,11 +607,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing21">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing21">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing21" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing21"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -458,11 +624,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing22">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing22">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing22" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing22"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -470,11 +641,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing23">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing23">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing23" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing23"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -488,17 +664,33 @@
 						<label for="list3" class="group_label">Фрукты</label>
 						<ul class="list3 checked_ingedients">
 							<li class="ingredients_item" data-checked-count="0" data-id="ing24">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника333
+									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing24">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing24" name="ingrediens">
+										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing24"></label>
+											<h2 class="title">Заголовок</h2>
+											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
+										</div>
+									</div>
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing25">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing25">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing25" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing25"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -506,11 +698,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing26">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing26">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing26" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing26"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -518,11 +715,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing27">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing27">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing27" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing27"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -530,11 +732,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing28">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing28">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing28" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing28"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -542,11 +749,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing29">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing29">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing29" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing29"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -554,11 +766,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing30">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing30">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing30" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing30"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -566,11 +783,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing31">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing31">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing31" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing31"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -578,11 +800,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing32">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing32">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing32" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing32"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -596,11 +823,16 @@
 						<label for="list4" class="group_label">Злаки</label>
 						<ul class="list1 checked_ingedients">
 							<li class="ingredients_item" data-checked-count="0" data-id="ing33">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника111
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing33">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing33" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing33"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -608,11 +840,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing34">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing34">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing34" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing34"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -620,11 +857,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing35">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing35">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing35" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing35"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -632,11 +874,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing36">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing36">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing36" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing36"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -644,11 +891,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing37">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing37">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing37" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing37"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -656,11 +908,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing38">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing38">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing38" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing38"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -668,23 +925,33 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing39">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing39">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing39" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing39"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
 									</div>
 								</div>
 								<div class="ingredient_price">200р</div>
-							</li><li class="ingredients_item" data-checked-count="0" data-id="ing30">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+							</li><li class="ingredients_item" data-checked-count="0" data-id="ing40">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing40">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing40" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing40"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -692,11 +959,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing41">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing41">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing41" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing41"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -710,11 +982,16 @@
 						<label for="list5" class="group_label">Сладости</label>
 						<ul class="list5 checked_ingedients">
 							<li class="ingredients_item" data-checked-count="0" data-id="ing42">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника5555
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing42">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing42" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing42"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -722,11 +999,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing43">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing43">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing43" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing43"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -734,11 +1016,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing44">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing44">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing44" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing44"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -746,11 +1033,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing45">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing45">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing45" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing45"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -758,11 +1050,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing46">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing46">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing46" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing46"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -770,11 +1067,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing47">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing47">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing47" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing47"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -782,11 +1084,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing48">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing48">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing48" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing48"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -794,11 +1101,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing49">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing49">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing49" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing49"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -812,11 +1124,16 @@
 						<label for="list6" class="group_label">Йогурты</label>
 						<ul class="list6 checked_ingedients">
 							<li class="ingredients_item" data-checked-count="0" data-id="ing50">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника6666
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing50">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing50" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing50"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -824,11 +1141,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing51">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing51">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing51" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing51"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -836,11 +1158,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing52">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing52">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing52" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing52"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -848,11 +1175,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing53">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing53">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing53" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing53"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -860,11 +1192,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing54">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing54">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing54" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing54"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -872,11 +1209,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing55">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing55">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing55" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing55"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -884,11 +1226,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing56">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing56">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing56" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing56"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
@@ -896,11 +1243,16 @@
 								</div>
 								<div class="ingredient_price">200р</div>
 							</li><li class="ingredients_item" data-checked-count="0" data-id="ing57">
-								<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								<div class="ingredient_pic_wrap">
+									<img src="images/image_ingredient_big.png" alt="" class="ingredient_pic">
+								</div>	
 								<div class="ingredient_name">
 									Черника
 									<div class="ing_desc_wrap">
+										<label class="ing_desc_label" for="ing57">i</label>
+										<input type="checkbox" class="ing_desc_checker" id="ing57" name="ingrediens">
 										<div class="ing_desc_wrapper">
+											<label class="ing_desc_label_closer" for="ing57"></label>
 											<h2 class="title">Заголовок</h2>
 											<p>Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.</p>
 										</div>
