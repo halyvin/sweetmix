@@ -1,6 +1,10 @@
 ru:
   yep: "Да"
   nope: "Нет"
+  activemodel:
+    attributes:
+      feedback_formus:
+        body: "Текст комментария"
   activerecord:
     models:
       admin_user:
@@ -179,4 +183,3 @@ ru:
         hided: "Скрыт?"
         created_at: "Создан"
         updated_at: "Обновлён"
-

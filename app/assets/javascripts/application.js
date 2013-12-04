@@ -20,3 +20,4 @@
 //= require jquery.popapilus
 //= require flash_message
 //= require main
+//= require call_me_form

@@ -13,15 +13,20 @@ class ContentPagesController < FrontendController
       if [contacts_page, sertific_page, comments_page].include? @page
 
         page_view_name = "show"
+        render_params = {}
 
         if @page == contacts_page
           page_view_name = "contacts"
+          @feedback_formus = FeedbackFormus.new(params[:feedback_formus] || {})
+          if params[:feedback_formus] && @feedback_ok = @feedback_formus.valid?
+            FeedbacksMailer.feedback(@feedback_formus).deliver
+          end
         elsif @page == comments_page
           page_view_name = "comments"
         end
 
         respond_to do |format|
-          format.html { render page_view_name }
+          format.html { render page_view_name, render_params }
           # format.json  { render :json => @page }
         end
       else

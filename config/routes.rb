@@ -31,8 +31,10 @@ Sweetmix::Application.routes.draw do
 
   # -------------
 
+  post 'feedbacks/call-me' => 'feedbacks#call_me', as: "call_me_feedback"
+
   # content pages
-  get '*page_path' => 'content_pages#show'
+  match '*page_path' => 'content_pages#show'
 
   root :to => 'home#index'
 

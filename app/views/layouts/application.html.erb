@@ -44,7 +44,7 @@
           <%= image_tag "logo.png", alt: "Sweet Mix" %>
         </a>
         <div class="header__contact_func">
-        <% major_phone = SiteSetting.value_of('major_site_phone') %>
+          <% major_phone = SiteSetting.value_of('major_site_phone') %>
           <a href="tel:<%= major_phone.gsub(/[^0-9\+]+/, '') %>" class="header__tel"><%= major_phone %></a>
           <div class="btn call">Заказать звонок</div>
         </div>
@@ -106,20 +106,20 @@
   </footer>
   <div class="popup_wrap">
     <div class="overlay"></div>
-    <div class="popup call_form">
+    <%= form_tag call_me_feedback_path(:json), :class => "popup call_form", id: "call-me-form", remote: true do %>
       <div class="popup_closer"></div>
       <h2 class="title">Заказать звонок</h2>
       <div class="input_wrap">
-        <label for="calling_name">Имя*</label>
-        <input type="text" id="calling_name" value="">
+        <label for="callme_name">Имя*</label>
+        <input type="text" id="callme_name" name="callme[name]" value="">
       </div>
       <div class="input_wrap">
-        <label for="calling_tel">Телефон*</label>
-        <input type="text" d="calling_tel" value="">
+        <label for="callme_tel">Телефон*</label>
+        <input type="text" d="callme_tel" name="callme[tel]" value="">
       </div>
-      <div class="ahtung">*Незаполнены необходимые поля</div>
+      <div class="ahtung" style="display:none">*Незаполнены необходимые поля</div>
       <input type="submit" class="btn" value="Свяжитесь со мной">
-    </div>
+    <% end -%>
   </div>
 
   <%# TODO remove ' && false' when moves to production %>

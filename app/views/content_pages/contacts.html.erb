@@ -6,19 +6,30 @@
     </div>
     <div class="contacts_info">
       <h2 class="title">Пишите нам!</h2>
-      <div class="input_wrap fullsize">
-        <label for="comment">Текст комментария:</label>
-        <textarea name="comment" id="comment"></textarea>
-      </div>
-      <div class="input_wrap fullsize">
-        <label for="email">E-mail:</label>
-        <input type="text" name="email" id="email">
-      </div>
-      <div class="input_wrap fullsize">
-        <label for="name">Ваше имя (Название организации):</label>
-        <input type="text" name="name" id="name">
-      </div>
-      <input type="submit" value="Отправить" class="btn">
+      <% unless @feedback_formus.errors.empty? %>
+        <p style="margin-bottom:0;color:rgb(137, 29, 0)">Ошибки в форме:</p>
+        <ul style="margin-bottom:25px;color:rgb(137, 29, 0)">
+          <% @feedback_formus.errors.full_messages.each do |messag| %>
+          <li><%= messag %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <% if @feedback_ok %><p>Спасибо вам за ваш комментарий!</p><% end %>
+      <%= form_for @feedback_formus, url: "" do |f| %>
+        <div class="input_wrap fullsize">
+          <label for="feedback_formus_body">Текст комментария*:</label>
+          <%= f.text_area :body %>
+        </div>
+        <div class="input_wrap fullsize">
+          <label for="feedback_formus_email">E-mail:</label>
+          <%= f.text_field :email %>
+        </div>
+        <div class="input_wrap fullsize">
+          <label for="feedback_formus_name">Ваше имя (Название организации):</label>
+          <%= f.text_field :name %>
+        </div>
+        <input type="submit" value="Отправить" class="btn">
+      <% end %>
     </div>  
   </div>
 </div>

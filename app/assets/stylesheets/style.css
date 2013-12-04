@@ -77,13 +77,16 @@ h3.title {
 	}
 .btn:active {
 	box-shadow:0 4px 0 0 #a54753, inset 0 4px 0 0 #8d2e3f;
-	}		
+	}
 .btn.disable {
-	background:#b55861 !important;
-	box-shadow:0 4px 0 0 #953746,  0 6px 0 1px rgba(0,0,0,.2) !important;
+	background:#B2858A !important;
+	box-shadow:0 4px 0 0 #947B7F,  0 6px 0 1px rgba(0,0,0,.2) !important;
 	color:#cfa7a4;
 	text-shadow:none;
-	}	
+	cursor: default;
+	}
+/* background:#b55861 !important; */
+/* box-shadow:0 4px 0 0 #953746,  0 6px 0 1px rgba(0,0,0,.2) !important; */
 .btn.type2 {
 	background:#898e67;
 	box-shadow:0 4px 0 0 #676c46,  0 6px 0 1px rgba(0,0,0,.2);

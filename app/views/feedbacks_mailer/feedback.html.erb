@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Отправлен комментарий со страницы контактов SweetMix</h1>
+    <% if @formus.name.present? %><p>Имя (или организация): <b><%= @formus.name %></b></p><% end %>
+    <% if @formus.email.present? %><p>Email для связи: <b><%= @formus.email %></b></p><% end %>
+    <p>
+      Текст сообщения:<br>
+      <%= @formus.body %>
+    </p>
+    <p><br></p>
+    <p><br></p>
+    <p>Робот сайта SweetMix желает вам хорошего дня, благодарит вас за работу и напоминает, что какой бы клиент ни был, нужно относиться к нему уважительно.</p>
+  </body>
+</html>
