@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131119153503) do
+ActiveRecord::Schema.define(:version => 20131204100854) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20131119153503) do
     t.boolean  "hided",       :default => false, :null => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "ancestry"
   end
 
   add_index "main_nav_items", ["hided"], :name => "index_main_nav_items_on_hided"

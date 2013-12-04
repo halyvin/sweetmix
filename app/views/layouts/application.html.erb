@@ -55,25 +55,24 @@
               - item_css_class = (mni == @active_main_nav_item) ? "active" : ""
               li class="#{item_css_class}" = link_to mni.title, mni.url -->
 
+        <% if (mnitems = MainNavItem.roots.visibles).length > 0 %>
         <ul class="header__nav" role="navigation">
+          <% mnitems.each do |mni| %>
           <li class="header_nav_item">
-            Мюсли
-            <ul class="header_subnav">
-              <li class="header_subnav_item"><a href="/sweets/constructor" class="header_subnav_link">Создать мюсли</a></li>
-              <li class="header_subnav_item"><a href="/sweets/shop" class="header_subnav_link">Готовые рецепты</a></li>
-            </ul>
+            <% if mni.has_children? %>
+              <%= mni.title %>
+              <ul class="header_subnav">
+                <% mni.children.each do |mnic| %>
+                <li class="header_subnav_item"><a href="<%= mnic.url %>" class="header_subnav_link"><%= mnic.title %></a></li>
+                <% end %>
+              </ul>
+            <% else %>
+              <a href="<%= mni.url %>" class="header_nav_link"><%= mni.title %></a>
+            <% end %>
           </li>
-          <li class="header_nav_item">
-            Выпечка
-            <ul class="header_subnav">
-              <li class="header_subnav_item"><a href="/sweets/shop" class="header_subnav_link">Кексы</a></li>
-              <li class="header_subnav_item"><a href="/sweets/shop" class="header_subnav_link">Песочные человечки</a></li>
-              <li class="header_subnav_item"><a href="/sweets/shop" class="header_subnav_link">Макаруны</a></li>
-            </ul>
-          </li>
-          <li class="header_nav_item"><a href="/sweets/shop" class="header_nav_link">Мороженое</a></li>
-          <li class="header_nav_item"><a href="/sweets/shop" class="header_nav_link">Йогурт</a></li>
+          <% end %>
         </ul>
+        <% end %>
       </div>
     </header>
 

@@ -12,7 +12,7 @@ ActiveAdmin.register MainNavItem do
 
   index download_links: false do
     selectable_column
-    column :title
+    column(:title) {|mni| mni.title_with_parents }
     column(:url) { |mni| link_to mni.url, mni.url, target: "_blank" }
     column :prior
     column(:hided) { |mni| mni.hided ? t('yep') : t('nope') }
@@ -22,6 +22,7 @@ ActiveAdmin.register MainNavItem do
   show do |main_nav_item|
     attributes_table do
       row :title
+      row :parent
       row(:url) { link_to main_nav_item.url,
                           main_nav_item.url,
                           target: "_blank" }
@@ -46,6 +47,7 @@ ActiveAdmin.register MainNavItem do
   form do |f|
     f.inputs "" do
       f.input :title
+      f.input :parent_id, collection: MainNavItem.all, input_html: { :class => 'chzn-select' }
       f.input :url_type,
               as: :radio,
               collection: MainNavItem.url_type_variants,

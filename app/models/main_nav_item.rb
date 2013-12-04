@@ -2,7 +2,10 @@
 class MainNavItem < ActiveRecord::Base
   belongs_to :url_page, class_name: "ContentPage"
 
-  attr_accessible :hided, :prior, :title, :url_page, :url_page_id, :url_text, :url_type
+  has_ancestry
+
+  attr_accessible :hided, :parent, :parent_id, :prior, :title,
+                  :url_page, :url_page_id, :url_text, :url_type
 
   validates :url_type, numericality: { only_integer: true }
   validates :url_type, inclusion: (0..1)
@@ -21,6 +24,10 @@ class MainNavItem < ActiveRecord::Base
 
   def name
     title
+  end
+
+  def title_with_parents
+    path.collect {|node| node.title }.join " / "
   end
 
   def inner_link?

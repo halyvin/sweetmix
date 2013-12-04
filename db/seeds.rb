@@ -3,6 +3,20 @@
 
 seed_files_dir = File.join(Rails.root, "db/seed_files/")
 
+main_nav_items_roots = MainNavItem.create([
+  { title: "Мюсли", prior: 1, url_text: "/sweets/muesli" },
+  { title: "Выпечка", prior: 4, url_text: "/sweets" },
+  { title: "Мороженное", prior: 8, url_text: "/sweets/ice-cream" },
+  { title: "Йогурт", prior: 9, url_text: "/sweets/yogurt" }
+])
+main_nav_items_seconds = MainNavItem.create([
+  { title: "Создать мюсли", parent: main_nav_items_roots[0], prior: 2, url_text: "/sweets/muesli/constructor" },
+  { title: "Готовые рецепты", parent: main_nav_items_roots[0], prior: 3, url_text: "/sweets/muesli" },
+  { title: "Кексы", parent: main_nav_items_roots[1], prior: 5, url_text: "/sweets/keks" },
+  { title: "Песочные человечки", parent: main_nav_items_roots[1], prior: 6, url_text: "/sweets/sandman" },
+  { title: "Макаруны", parent: main_nav_items_roots[1], prior: 7, url_text: "/sweets/makarun" }
+])
+
 categories = ProductCategory.create([
   {
     name_one: "Мюсли",
