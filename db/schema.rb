@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206071210) do
+ActiveRecord::Schema.define(:version => 20131207071744) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -79,6 +79,17 @@ ActiveRecord::Schema.define(:version => 20131206071210) do
   add_index "content_pages", ["hided"], :name => "index_content_pages_on_hided"
   add_index "content_pages", ["prior"], :name => "index_content_pages_on_prior"
   add_index "content_pages", ["slug"], :name => "index_content_pages_on_slug"
+
+  create_table "info_product_circles", :force => true do |t|
+    t.string  "title",                       :null => false
+    t.string  "url",                         :null => false
+    t.integer "prodcode", :default => 0,     :null => false
+    t.integer "prior",    :default => 10,    :null => false
+    t.boolean "hided",    :default => false, :null => false
+  end
+
+  add_index "info_product_circles", ["hided"], :name => "index_info_product_circles_on_hided"
+  add_index "info_product_circles", ["prior"], :name => "index_info_product_circles_on_prior"
 
   create_table "ingridients_packs_relations", :force => true do |t|
     t.integer  "product_pack_id",       :null => false

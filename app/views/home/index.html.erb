@@ -34,18 +34,11 @@
   <div class="wrap our_products">
     <h1 class="title">Наши продукты</h1>
     <ul class="content_sitenav__list" role="navigation">
-      <li class="content_sitenav__item  muesli">
-        <a href="/sweets/constructor" class="content_sitenav__link">Мюсли</a>
-      </li>
-      <li class="content_sitenav__item  bake">
-        <a href="/sweets/constructor" class="content_sitenav__link">Выпечка</a>
-      </li>
-      <li class="content_sitenav__item  icecream">
-        <a href="/sweets/constructor" class="content_sitenav__link">Мороженое</a>
-      </li>
-      <li class="content_sitenav__item  yogurt">
-        <a href="/sweets/constructor" class="content_sitenav__link">Йогурт</a>
-      </li>
+      <% InfoProductCircle.visibles.each do |ipc| %>
+        <li class="content_sitenav__item  <%= ['muesli','bake','icecream','yogurt'][ipc.prodcode] %>">
+          <a href="<%= ipc.url %>" class="content_sitenav__link"><%= ipc.title %></a>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="info">

@@ -289,6 +289,13 @@ slides[1].save
 slides[2].image = File.open File.join(seed_files_dir, "slide_serts.png")
 slides[2].save
 
+InfoProductCircle.create([
+  { title: "Мюсли", url: "/sweets/constructor", prodcode: 0, prior: 1 },
+  { title: "Выпечка", url: "/sweets/constructor", prodcode: 1, prior: 1 },
+  { title: "Мороженное", url: "/sweets/constructor", prodcode: 2, prior: 1 },
+  { title: "Йогурт", url: "/sweets/constructor", prodcode: 3, prior: 1 }
+])
+
 # ============================================================================
 # ========================== SETTINGS ========================================
 # ============================================================================

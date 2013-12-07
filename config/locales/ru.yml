@@ -82,6 +82,11 @@ ru:
         few:   "Слайда"
         many:  "Слайдов"
         other: "Слайды"
+      info_product_circle:
+        one:   "Шар товара на главной"
+        few:   "Шара товаров на главной"
+        many:  "Шаров товаров на главной"
+        other: "Шары товаров на главной"
     attributes:
       admin_user:
         email: "Email"
@@ -200,6 +205,14 @@ ru:
         btn_link: "Ссылка кнопки"
         backg: "Картинка фона"
         custom: "Особая расстановка элементов на слайде"
+        prior: "Порядок"
+        hided: "Скрыт?"
+        created_at: "Создан"
+        updated_at: "Обновлён"
+      info_product_circle:
+        title: "Заголовок"
+        url: "Ссылка"
+        prodcode: "Тип товара (картинка)"
         prior: "Порядок"
         hided: "Скрыт?"
         created_at: "Создан"
