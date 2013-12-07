@@ -84,7 +84,7 @@ ActiveAdmin.register ContentPage do
                 input_html: { :class => 'chzn-select' }
         f.input :rct_lnk
       end
-      f.input :body, input_html: { :class => 'editor' }
+      f.input :body, input_html: { :class => ( f.object.home? ? '' : 'editor' ) }
       f.input :prior, hint: "Меньше значение => Раньше в списке"
       f.input :hided
     end

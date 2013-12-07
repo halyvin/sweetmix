@@ -25,13 +25,16 @@ function initEditContentPageMechanism() {
     $("#content_page_body_input").toggle(beh_type_value.toString() == "0");
   }
 
-  $("#content_page_behavior_type_input input").change(function(evnt) {
-    evnt.preventDefault();
-    checkTypeElementsVisibility($(this).val());
-    false;
-  });
+  var behtin = $("#content_page_behavior_type_input input");
+  if (behtin.length) {
+    behtin.change(function(evnt) {
+      evnt.preventDefault();
+      checkTypeElementsVisibility($(this).val());
+      false;
+    });
 
-  checkTypeElementsVisibility();
+    checkTypeElementsVisibility();
+  }
 }
 
 function initEditMainNavItemMechanism() {
