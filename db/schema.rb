@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131204100854) do
+ActiveRecord::Schema.define(:version => 20131206071210) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(:version => 20131204100854) do
 
   create_table "main_nav_items", :force => true do |t|
     t.string   "title"
+    t.string   "ancestry"
     t.integer  "url_type",    :default => 0,     :null => false
     t.integer  "url_page_id"
     t.string   "url_text"
@@ -101,7 +102,6 @@ ActiveRecord::Schema.define(:version => 20131204100854) do
     t.boolean  "hided",       :default => false, :null => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.string   "ancestry"
   end
 
   add_index "main_nav_items", ["hided"], :name => "index_main_nav_items_on_hided"
@@ -197,6 +197,25 @@ ActiveRecord::Schema.define(:version => 20131204100854) do
 
   add_index "site_settings", ["hided"], :name => "index_site_settings_on_hided"
   add_index "site_settings", ["ident"], :name => "index_site_settings_on_ident"
+
+  create_table "slides", :force => true do |t|
+    t.string   "title",                             :null => false
+    t.string   "subtitle"
+    t.string   "image"
+    t.text     "descr"
+    t.string   "btn_text"
+    t.string   "btn_link"
+    t.integer  "backg"
+    t.boolean  "image_at_right"
+    t.boolean  "custom"
+    t.integer  "prior",          :default => 10,    :null => false
+    t.boolean  "hided",          :default => false, :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  add_index "slides", ["hided"], :name => "index_slides_on_hided"
+  add_index "slides", ["prior"], :name => "index_slides_on_prior"
 
   create_table "social_links", :force => true do |t|
     t.integer  "social_type",                    :null => false

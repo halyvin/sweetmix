@@ -6,7 +6,25 @@
   <div class="slider_wrap wrap">
     <div class="slider_viewport">
       <ul class="sliders">
-        <li class="slide bg1">
+        <% Slide.visibles.each do |slide| %><li class="slide<%= slide.backg.present? && slide.backg > 0 ? " bg#{slide.backg}" : "" %><%= slide.custom? ? ' custom' : '' %>">
+          <% imghtmlblock = slide.image.present? ? '<div class="slide_img_wrap">' + image_tag(slide.image.url, :class => "slide_img") + '</div>' : '' %>
+          <% unless slide.image_at_right? %>
+            <%= imghtmlblock.html_safe %>
+          <% end %>
+          <div class="slide_text">
+            <h1 class="title"><%= slide.title %></h1>
+            <h2 class="title"><%= slide.subtitle %></h2>
+            <p><%= slide.descr %></p>
+            <% if slide.btn_link.present? %>
+              <a href="<%= slide.btn_link %>" class="btn"><%= slide.btn_text %></a>
+            <% end %>
+          </div>
+          <% if slide.image_at_right? %>
+            <%= imghtmlblock.html_safe %>
+          <% end %>
+        </li><% end %>
+
+        <!-- <li class="slide bg1">
           <div class="slide_text">
             <h1 class="title">Мюсли</h1>
             <h2 class="title">Мюсли, а точнее заголовок второго уровнв</h2>
@@ -18,7 +36,7 @@
           <div class="slide_img_wrap">
             <img src="images/slide_img.jpg" alt="img1" class="slide_img">
           </div>
-        </li><li class="slide bg2"> <!-- Нельзя допускать переноса строки или пробелов между li -->
+        </li><li class="slide bg2">
           <div class="slide_img_wrap">
             <img src="images/slide_img.jpg" alt="img1" class="slide_img">
           </div>
@@ -42,10 +60,7 @@
           <div class="slide_img_wrap">
             <img src="images/certificates/sert_all.png" alt="img1" class="slide_img">
           </div>
-          <!-- <div class="slide_img_wrap">
-            <img src="images/" alt="img1" class="slide_img">
-          </div> -->
-        </li>
+        </li> -->
       </ul>
     </div>  
     <div class="slider_control">

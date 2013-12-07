@@ -27,11 +27,9 @@ class SiteSetting < ActiveRecord::Base
 
     def set_value_for(setting_ident, new_value)
       success_flag = false
-      found_setting = self.find_by_ident(setting_ident)
-      if found_setting
-        setsossets[0].prepare_value(new_value)
-        setsossets[0].save
-        success_flag = true
+      if found_setting = self.find_by_ident(setting_ident)
+        found_setting.value = new_value
+        success_flag = found_setting.save
       end
       success_flag
     end
