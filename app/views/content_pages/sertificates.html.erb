@@ -1,0 +1,20 @@
+<div class="main" role="content">
+  <div class="wrap content <%= @page.slug %>">
+    <h1 class="title"><%= @page.title %></h1>
+    <%= @page.body.nil? ? "" : @page.body.html_safe %>
+    <ul class="certificates_list">
+      <li class="certificate">
+      <img src="/images/certificates/sert_white.png" alt="Сертификат" class="certificate_pic">
+      <input type="submit" class="btn" value="В корзину">
+      </li>
+      <li class="certificate">
+      <img src="/images/certificates/sert_green.png" alt="Сертификат" class="certificate_pic">
+      <input type="submit" class="btn" value="В корзину">
+      </li>
+      <li class="certificate">
+      <img src="/images/certificates/sert_red.png" alt="Сертификат" class="certificate_pic">
+      <input type="submit" class="btn" value="В корзину">
+      </li>
+    </ul>
+  </div>
+</div>

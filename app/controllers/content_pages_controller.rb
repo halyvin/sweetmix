@@ -23,6 +23,8 @@ class ContentPagesController < FrontendController
           end
         elsif @page == comments_page
           page_view_name = "comments"
+        elsif @page == sertific_page
+          page_view_name = "sertificates"
         end
 
         respond_to do |format|

@@ -54,20 +54,6 @@ EOS
     body: <<-EOS
 <h2 class="title">Подарочные карты на 500, 1000 и 2000 рублей.</h2>
 <p>Вам нравится то, что мы готовим и Вы хотели бы рассказать своим близким о нас? Мы предлагаем подарочные сертификаты. У Вас есть возможность добавить в Корзину и оформить доставку (не только себе, но и Вашему лучшему другу, оплатив заказ онлайн) подарочных сертификатов трех номиналов. На каждом сертификате есть уникальный код, его необходимо ввести в поле "промо-код" и система автоматически вычтет из суммы заказа номинал сертификата.</p>
-<ul class="certificates_list">
-  <li class="certificate">
-  <img src="/images/certificates/sert_white.png" alt="Сертификат" class="certificate_pic">
-  <input type="submit" class="btn" value="В корзину">
-  </li>
-  <li class="certificate">
-  <img src="/images/certificates/sert_green.png" alt="Сертификат" class="certificate_pic">
-  <input type="submit" class="btn" value="В корзину">
-  </li>
-  <li class="certificate">
-  <img src="/images/certificates/sert_red.png" alt="Сертификат" class="certificate_pic">
-  <input type="submit" class="btn" value="В корзину">
-  </li>
-</ul>
 EOS
   },
   {
