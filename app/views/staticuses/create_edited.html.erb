@@ -2,11 +2,26 @@
   <h1 class="title">Создай свой кекс</h1>
   <div class="wrap content">
     <ul class="steps">
-      <li class="step current" data-id="basis">Основа для мюсли</li>
+      <li class="step current" data-id="packs">Упаковка</li>
+      <li class="step disable" data-id="basis">Основа для мюсли</li>
       <li class="step disable" data-id="ingredients">Ингредиенты</li>
     </ul>
     <div class="steps_shadow"></div>
-    <div class="steps_content basis current">
+    <ul class="steps_content packs current">
+      <li class="pack_item">
+        <h2 class="title">Большая упаковка на 1 неделю.</h2>
+        <div class="weight">Вес 900г</div>
+        <div class="pack_pic_wrapper"><img src="/images/pack_l.png" alt="" class="pack_pic"></div>
+        <div class="btn to_next_step">Выбрать</div>
+      </li>
+      <li class="pack_item">
+        <h2 class="title">Маленькая упаковка на 1 день. </h2>
+        <div class="weight">Вес 180г</div>
+        <div class="pack_pic_wrapper"><img src="/images/pack_s.png" alt="" class="pack_pic"></div>
+        <div class="btn to_next_step">Выбрать</div>
+      </li>
+    </ul>
+    <div class="steps_content basis">
       <ul class="basis_list">
         <li class="basis_item">
           <div class="basis_consist">

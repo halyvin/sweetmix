@@ -21,3 +21,8 @@
 //= require flash_message
 //= require main
 //= require call_me_form
+//= require home
+//= require questions
+//= require comments
+//= require products
+//= require basket
