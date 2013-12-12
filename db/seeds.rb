@@ -3,6 +3,7 @@
 
 seed_files_dir = File.join(Rails.root, "db/seed_files/")
 
+static_images = []
 static_images << StaticImage.new
 static_images[0].image = File.open File.join(seed_files_dir, "delivery_map.jpg")
 static_images[0].save
@@ -80,7 +81,7 @@ EOS
     prior: 4,
     body: <<-EOS
 <ul class="partners_list">
-  <li class="partner"><a href="http://www.barry-callebaut.com/3892" target="_blank"><img src="<%= static_images[1].image.url %>" alt="Barry Callebaut "></a></li>
+  <li class="partner"><a href="http://www.barry-callebaut.com/3892" target="_blank"><img src="#{static_images[1].image.url}" alt="Barry Callebaut "></a></li>
 </ul>
 EOS
   },
