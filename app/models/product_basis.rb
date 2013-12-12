@@ -40,7 +40,7 @@ class ProductBasis < ActiveRecord::Base
     get_packs_parameter_of pack, :price
   end
   def weight_for(pack)
-    get_packs_parameter_of pack, :price
+    get_packs_parameter_of pack, :weight
   end
 
   private

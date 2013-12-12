@@ -91,7 +91,7 @@
               ' Вес
               span.total_value#total-weight = "%gг" % @basis.weight_for(@pack)
               '  /
-              span.total_value = "%gг" % @pack.capacity
+              span.total_value#max-capacity = "%gг" % @pack.capacity
             li.total_item
               ' Стоимость
               span.total_value#total-price = "%gр" % @basis.price_for(@pack)

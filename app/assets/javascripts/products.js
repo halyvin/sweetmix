@@ -41,11 +41,24 @@ $(document).ready(function(){
     var ing      = $('.ingredient_pic_wrap');
     var units    = $('.unit');
 
+    function correctTotalPrice(priceval) {
+      var curprice = parseFloat( $("#total-price").text() );
+      curprice += priceval;
+      $("#total-price").text( curprice.toString() + "р" );
+    }
+    function correctTotalWeight(weightval) {
+      var curweight = parseFloat( $("#total-weight").text() );
+      curweight += weightval;
+      $("#total-weight").text( curweight.toString() + "г" );
+    }
+
     ing.on('click', function(){
       var thisIng = $(this).closest($('.ingredients_item'));
       var checkedsize = thisIng.attr('data-checked-count')-0;
       var imgurl = thisIng.find('.ingredient_pic').attr('src');
       var id     = thisIng.attr('data-id');
+      var price  = parseFloat( thisIng.attr('data-price') );
+      var weight  = parseFloat( thisIng.attr('data-weight') );
       var nextUnit = units.not('.active').first();
       var unit   = $('.unit[data-id='+id+']');
       if ($('.unit[data-id='+id+']').size()) nextUnit = unit;
@@ -57,6 +70,11 @@ $(document).ready(function(){
       
 
       if(nextUnit.size() && !thisIng.hasClass('all_added')) {
+        // check weight capacity
+        if ( parseFloat($("#total-weight").text()) + weight > parseFloat($("#max-capacity").text()) ) {
+          return false;
+        }
+        // end of check weight capacity
         if ($('.unit[data-id='+id+']').size() && checkedsize<3) {
           $('.unit[data-id='+id+']').attr('data-allready-checked-size', allreadyChecked+1);
           if(checkedsize>1) thisIng.addClass('all_added');
@@ -72,6 +90,8 @@ $(document).ready(function(){
           $('.unit[data-id='+id+']').attr('data-allready-checked-size', '1');
         }
         points.not('.current').first().addClass('current');
+        correctTotalPrice( price );
+        correctTotalWeight( weight );
       };
 
       if(thisIng.hasClass('all_added') && checkedsize==3) {
@@ -83,6 +103,8 @@ $(document).ready(function(){
         $('.unit[data-id='+id+']').last().attr('data-id','');
         nextUnit = units.not('.active').first();
         points.removeClass('current');
+        correctTotalPrice( 0 - parseFloat(price) * 3 );
+        correctTotalWeight( 0 - parseFloat(weight) * 3 );
       };
     });
 
@@ -100,6 +122,8 @@ $(document).ready(function(){
         var checkedsize = removableIng.attr('data-checked-count')-0;
         removableIng.attr('data-checked-count', 0);
         if(checkedsize>2) removableIng.removeClass('all_added');
+        correctTotalPrice( 0 - (parseFloat(removableIng.attr('data-price')) * checkedsize) );
+        correctTotalWeight( 0 - (parseFloat(removableIng.attr('data-weight')) * checkedsize) );
       };
     });
 
