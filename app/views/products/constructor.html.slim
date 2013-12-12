@@ -1,107 +1,119 @@
 .main role="content"
   h1.title = "Создай свой " + @category.name(1)
-  - choosen_pack = nil
   .wrap.content
-    ul.steps
-      li.step.current data-id="packs" Упаковка
-      li.step.disable data-id="basis" = "Основа для " + @category.name(5)
-      li.step.disable data-id="ingredients" Ингредиенты
+    .steps
+      a.step href="#{products_counstructor_path(@category.slug)}" class="#{@pack.nil? ? 'current' : ''}" data-id="packs" Упаковка
+
+      - if @pack.nil?
+        span.step.disable data-id="basis" = "Основа для " + @category.name(5)
+      - else
+        a.step href="#{products_counstructor_path(@category.slug, { pack: @pack })}" class="#{@basis.nil? ? 'current' : ''}" data-id="basis" = "Основа для " + @category.name(5)
+
+      - if @basis.nil?
+        span.step.disable data-id="ingredients" Ингредиенты
+      - else
+        a.step.current href="#{products_counstructor_path(@category.slug, { pack: @pack, basis: @basis })}" data-id="basis" Ингредиенты
+
     .steps_shadow
-    ul.steps_content.packs.current
-      - @category.packs.each do |pack|
-        - choosen_pack = pack if choosen_pack.nil?
-        li.pack_item
-          h2.title = pack.name
-          .weight = "Вес #{pack.capacity}г"
-          .pack_pic_wrapper = image_tag pack.image.url, :class => "pack_pic"
-          .btn.to_next_step Выбрать
-    .steps_content.basis
-      ul.basis_list
-        - choosen_pack.bases.each do |basis|
-          li.basis_item
-            .basis_consist
-              h2.title Состав:
-              ul.basis_consist_list
-                li.basis_consist_item Cookie candy
-                li.basis_consist_item Cookie candy1
-                li.basis_consist_item Cookie candy2
-                li.basis_consist_item Cookie candy3
-                li.basis_consist_item Cookie candy4
-                li.basis_consist_item Cookie candy5
-                li.basis_consist_item Cookie candy6
-            .basis_func
-              = image_tag basis.image.url, :class => "basis_pic"
-              span.basis_price 200р
-              .btn.to_next_step Выбрать
-            .basis_desc
-              h2.title = basis.name
-              p
-                | Сandy cheesecake liquorice chocolate cake gummi bears candy unerdwear.com. Jelly beans jelly pie unerdwear.com lollipop candy canes chupa chups. Chocolate bar sugar plum gummi bears jujubes candy canes gummi bears pudding biscuit. Jelly powder lollipop applicake cookie. Fruitcake chocolate toffee tiramisu ice cream. Powder sweet gingerbread danish icing cake cookie. Cotton candy macaroon cotton candy chocolate pudding cheesecake cheesecake halvah chocolate cake. Cheesecake tootsie roll gummies. Lemon drops marshmallow jelly gingerbread cake. Ice cream gummies fruitcake caramels lollipop fruitcake applicake. Fruitcake apple pie
+    - if @pack.nil?
+      ul.steps_content.packs.current
+        - @category.packs.each do |pack|
+          li.pack_item
+            h2.title = pack.name
+            .weight = "Вес #{pack.capacity}г"
+            .pack_pic_wrapper = image_tag pack.image.url, :class => "pack_pic"
+            a.btn.link_to_next_step href="?pack=#{pack.id}" Выбрать
+    - elsif @basis.nil?
+      .steps_content.basis.current
+        ul.basis_list
+          - @pack.bases_packs_relations.includes(:product_basis).each do |basis_pack_relation|
+            - basis = basis_pack_relation.product_basis
+            li.basis_item
+              .basis_consist
+                - if basis.composition.present?
+                  h2.title Состав:
+                  ul.basis_consist_list
+                    - basis.composition.split("\n").each do |composline|
+                      li.basis_consist_item = composline
+              .basis_func
+                = image_tag basis.image.url, :class => "basis_pic"
+                span.basis_price = "%gр" % basis_pack_relation.price
+                a.btn.link_to_next_step href="#{url_for(params.merge(basis: basis.id))}" Выбрать
+              .basis_desc
+                h2.title = basis.name
+                p = basis.descr
+    - else
+      .steps_content.ingredients.current
+        aside.ingredients_aside
+          h2.title Основа:
+          / select.select_pack
+          /   -# @pack.bases.each do |basis|
+          /     option value="#{basis.id}" selected=(basis == @basis) = basis.name
+          p = @basis.name
 
-    .steps_content.ingredients
-      aside.ingredients_aside
-        h2.title Основа:
-        select.select_basis
-          option value="Шоколадно-ореховая" selected="selected" Шоколадно-ореховая
-          option value="Бонанова-грибная" Бонанова-грибная
-          option value="Волшебно-позвоночная" Волшебно-позвоночная
-        h2.title Упаковка:
+          p: br
 
-        select name="select_basis"
-          option value="Большая - 900г" Большая - 900г
-          option value="Маленькая - 180г" Маленькая - 180г
+          h2.title Упаковка:
+          / select name="select_basis"
+          /   -# @category.packs.each do |pack|
+          /     option value="#{pack.id}" selected=(pack == @pack) = pack.name
+          p = @pack.name
 
-        ul.units_list
-          - (0..7).each do |nevermind|
-            li.unit data-allready-checked-size="0"
-              img src="" alt="" class="unit_pic"
-              ul.unit_currents_list
-                li.unit_item
-                li.unit_item
-                li.unit_item
+          ul.units_list
+            - (0..7).each do |nevermind|
+              li.unit data-allready-checked-size="0"
+                img src="" alt="" class="unit_pic"
+                ul.unit_currents_list
+                  li.unit_item
+                  li.unit_item
+                  li.unit_item
 
-        h2.title Пищевая ценность на 100г:
-        ul class="nutritional_value_list"
-          li.nutritional_value_item
-            span.microelem Белки
-            span.microelem_value.proteins 00г
-          li.nutritional_value_item
-            span.microelem Жиры
-            span.microelem_value.fats 00г
-          li.nutritional_value_item
-            span.microelem Углеводы
-            span.microelem_value.carbohydrates 00г
-          li.nutritional_value_item
-            span.microelem Ккал
-            span.microelem_value.calories 00г
+          h2.title Пищевая ценность на 100г:
+          ul class="nutritional_value_list"
+            li.nutritional_value_item
+              span.microelem Белки
+              span.microelem_value.proteins 00г
+            li.nutritional_value_item
+              span.microelem Жиры
+              span.microelem_value.fats 00г
+            li.nutritional_value_item
+              span.microelem Углеводы
+              span.microelem_value.carbohydrates 00г
+            li.nutritional_value_item
+              span.microelem Ккал
+              span.microelem_value.calories 00г
 
-        input.btn type="submit" value="В корзину"
-        ul.totals_list
-          li.total_item
-            ' Вес
-            span.total_value 1400г
-          li.total_item
-            ' Стоимость
-            span.total_value 1000р
+          input.btn type="submit" value="В корзину"
+          ul.totals_list
+            li.total_item
+              ' Вес
+              span.total_value 1400г
+            li.total_item
+              ' Стоимость
+              span.total_value 1000р
 
-      .ingredients_content
-        - ProductIngridientType.all.each do |ingtype|
-          input id="list#{ingtype.id}" type="radio" name="ingredients" value="list#{ingtype.id}" checked="checked"
-          label.group_label for="list#{ingtype.id}" = ingtype.name
-          ul.checked_ingedients class="list#{ingtype.id}"
-            - ingtype.ingridients.each do |ing|
-              li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}"
-                .ingredient_pic_wrap = image_tag ing.image.url, :class => "ingredient_pic"
-                .ingredient_name
-                  =' ing.name
-                  .ing_desc_wrap
-                    label.ing_desc_label for="ing0" i
-                    input.ing_desc_checker#ing0 type="checkbox" name="ingrediens"
-                    .ing_desc_wrapper
-                      label.ing_desc_label_closer for="ing0"
-                      h2.title Заголовок
-                      p Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.
-                .ingredient_price 200р
+        .ingredients_content
+          - it_is_first = true
+          - @ingridient_structured.each do |strcyy|
+            - ingtype = strcyy[:ing_type]
+            - if strcyy[:ingridients].any?
+              input id="list#{ingtype.id}" type="radio" name="ingredients" value="list#{ingtype.id}" checked=it_is_first
+              - it_is_first = false
+              label.group_label for="list#{ingtype.id}" = ingtype.name
+              ul.checked_ingedients class="list#{ingtype.id}"
+                - strcyy[:ingridients].each do |ing|
+                  li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}"
+                    .ingredient_pic_wrap = image_tag ing.image.url, :class => "ingredient_pic"
+                    .ingredient_name
+                      =' ing.name
+                      .ing_desc_wrap
+                        label.ing_desc_label for="ing0" i
+                        input.ing_desc_checker#ing0 type="checkbox" name="ingrediens"
+                        .ing_desc_wrapper
+                          label.ing_desc_label_closer for="ing0"
+                          h2.title Заголовок
+                          p Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.
+                    .ingredient_price = "%gр" % (ing.price.present? ? ing.price : 0)
 
     .submit_wrap.elems_centered
-      = link_to "Посмотреть готовые рецепты", "#", :class => "btn"
+      = link_to "Посмотреть готовые рецепты", products_path(@category.slug), :class => "btn"

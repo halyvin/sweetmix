@@ -9,6 +9,8 @@ class ProductIngridient < ActiveRecord::Base
 
   mount_uploader :image, ProductIngridientImageUploader
 
+  attr_accessor :price
+
   attr_accessible :image, :name, :type, :type_id,
                   :ingridients_packs_relations_attributes
 

@@ -1,39 +1,39 @@
 $(document).ready(function(){
-  // steps master
-  if ($('.step').size()) stepsFunc();
-  function stepsFunc(){
-    var steps = $('.step');
-    var stepsSize = steps.length;
-    var stepCurrent = $('.step.current');
-    var stepsContent = $('.steps_content');
-    var stepsContentCurrent = $('.steps_content.current');
+  // // steps master
+  // if ($('.step').size()) stepsFunc();
+  // function stepsFunc(){
+  //   var steps = $('.step');
+  //   var stepsSize = steps.length;
+  //   var stepCurrent = $('.step.current');
+  //   var stepsContent = $('.steps_content');
+  //   var stepsContentCurrent = $('.steps_content.current');
 
-    steps.on('click', function(){
-      var idx = $(this).index();
-      if (!$(this).hasClass('current') && !$(this).hasClass('disable')) {
-        steps.removeClass('current');
-        $(this).addClass('current');
-        stepCurrent = $(this);
+  //   steps.on('click', function(){
+  //     var idx = $(this).index();
+  //     if (!$(this).hasClass('current') && !$(this).hasClass('disable')) {
+  //       steps.removeClass('current');
+  //       $(this).addClass('current');
+  //       stepCurrent = $(this);
 
-        stepsContent.removeClass('current');
-        stepsContent.eq(idx).addClass('current');
-        stepsContentCurrent = stepsContent.eq(idx);
-      };
-    });
+  //       stepsContent.removeClass('current');
+  //       stepsContent.eq(idx).addClass('current');
+  //       stepsContentCurrent = stepsContent.eq(idx);
+  //     };
+  //   });
 
-    $('.to_next_step').on('click', function(){
-      setTimeout(function(){
-        stepCurrent.next().removeClass('disable');
-        stepCurrent.next().addClass('current');
-        stepCurrent.removeClass('current');
-        stepCurrent = stepCurrent.next();
+  //   $('.to_next_step').on('click', function(){
+  //     setTimeout(function(){
+  //       stepCurrent.next().removeClass('disable');
+  //       stepCurrent.next().addClass('current');
+  //       stepCurrent.removeClass('current');
+  //       stepCurrent = stepCurrent.next();
 
-        stepsContentCurrent.removeClass('current');
-        stepsContentCurrent.next().addClass('current');
-        stepsContentCurrent = stepsContentCurrent.next();
-      },300);
-    });
-  };
+  //       stepsContentCurrent.removeClass('current');
+  //       stepsContentCurrent.next().addClass('current');
+  //       stepsContentCurrent = stepsContentCurrent.next();
+  //     },300);
+  //   });
+  // };
   
   // ingregient master
   if ($('.ingredients_content').size()) ingrFunc();

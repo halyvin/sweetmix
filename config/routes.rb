@@ -15,7 +15,7 @@ Sweetmix::Application.routes.draw do
 
   get 'sweets/:category_slug/constructor' => 'products#constructor', as: :products_counstructor
   get 'sweets/:category_slug' => 'products#index', as: :products
-  get 'sweets' => 'products#index', as: :products
+  get 'sweets' => 'products#index', as: :products_root
 
   # -------------
 

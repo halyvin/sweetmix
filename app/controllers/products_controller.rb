@@ -4,18 +4,42 @@ class ProductsController < FrontendController
   before_filter :detect_category
 
   def index
-    if @category
-      # some
-    else
-      redirect_to root_url
-    end
+    
   end
 
   def constructor
-    if @category
-      # some
+    @pack = nil
+    @basis = nil
+    @ingridient_structured = []
+
+    if @category.packs.count == 1
+      @pack = @category.packs.first
     else
-      redirect_to root_url
+      if params[:pack]
+        @pack = ProductPack.find_by_id params[:pack]
+      end
+    end
+
+    unless @pack.nil?
+      if params[:basis]
+        @basis = ProductBasis.find_by_id params[:basis]
+      end
+    end
+
+    unless @pack.nil? && @basis.nil?
+      ingrids_by_types = []
+
+      avl_ings = @pack.ingridients_packs_relations.includes(:product_ingridient)
+      avl_ings.each do |iprel|
+        ing = iprel.product_ingridient
+        ing.price = iprel.price
+        if ingrids_by_types[ing.type_id].nil?
+          ingrids_by_types[ing.type_id] = { ing_type: ing.type, ingridients: [] }
+        end
+        ingrids_by_types[ing.type_id][:ingridients] << ing
+      end
+
+      @ingridient_structured = ingrids_by_types.compact
     end
   end
 
@@ -24,6 +48,8 @@ class ProductsController < FrontendController
   def detect_category
     if params[:category_slug]
       @category = ProductCategory.find_by_slug! params[:category_slug]
+    else
+      redirect_to root_url
     end
   end
 end
