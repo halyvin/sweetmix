@@ -160,6 +160,10 @@ ru:
         image: "Изображение"
         descr: "Описание"
         composition: "Состав"
+        proteins: "Белки (на 100г)"
+        fats: "Жиры (на 100г)"
+        carbohydrates: "Углеводы (на 100г)"
+        calories: "Килокалории (на 100г)"
       bases_packs_relation:
         product_basis: "Основа"
         product_pack: "Упаковка"

@@ -50,15 +50,17 @@
           /   -# @pack.bases.each do |basis|
           /     option value="#{basis.id}" selected=(basis == @basis) = basis.name
           p = @basis.name
-
           p: br
+          
 
           h2.title Упаковка:
           / select name="select_basis"
           /   -# @category.packs.each do |pack|
           /     option value="#{pack.id}" selected=(pack == @pack) = pack.name
           p = @pack.name
+          p: br
 
+          h2.title Ингридиенты:
           ul.units_list
             - (0..7).each do |nevermind|
               li.unit data-allready-checked-size="0"
@@ -72,25 +74,27 @@
           ul class="nutritional_value_list"
             li.nutritional_value_item
               span.microelem Белки
-              span.microelem_value.proteins 00г
+              span.microelem_value.proteins = "%gг" % @basis.proteins
             li.nutritional_value_item
               span.microelem Жиры
-              span.microelem_value.fats 00г
+              span.microelem_value.fats = "%gг" % @basis.fats
             li.nutritional_value_item
               span.microelem Углеводы
-              span.microelem_value.carbohydrates 00г
+              span.microelem_value.carbohydrates = "%gг" % @basis.carbohydrates
             li.nutritional_value_item
               span.microelem Ккал
-              span.microelem_value.calories 00г
+              span.microelem_value.calories = "%g" % @basis.calories
 
           input.btn type="submit" value="В корзину"
           ul.totals_list
             li.total_item
               ' Вес
-              span.total_value 1400г
+              span.total_value#total-weight = "%gг" % @basis.weight_for(@pack)
+              '  /
+              span.total_value = "%gг" % @pack.capacity
             li.total_item
               ' Стоимость
-              span.total_value 1000р
+              span.total_value#total-price = "%gр" % @basis.price_for(@pack)
 
         .ingredients_content
           - it_is_first = true
@@ -102,18 +106,18 @@
               label.group_label for="list#{ingtype.id}" = ingtype.name
               ul.checked_ingedients class="list#{ingtype.id}"
                 - strcyy[:ingridients].each do |ing|
-                  li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}"
+                  li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}" data-price="#{ing.price_for(@pack)}" data-weight="#{ing.weight_for(@pack)}"
                     .ingredient_pic_wrap = image_tag ing.image.url, :class => "ingredient_pic"
                     .ingredient_name
                       =' ing.name
                       .ing_desc_wrap
-                        label.ing_desc_label for="ing0" i
-                        input.ing_desc_checker#ing0 type="checkbox" name="ingrediens"
+                        label.ing_desc_label for="ing#{ing.id}" i
+                        input.ing_desc_checker id="ing#{ing.id}" type="checkbox" name="ingrediens"
                         .ing_desc_wrapper
-                          label.ing_desc_label_closer for="ing0"
+                          label.ing_desc_label_closer for="ing#{ing.id}"
                           h2.title Заголовок
                           p Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.
-                    .ingredient_price = "%gр" % (ing.price.present? ? ing.price : 0)
+                    .ingredient_price = "%gр" % ing.price_for(@pack)
 
     .submit_wrap.elems_centered
       = link_to "Посмотреть готовые рецепты", products_path(@category.slug), :class => "btn"

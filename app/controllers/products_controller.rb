@@ -32,7 +32,7 @@ class ProductsController < FrontendController
       avl_ings = @pack.ingridients_packs_relations.includes(:product_ingridient)
       avl_ings.each do |iprel|
         ing = iprel.product_ingridient
-        ing.price = iprel.price
+        ing.save_packs_parameter_of iprel
         if ingrids_by_types[ing.type_id].nil?
           ingrids_by_types[ing.type_id] = { ing_type: ing.type, ingridients: [] }
         end

@@ -24,6 +24,10 @@ ActiveAdmin.register ProductBasis do
       end
       row :descr
       row :composition
+      row :proteins
+      row :fats
+      row :carbohydrates
+      row :calories
     end
     panel "Относительно упаковок" do
       table_for basis.bases_packs_relations do
@@ -43,6 +47,10 @@ ActiveAdmin.register ProductBasis do
       f.input :image, hint: ("Допустимые форматы .jpg, .jpeg, .png, .gif" + (f.object.image.present? && !f.object.new_record? ? "<br />Текущее изображение:<br />" + image_tag(f.object.image.url) : "")).html_safe
       f.input :descr
       f.input :composition
+      f.input :proteins, as: :number, input_html: { style: "width: 140px" }
+      f.input :fats, as: :number, input_html: { style: "width: 140px" }
+      f.input :carbohydrates, as: :number, input_html: { style: "width: 140px" }
+      f.input :calories, as: :number, input_html: { style: "width: 140px" }
     end
     f.inputs do
       f.has_many :bases_packs_relations do |nlink|

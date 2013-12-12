@@ -3,9 +3,12 @@
 
 seed_files_dir = File.join(Rails.root, "db/seed_files/")
 
-# sig = StaticImage.new
-# sig.image = File.open File.join(seed_files_dir, "example_pic.jpg")
-# sig.save
+static_images << StaticImage.new
+static_images[0].image = File.open File.join(seed_files_dir, "delivery_map.jpg")
+static_images[0].save
+static_images << StaticImage.new
+static_images[1].image = File.open File.join(seed_files_dir, "partner_01.gif")
+static_images[1].save
 
 home_content_page = ContentPage.homepage
 home_content_page.body = <<-EOS
@@ -77,14 +80,7 @@ EOS
     prior: 4,
     body: <<-EOS
 <ul class="partners_list">
-  <li class="partner">
-  <p>
-    <a href="http://www.barry-callebaut.com/3892" target="_blank"></a>
-  </p>
-  <p>
-    <a href="http://www.barry-callebaut.com/3892" target="_blank"><img src="/system/uploads/static_image/3/logo_barrycallebaut.gif" alt="Barry Callebaut "></a>
-  </p>
-  </li>
+  <li class="partner"><a href="http://www.barry-callebaut.com/3892" target="_blank"><img src="<%= static_images[1].image.url %>" alt="Barry Callebaut "></a></li>
 </ul>
 EOS
   },
@@ -148,6 +144,8 @@ EOS
 <p>Ваша гранола будет изготовлена с учётом выбранных Вами ингредиентов, а также индивидуальных пожеланий и доставлена на следующий день (при заказе до 12:00) после подтверждения менеджером Вашего заказа.При этом, мы не просто привозим перемешанные между собой ингредиенты, а выдерживаем целую технологию готовки. Для того чтоб продукт получился золотистым и вкусным после обжарки ему необходимо остыть при комнатной температуре в течение 5-6 часов.</p>
 <p>Доставка по Красноярску составляет всего 150 рублей и <strong>бесплатна при заказе от 1500 рублей</strong>!</p>
 <p>Доставка в Сосновоборс, Железногорск, Дивногорск составляет 500 рублей и <strong>бесплатная доставка при заказе от 2300 рублей</strong>!</p>
+<p><br></p>
+<p><img src="#{static_images[0].image.url}" alt="delivery map"></p>
 <ul class="delivery_rules_list">
 </ul>
 EOS
