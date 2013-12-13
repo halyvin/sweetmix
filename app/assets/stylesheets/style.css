@@ -224,6 +224,8 @@ textarea:focus {
 			display:inline-block;
 			vertical-align:top;
 			margin-top:34px;
+			min-width: 480px;
+			text-align: center;
 			}		
 			.header_nav_item {
 				display:inline-block;
@@ -271,6 +273,7 @@ textarea:focus {
 					border-radius:3px;
 					text-decoration:none;
 					text-shadow:0 1px 0 #3a3e26;
+					text-align: left;
 					box-shadow:0 4px 0 0 #953746,  0 6px 0 1px rgba(0,0,0,.2);
 					}
 				.header_nav_item:hover .header_subnav {
@@ -1868,6 +1871,7 @@ ___________________________________*/
 					.ing_desc_wrap:hover {
             background:#d3d9bf;
             }  
+            .ing_desc_img { float:left; padding-right:8px; border-radius:50%; }
             .ing_desc_label {
               cursor: pointer;
               font-size:12px;

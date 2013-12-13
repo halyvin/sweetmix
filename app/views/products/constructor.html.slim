@@ -46,6 +46,7 @@
       .steps_content.ingredients.current
         aside.ingredients_aside
           h2.title Основа:
+          / TODO
           / select.select_pack
           /   -# @pack.bases.each do |basis|
           /     option value="#{basis.id}" selected=(basis == @basis) = basis.name
@@ -54,6 +55,7 @@
           
 
           h2.title Упаковка:
+          / TODO
           / select name="select_basis"
           /   -# @category.packs.each do |pack|
           /     option value="#{pack.id}" selected=(pack == @pack) = pack.name
@@ -115,8 +117,12 @@
                         input.ing_desc_checker id="ing#{ing.id}" type="checkbox" name="ingrediens"
                         .ing_desc_wrapper
                           label.ing_desc_label_closer for="ing#{ing.id}"
-                          h2.title Заголовок
-                          p Итальянский ученый и писатель Умберто Эко пытается представить, как могла бы выглядеть настоящая полноценная современная война мусульманского и христианского миров.
+                          h2.title = ing.name
+                          = image_tag ing.image.url, size: '48x48', :class => "ing_desc_img"
+                          - if ing.descr.present?
+                            p = ing.descr
+                          - else
+                            p Описания нет
                     .ingredient_price = "%gр" % ing.price_for(@pack)
 
     .submit_wrap.elems_centered

@@ -130,12 +130,13 @@ ActiveRecord::Schema.define(:version => 20131207071744) do
   end
 
   create_table "product_categories", :force => true do |t|
-    t.string "name_one"
-    t.string "name_few"
-    t.string "name_many"
-    t.string "name_other"
-    t.string "slug",       :null => false
-    t.string "icon"
+    t.string  "name_one"
+    t.string  "name_few"
+    t.string  "name_many"
+    t.string  "name_other"
+    t.string  "slug",          :null => false
+    t.string  "icon"
+    t.boolean "construct_off"
   end
 
   add_index "product_categories", ["slug"], :name => "index_product_categories_on_slug", :unique => true
@@ -148,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20131207071744) do
     t.integer  "type_id",    :null => false
     t.string   "name",       :null => false
     t.string   "image"
+    t.text     "descr"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

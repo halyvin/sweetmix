@@ -7,6 +7,7 @@ class CreateProductCategories < ActiveRecord::Migration
       t.string :name_other
       t.string :slug, null: false
       t.string :icon
+      t.boolean :construct_off
     end
     add_index :product_categories, :slug, unique: true
   end

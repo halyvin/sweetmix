@@ -150,6 +150,7 @@ ru:
         name_many: "Пять.. (кексов) "
         slug: "SLUG"
         icon: "Иконка"
+        construct_off: "Конструктор выключен?"
       product_pack:
         name: "Название"
         capacity: "Ёмкость"
@@ -175,6 +176,7 @@ ru:
         name: "Название"
         image: "Изображение"
         type: "Тип"
+        descr: "Описание"
       ingridients_packs_relation:
         product_ingridient: "Ингридиент"
         product_pack: "Упаковка"

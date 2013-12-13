@@ -7,7 +7,7 @@ class ProductCategory < ActiveRecord::Base
   # TODO
   # mount_uploader :icon, ProductCategoryIconUploader
 
-  attr_accessible :icon, :name_few, :name_many, :name_one, :name_other, :slug
+  attr_accessible :icon, :name_few, :name_many, :name_one, :name_other, :slug, :construct_off
 
   validates :slug, :name_few, :name_many, :name_one, :name_other, presence: true
   validates :slug, uniqueness: { case_sensitive: false }
@@ -18,5 +18,9 @@ class ProductCategory < ActiveRecord::Base
     else
       name_other
     end
+  end
+
+  def constuctable?
+    !self.construct_off? && self.packs.any?
   end
 end

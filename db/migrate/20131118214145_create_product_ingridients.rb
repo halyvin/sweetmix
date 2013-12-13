@@ -4,6 +4,7 @@ class CreateProductIngridients < ActiveRecord::Migration
       t.references :type, null: false
       t.string :name,     null: false
       t.string :image
+      t.text :descr
 
       t.timestamps
     end

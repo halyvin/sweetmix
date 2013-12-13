@@ -22,6 +22,7 @@ ActiveAdmin.register ProductCategory do
       row :name_few
       row :name_many
       row :slug
+      row (:construct_off) { categ.construct_off? ? t('yep') : t('nope') }
     end
     
     panel "Упаковки", style: "overflow: hidden" do
@@ -46,6 +47,7 @@ ActiveAdmin.register ProductCategory do
       f.input :name_few
       f.input :name_many
       f.input :slug
+      f.input :construct_off
     end
     f.actions
   end

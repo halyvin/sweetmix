@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-# DEMO DATA
 
 seed_files_dir = File.join(Rails.root, "db/seed_files/")
 
@@ -89,31 +88,49 @@ EOS
     title: "Отзывы",
     slug: "comments",
     parent: content_pages_top_lvl[0],
-    prior: 5
+    prior: 5,
+    hided: true
   },
   {
     title: "Мюсли",
     slug: "muesli",
     parent: content_pages_top_lvl[1],
+    behavior_type: 3,
+    rct_lnk: "/sweets/muesli",
     prior: 1
   },
   {
-    title: "Выпечка",
+    title: "Кексы",
     slug: "cakes",
     parent: content_pages_top_lvl[1],
+    behavior_type: 3,
+    rct_lnk: "/sweets/cake",
+    prior: 2
+  },
+  {
+    title: "Макаруны",
+    slug: "macarons",
+    parent: content_pages_top_lvl[1],
+    behavior_type: 3,
+    rct_lnk: "/sweets/macaron",
     prior: 2
   },
   {
     title: "Мороженое",
-    slug: "ice-cream",
+    slug: "ice-creams",
     parent: content_pages_top_lvl[1],
+    behavior_type: 3,
+    rct_lnk: "/sweets/ice-cream",
     prior: 3
   },
   {
     title: "Йогурты",
-    slug: "yogurts",
+    slug: "yogurt",
     parent: content_pages_top_lvl[1],
-    prior: 4
+    behavior_type: 3,
+    rct_lnk: "/sweets/yogurt",
+    prior: 4,
+    hided: true
   },
   {
     title: "Горячие предложения",
@@ -233,19 +250,19 @@ main_nav_items_roots = MainNavItem.create([
   { title: "Мюсли", prior: 1, url_text: "/sweets/muesli" },
   { title: "Выпечка", prior: 4, url_text: "/sweets" },
   { title: "Мороженное", prior: 8, url_text: "/sweets/ice-cream" },
-  { title: "Йогурт", prior: 9, url_text: "/sweets/yogurt" }
+  { title: "Йогурт", prior: 9, url_text: "/sweets/yogurt", hided: true }
 ])
 main_nav_items_seconds = MainNavItem.create([
   { title: "Создать мюсли", parent: main_nav_items_roots[0], prior: 2, url_text: "/sweets/muesli/constructor" },
   { title: "Готовые рецепты", parent: main_nav_items_roots[0], prior: 3, url_text: "/sweets/muesli" },
-  { title: "Кексы", parent: main_nav_items_roots[1], prior: 5, url_text: "/sweets/keks" },
-  { title: "Песочные человечки", parent: main_nav_items_roots[1], prior: 6, url_text: "/sweets/sandman" },
-  { title: "Макаруны", parent: main_nav_items_roots[1], prior: 7, url_text: "/sweets/makarun" }
+  { title: "Кексы", parent: main_nav_items_roots[1], prior: 5, url_text: "/sweets/cake" },
+  { title: "Песочные человечки", parent: main_nav_items_roots[1], prior: 6, url_text: "/sweets/sandman", hided: true },
+  { title: "Макаруны", parent: main_nav_items_roots[1], prior: 7, url_text: "/sweets/macaron" }
 ])
 
 SocialLink.create([
-  { social_type: 0, prior: 1, url: "http://instagram.com/" },
-  { social_type: 1, prior: 2, url: "http://www.youtube.com/" },
+  { social_type: 0, prior: 1, url: "http://instagram.com/", hided: true },
+  { social_type: 1, prior: 2, url: "http://www.youtube.com/", hided: true },
   { social_type: 2, prior: 3, url: "http://vk.com/sweetmix_24" },
   { social_type: 3, prior: 4, url: "http://www.odnoklassniki.ru/group/52955017117950" },
   { social_type: 4, prior: 5, url: "https://www.facebook.com/mix.sweetmix" }
@@ -263,7 +280,7 @@ slides = Slide.create([
   { title: "Выпечка",
     subtitle: "Подзаголовок выпечки",
     backg: 2,
-    btn_link: "/sweets/keks",
+    btn_link: "/sweets/cake",
     btn_text: "Заказать выпечку",
     prior: 2,
     descr: "Данный интернет проект нацелен на то, что каждый клиент может создать свой индивидуальный продукт, который не только удовлетворяет его желания, но при этом готовиться на натуральных составляющих. Или другой текст, описывающий исключительность ваших продуктов и сайта." },
@@ -284,10 +301,10 @@ slides[2].image = File.open File.join(seed_files_dir, "slide_serts.png")
 slides[2].save
 
 InfoProductCircle.create([
-  { title: "Мюсли", url: "/sweets/constructor", prodcode: 0, prior: 1 },
-  { title: "Выпечка", url: "/sweets/constructor", prodcode: 1, prior: 1 },
-  { title: "Мороженное", url: "/sweets/constructor", prodcode: 2, prior: 1 },
-  { title: "Йогурт", url: "/sweets/constructor", prodcode: 3, prior: 1 }
+  { title: "Мюсли", url: "/sweets/muesli", prodcode: 0, prior: 1 },
+  { title: "Выпечка", url: "/sweets/cake", prodcode: 1, prior: 1 },
+  { title: "Мороженное", url: "/sweets/ice-cream", prodcode: 2, prior: 1 },
+  { title: "Йогурт", url: "/sweets/yogurt", prodcode: 3, prior: 1, hided: true }
 ])
 
 # ============================================================================
@@ -315,7 +332,35 @@ categories = ProductCategory.create([
     name_few: "Кекса",
     name_many: "Кексов",
     name_other: "Кексы",
-    slug: "keks"
+    slug: "cake"
+  },
+  {
+    name_one: "Песочный человечек",
+    name_few: "Песочных человечка",
+    name_many: "Песочных человечков",
+    name_other: "Песочные человечки",
+    slug: "sandman"
+  },
+  {
+    name_one: "Макарун",
+    name_few: "Макаруна",
+    name_many: "Макарунов",
+    name_other: "Макаруны",
+    slug: "macaron"
+  },
+  {
+    name_one: "Мороженное",
+    name_few: "Мороженных",
+    name_many: "Мороженных",
+    name_other: "Мороженное",
+    slug: "ice-cream"
+  },
+  {
+    name_one: "Йогурт",
+    name_few: "Йогурта",
+    name_many: "Йогуртов",
+    name_other: "Йогурты",
+    slug: "yogurt"
   },
   {
     name_one: "Подарочная карта",
@@ -476,33 +521,33 @@ ingridients[6].ingridients_packs_relations << IngridientsPacksRelation.create({
 ingridients[7].ingridients_packs_relations << IngridientsPacksRelation.create({
   product_pack: packs[2], price: 110, weight: 60 })
 
-products = Product.create([
-  {
-    name: "Шоколадно-ореховый кекс",
-    article: "KKS001",
-    category: categories[1],
-    pcba: true,
-    pack: packs[2],
-    basis: bases[4],
-    price: 1000,
-    ingridients: [ ingridients[3], ingridients[4] ]
-  },
-  {
-    name: "Фруктово-ореховый кекс",
-    article: "KKS002",
-    category: categories[1],
-    pcba: true,
-    pack: packs[2],
-    basis: bases[4],
-    price: 800,
-    ingridients: [ ingridients[5], ingridients[7] ]
-  },
-  {
-    name: "Подарочная карта 500",
-    article: "PSK001",
-    category: categories[2],
-    pcba: true,
-    plain: true,
-    price: 500
-  }
-])
+# products = Product.create([
+#   {
+#     name: "Шоколадно-ореховый кекс",
+#     article: "KKS001",
+#     category: categories[1],
+#     pcba: true,
+#     pack: packs[2],
+#     basis: bases[4],
+#     price: 1000,
+#     ingridients: [ ingridients[3], ingridients[4] ]
+#   },
+#   {
+#     name: "Фруктово-ореховый кекс",
+#     article: "KKS002",
+#     category: categories[1],
+#     pcba: true,
+#     pack: packs[2],
+#     basis: bases[4],
+#     price: 800,
+#     ingridients: [ ingridients[5], ingridients[7] ]
+#   },
+#   {
+#     name: "Подарочная карта 500",
+#     article: "PSK001",
+#     category: categories[2],
+#     pcba: true,
+#     plain: true,
+#     price: 500
+#   }
+# ])

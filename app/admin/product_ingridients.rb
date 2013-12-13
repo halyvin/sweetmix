@@ -25,6 +25,7 @@ ActiveAdmin.register ProductIngridient do
       row :image do
         ingr.image.blank? ? "" : image_tag(ingr.image.url)
       end
+      row :descr
     end
     panel "Относительно упаковок" do
       table_for ingr.ingridients_packs_relations do
@@ -43,6 +44,7 @@ ActiveAdmin.register ProductIngridient do
       f.input :name
       f.input :type
       f.input :image, hint: ("Допустимые форматы .jpg, .jpeg, .png, .gif" + (f.object.image.present? && !f.object.new_record? ? "<br />Текущее изображение:<br />" + image_tag(f.object.image.url) : "")).html_safe
+      f.input :descr
     end
     f.inputs do
       f.has_many :ingridients_packs_relations do |nlink|

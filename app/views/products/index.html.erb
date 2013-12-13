@@ -20,7 +20,10 @@
       </select>
     </div> -->
     <div class="steps_content basis current">
-      <p>Пока нет ни одного готового рецепта <%= @category.name(2) %>. Но вы можете сами создать свой уникальный рецепт в <a href="<%= products_counstructor_path(@category.slug) %>">конструкторе</a>.</p>
+      <p>
+        Пока нет ни одного готового рецепта <%= @category.name(5) %>.
+        <% if @category.constuctable? %>Но вы можете сами создать свой уникальный рецепт в <a href="<%= products_counstructor_path(@category.slug) %>">конструкторе</a>.<% else %>Но мы работаем над этим. :)<% end %>
+      </p>
       <!-- <ul class="basis_list">
         <li class="basis_item">
           <div class="basis_consist">

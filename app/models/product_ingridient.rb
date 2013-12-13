@@ -11,7 +11,7 @@ class ProductIngridient < ActiveRecord::Base
 
   attr_accessor :price
 
-  attr_accessible :image, :name, :type, :type_id,
+  attr_accessible :image, :name, :descr, :type, :type_id,
                   :ingridients_packs_relations_attributes
 
   validates :name, presence: true
