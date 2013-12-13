@@ -5,6 +5,7 @@ class CreateProductIngridients < ActiveRecord::Migration
       t.string :name,     null: false
       t.string :image
       t.text :descr
+      t.text :nutr_val
 
       t.timestamps
     end

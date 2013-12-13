@@ -177,6 +177,10 @@ ru:
         image: "Изображение"
         type: "Тип"
         descr: "Описание"
+        proteins: "Белки (на 100г)"
+        fats: "Жиры (на 100г)"
+        carbohydrates: "Углеводы (на 100г)"
+        calories: "Килокалории (на 100г)"
       ingridients_packs_relation:
         product_ingridient: "Ингридиент"
         product_pack: "Упаковка"

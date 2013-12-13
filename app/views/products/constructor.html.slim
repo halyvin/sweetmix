@@ -76,16 +76,16 @@
           ul class="nutritional_value_list"
             li.nutritional_value_item
               span.microelem Белки
-              span.microelem_value.proteins = "%gг" % @basis.proteins
+              span.microelem_value.proteins#total-proteins = "%gг" % @basis.proteins
             li.nutritional_value_item
               span.microelem Жиры
-              span.microelem_value.fats = "%gг" % @basis.fats
+              span.microelem_value.fats#total-fats = "%gг" % @basis.fats
             li.nutritional_value_item
               span.microelem Углеводы
-              span.microelem_value.carbohydrates = "%gг" % @basis.carbohydrates
+              span.microelem_value.carbohydrates#total-carbohydrates = "%gг" % @basis.carbohydrates
             li.nutritional_value_item
               span.microelem Ккал
-              span.microelem_value.calories = "%g" % @basis.calories
+              span.microelem_value.calories#total-calories = "%g" % @basis.calories
 
           input.btn type="submit" value="В корзину"
           ul.totals_list
@@ -108,7 +108,7 @@
               label.group_label for="list#{ingtype.id}" = ingtype.name
               ul.checked_ingedients class="list#{ingtype.id}"
                 - strcyy[:ingridients].each do |ing|
-                  li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}" data-price="#{ing.price_for(@pack)}" data-weight="#{ing.weight_for(@pack)}"
+                  li.ingredients_item data-checked-count="0" data-id="ing#{ing.id}" data-price="#{ing.price_for(@pack)}" data-weight="#{ing.weight_for(@pack)}" data-proteins="#{ing.proteins}" data-fats="#{ing.fats}" data-carbohydrates="#{ing.carbohydrates}" data-calories="#{ing.calories}"
                     .ingredient_pic_wrap = image_tag ing.image.url, :class => "ingredient_pic"
                     .ingredient_name
                       =' ing.name

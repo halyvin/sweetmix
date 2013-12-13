@@ -26,6 +26,10 @@ ActiveAdmin.register ProductIngridient do
         ingr.image.blank? ? "" : image_tag(ingr.image.url)
       end
       row :descr
+      row :proteins
+      row :fats
+      row :carbohydrates
+      row :calories
     end
     panel "Относительно упаковок" do
       table_for ingr.ingridients_packs_relations do
@@ -45,6 +49,10 @@ ActiveAdmin.register ProductIngridient do
       f.input :type
       f.input :image, hint: ("Допустимые форматы .jpg, .jpeg, .png, .gif" + (f.object.image.present? && !f.object.new_record? ? "<br />Текущее изображение:<br />" + image_tag(f.object.image.url) : "")).html_safe
       f.input :descr
+      f.input :proteins, as: :number, input_html: { style: "width: 140px" }
+      f.input :fats, as: :number, input_html: { style: "width: 140px" }
+      f.input :carbohydrates, as: :number, input_html: { style: "width: 140px" }
+      f.input :calories, as: :number, input_html: { style: "width: 140px" }
     end
     f.inputs do
       f.has_many :ingridients_packs_relations do |nlink|

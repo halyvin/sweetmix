@@ -18,19 +18,15 @@ class ProductBasis < ActiveRecord::Base
   validates :name, presence: true
 
   def proteins
-    # super.to_f
     nutr_val[:proteins].to_f
   end
   def fats
-    # super.to_f
     nutr_val[:fats].to_f
   end
   def carbohydrates
-    # super.to_f
     nutr_val[:carbohydrates].to_f
   end
   def calories
-    # super.to_f
     nutr_val[:calories].to_f
   end
 

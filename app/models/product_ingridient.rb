@@ -9,12 +9,27 @@ class ProductIngridient < ActiveRecord::Base
 
   mount_uploader :image, ProductIngridientImageUploader
 
-  attr_accessor :price
+  store :nutr_val, accessors: [ :proteins, :fats, :carbohydrates, :calories ],
+                   coder: JSON
 
   attr_accessible :image, :name, :descr, :type, :type_id,
+                  :proteins, :fats, :carbohydrates, :calories,
                   :ingridients_packs_relations_attributes
 
   validates :name, presence: true
+
+  def proteins
+    nutr_val[:proteins].to_f
+  end
+  def fats
+    nutr_val[:fats].to_f
+  end
+  def carbohydrates
+    nutr_val[:carbohydrates].to_f
+  end
+  def calories
+    nutr_val[:calories].to_f
+  end
 
   # Get price or weight of ingridient for pack
   #   pack - ProductPack object or just id of this object (prefer)

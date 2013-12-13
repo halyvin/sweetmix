@@ -52,13 +52,30 @@ $(document).ready(function(){
       $("#total-weight").text( curweight.toString() + "г" );
     }
 
+    function correctTotalParam(paramname, theval) {
+      if (['price', 'weight', 'proteins', 'fats', 'carbohydrates', 'calories'].indexOf(paramname) < 0) {
+        return; }
+      var curval = parseFloat( $("#total-" + paramname).text() );
+      curval += theval;
+      var postfix = "г";
+      if (paramname == 'price') { postfix = "р"; }
+      else if (paramname == 'calories') { postfix = ""; }
+      $("#total-" + paramname).text( curval.toString() + postfix );
+    }
+
     ing.on('click', function(){
       var thisIng = $(this).closest($('.ingredients_item'));
       var checkedsize = thisIng.attr('data-checked-count')-0;
       var imgurl = thisIng.find('.ingredient_pic').attr('src');
       var id     = thisIng.attr('data-id');
+      
       var price  = parseFloat( thisIng.attr('data-price') );
       var weight  = parseFloat( thisIng.attr('data-weight') );
+      var proteins  = parseFloat( thisIng.attr('data-proteins') );
+      var fats  = parseFloat( thisIng.attr('data-fats') );
+      var carbohydrates  = parseFloat( thisIng.attr('data-carbohydrates') );
+      var calories  = parseFloat( thisIng.attr('data-calories') );
+
       var nextUnit = units.not('.active').first();
       var unit   = $('.unit[data-id='+id+']');
       if ($('.unit[data-id='+id+']').size()) nextUnit = unit;
@@ -90,8 +107,12 @@ $(document).ready(function(){
           $('.unit[data-id='+id+']').attr('data-allready-checked-size', '1');
         }
         points.not('.current').first().addClass('current');
-        correctTotalPrice( price );
-        correctTotalWeight( weight );
+        correctTotalParam( 'price', price );
+        correctTotalParam( 'weight', weight );
+        correctTotalParam( 'proteins', proteins );
+        correctTotalParam( 'fats', fats );
+        correctTotalParam( 'carbohydrates', carbohydrates );
+        correctTotalParam( 'calories', calories );
       };
 
       if(thisIng.hasClass('all_added') && checkedsize==3) {
@@ -103,8 +124,12 @@ $(document).ready(function(){
         $('.unit[data-id='+id+']').last().attr('data-id','');
         nextUnit = units.not('.active').first();
         points.removeClass('current');
-        correctTotalPrice( 0 - parseFloat(price) * 3 );
-        correctTotalWeight( 0 - parseFloat(weight) * 3 );
+        correctTotalParam( 'price', 0 - parseFloat(price) * 3 );
+        correctTotalParam( 'weight', 0 - parseFloat(weight) * 3 );
+        correctTotalParam( 'proteins', 0 - parseFloat(proteins) * 3 );
+        correctTotalParam( 'fats', 0 - parseFloat(fats) * 3 );
+        correctTotalParam( 'carbohydrates', 0 - parseFloat(carbohydrates) * 3 );
+        correctTotalParam( 'calories', 0 - parseFloat(calories) * 3 );
       };
     });
 
@@ -122,8 +147,12 @@ $(document).ready(function(){
         var checkedsize = removableIng.attr('data-checked-count')-0;
         removableIng.attr('data-checked-count', 0);
         if(checkedsize>2) removableIng.removeClass('all_added');
-        correctTotalPrice( 0 - (parseFloat(removableIng.attr('data-price')) * checkedsize) );
-        correctTotalWeight( 0 - (parseFloat(removableIng.attr('data-weight')) * checkedsize) );
+        correctTotalParam( 'price', 0 - (parseFloat(removableIng.attr('data-price')) * checkedsize) );
+        correctTotalParam( 'weight', 0 - (parseFloat(removableIng.attr('data-weight')) * checkedsize) );
+        correctTotalParam( 'proteins', 0 - (parseFloat(removableIng.attr('data-proteins')) * checkedsize) );
+        correctTotalParam( 'fats', 0 - (parseFloat(removableIng.attr('data-fats')) * checkedsize) );
+        correctTotalParam( 'carbohydrates', 0 - (parseFloat(removableIng.attr('data-carbohydrates')) * checkedsize) );
+        correctTotalParam( 'calories', 0 - (parseFloat(removableIng.attr('data-calories')) * checkedsize) );
       };
     });
 
