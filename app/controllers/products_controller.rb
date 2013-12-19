@@ -4,7 +4,7 @@ class ProductsController < FrontendController
   before_filter :detect_category
 
   def index
-    
+    @products = Product.visibles.precreated.where(category_id: @category.id)
   end
 
   def constructor
@@ -44,6 +44,27 @@ class ProductsController < FrontendController
       end
     else
       redirect_to action: :index
+    end
+  end
+
+  def create
+    if admin_user_signed_in?
+      prod_params = params[:product]
+      if prod_params
+        pack = ProductPack.find prod_params[:pack_id]
+        @product = Product.new pcba: true, price: 200, weight: 100,
+                               category_id: pack.category_id, pack_id: pack.id,
+                               basis_id: prod_params[:basis_id], hided: true
+        # TODO calculate price and width
+        # TODO parse ingridients
+        if @product.valid?
+          @product.save
+        else
+          @product = nil
+        end
+      end
+    else
+      redirect_to root_url
     end
   end
 

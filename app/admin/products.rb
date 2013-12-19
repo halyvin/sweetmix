@@ -1,47 +1,60 @@
 # -*- encoding : utf-8 -*-
 ActiveAdmin.register Product do
 
-  config.sort_order = "article_asc"
   config.batch_actions = false
 
-  menu false # priority: 1, parent: "Товары"
+  menu priority: 1, parent: "Товары"
 
-  filter :article
+  controller do
+    def scoped_collection
+      Product.precreated
+    end
+  end
+
   filter :name
-  filter :category
-  filter :plain
   filter :price
+  filter :plain
+  filter :category
   filter :pack
   filter :basis
   filter :weight
-
+  filter :hided
 
   index download_links: false do
-    column :article
     column :name
-    column :category
-    column(:plain) { |pr| pr.plain? ? t('yep') : t('nope') }
     column :price
-    column :pack
-    column :basis
-    column :weight
+    column "Информация" do |pr|
+      if pr.plain?
+        image_tag pr.image.url
+      else
+        [ pr.category.name,
+          pr.pack.name,
+          pr.basis.name,
+          "#{pr.weight} грамм" ].join('<br>').html_safe
+      end
+    end
+    column(:hided) { |pr| pr.hided? ? t('yep') : t('nope') }
     default_actions
   end
 
   show do |pr|
     attributes_table do
-      row :article
       row :name
-      row :category
-      row(:plain) { pr.plain? ? t('yep') : t('nope') }
       row :price
-      row :pack
-      row :basis
-      row :weight
+      row :descr
+      row(:image) { image_tag(pr.image.url) }
+      unless pr.plain?
+        row :category
+        row :pack
+        row :basis
+        row :weight
+      end
     end
-    panel "Ингридиенты" do
-      table_for pr.ingridients do
-        column "Название", :name
+    unless pr.plain?
+      panel "Ингридиенты" do
+        table_for pr.ingridients do
+          column "Название", :name
+        end
       end
     end
     active_admin_comments
@@ -49,14 +62,16 @@ ActiveAdmin.register Product do
 
   form do |f|
     f.inputs "" do
-      f.input :article
       f.input :name
-      f.input :category
-      f.input :plain
+      f.input :own_descr, input_html: { rows: 3 }
+      f.input :own_image, hint: "Допустимые форматы .jpg, .jpeg, .png, .gif"
       f.input :price
-      f.input :pack
-      f.input :basis
-      f.input :weight
+      f.input :hided
+      # TODO make creating not plain products in case of constructor is turned off
+      if f.object.new_record? && f.object.pcba = true && f.object.plain = true
+        f.input :pcba, as: :hidden
+        f.input :plain, as: :hidden
+      end
     end
     f.actions
   end

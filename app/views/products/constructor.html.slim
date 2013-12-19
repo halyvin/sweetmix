@@ -45,58 +45,66 @@
     - else
       .steps_content.ingredients.current
         aside.ingredients_aside
-          h2.title Основа:
-          / TODO
-          / select.select_pack
-          /   -# @pack.bases.each do |basis|
-          /     option value="#{basis.id}" selected=(basis == @basis) = basis.name
-          p = @basis.name
-          p: br
-          
+          = form_tag new_product_path, method: "post" do
+            h2.title Основа:
+            / TODO
+            / select.select_pack
+            /   -# @pack.bases.each do |basis|
+            /     option value="#{basis.id}" selected=(basis == @basis) = basis.name
+            = hidden_field_tag 'product[basis_id]', @basis.id
+            /
+            p = @basis.name
+            p: br
+            
 
-          h2.title Упаковка:
-          / TODO
-          / select name="select_basis"
-          /   -# @category.packs.each do |pack|
-          /     option value="#{pack.id}" selected=(pack == @pack) = pack.name
-          p = @pack.name
-          p: br
+            h2.title Упаковка:
+            / TODO
+            / select name="select_basis"
+            /   -# @category.packs.each do |pack|
+            /     option value="#{pack.id}" selected=(pack == @pack) = pack.name
+            = hidden_field_tag 'product[pack_id]', @pack.id
+            /
+            p = @pack.name
+            p: br
 
-          h2.title Ингридиенты:
-          ul.units_list
-            - (0..7).each do |nevermind|
-              li.unit data-allready-checked-size="0"
-                img src="" alt="" class="unit_pic"
-                ul.unit_currents_list
-                  li.unit_item
-                  li.unit_item
-                  li.unit_item
+            h2.title Ингридиенты:
+            = hidden_field_tag 'product[ingrids_str]', @pack.id
+            ul.units_list
+              - (0..7).each do |nevermind|
+                li.unit data-allready-checked-size="0"
+                  img src="" alt="" class="unit_pic"
+                  ul.unit_currents_list
+                    li.unit_item
+                    li.unit_item
+                    li.unit_item
 
-          h2.title Пищевая ценность на 100г:
-          ul class="nutritional_value_list"
-            li.nutritional_value_item
-              span.microelem Белки
-              span.microelem_value.proteins#total-proteins = "%gг" % @basis.proteins
-            li.nutritional_value_item
-              span.microelem Жиры
-              span.microelem_value.fats#total-fats = "%gг" % @basis.fats
-            li.nutritional_value_item
-              span.microelem Углеводы
-              span.microelem_value.carbohydrates#total-carbohydrates = "%gг" % @basis.carbohydrates
-            li.nutritional_value_item
-              span.microelem Ккал
-              span.microelem_value.calories#total-calories = "%g" % @basis.calories
+            h2.title Пищевая ценность на 100г:
+            ul class="nutritional_value_list"
+              li.nutritional_value_item
+                span.microelem Белки
+                span.microelem_value.proteins#total-proteins = "%gг" % @basis.proteins
+              li.nutritional_value_item
+                span.microelem Жиры
+                span.microelem_value.fats#total-fats = "%gг" % @basis.fats
+              li.nutritional_value_item
+                span.microelem Углеводы
+                span.microelem_value.carbohydrates#total-carbohydrates = "%gг" % @basis.carbohydrates
+              li.nutritional_value_item
+                span.microelem Ккал
+                span.microelem_value.calories#total-calories = "%g" % @basis.calories
 
-          input.btn type="submit" value="В корзину"
-          ul.totals_list
-            li.total_item
-              ' Вес
-              span.total_value#total-weight = "%gг" % @basis.weight_for(@pack)
-              '  /
-              span.total_value#max-capacity = "%gг" % @pack.capacity
-            li.total_item
-              ' Стоимость
-              span.total_value#total-price = "%gр" % @basis.price_for(@pack)
+            input.btn.disable type="submit" value="В корзину"
+            - if admin_user_signed_in?
+              input.btn type="submit" value="Сохранить как готовый рецепт"
+            ul.totals_list
+              li.total_item
+                ' Вес
+                span.total_value#total-weight = "%gг" % @basis.weight_for(@pack)
+                '  /
+                span.total_value#max-capacity = "%gг" % @pack.capacity
+              li.total_item
+                ' Стоимость
+                span.total_value#total-price = "%gр" % @basis.price_for(@pack)
 
         .ingredients_content
           - it_is_first = true

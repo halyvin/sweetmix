@@ -41,17 +41,6 @@ $(document).ready(function(){
     var ing      = $('.ingredient_pic_wrap');
     var units    = $('.unit');
 
-    function correctTotalPrice(priceval) {
-      var curprice = parseFloat( $("#total-price").text() );
-      curprice += priceval;
-      $("#total-price").text( curprice.toString() + "р" );
-    }
-    function correctTotalWeight(weightval) {
-      var curweight = parseFloat( $("#total-weight").text() );
-      curweight += weightval;
-      $("#total-weight").text( curweight.toString() + "г" );
-    }
-
     function correctTotalParam(paramname, theval) {
       if (['price', 'weight', 'proteins', 'fats', 'carbohydrates', 'calories'].indexOf(paramname) < 0) {
         return; }
@@ -61,6 +50,15 @@ $(document).ready(function(){
       if (paramname == 'price') { postfix = "р"; }
       else if (paramname == 'calories') { postfix = ""; }
       $("#total-" + paramname).text( curval.toString() + postfix );
+    }
+
+    function buildIngridsStrValue() {
+      var values_arr = [];
+      $(".units_list .unit.active").each(function(indx, elmn) {
+        var unit = $(this);
+        values_arr.push( unit.attr('data-id').substr(3) + 'c' + unit.attr('data-allready-checked-size') );
+      });
+      $("#product_ingrids_str").val( values_arr.join(',') );
     }
 
     ing.on('click', function(){
@@ -107,6 +105,7 @@ $(document).ready(function(){
           $('.unit[data-id='+id+']').attr('data-allready-checked-size', '1');
         }
         points.not('.current').first().addClass('current');
+        buildIngridsStrValue();
         correctTotalParam( 'price', price );
         correctTotalParam( 'weight', weight );
         correctTotalParam( 'proteins', proteins );
@@ -124,6 +123,7 @@ $(document).ready(function(){
         $('.unit[data-id='+id+']').last().attr('data-id','');
         nextUnit = units.not('.active').first();
         points.removeClass('current');
+        buildIngridsStrValue();
         correctTotalParam( 'price', 0 - parseFloat(price) * 3 );
         correctTotalParam( 'weight', 0 - parseFloat(weight) * 3 );
         correctTotalParam( 'proteins', 0 - parseFloat(proteins) * 3 );
@@ -147,6 +147,7 @@ $(document).ready(function(){
         var checkedsize = removableIng.attr('data-checked-count')-0;
         removableIng.attr('data-checked-count', 0);
         if(checkedsize>2) removableIng.removeClass('all_added');
+        buildIngridsStrValue();
         correctTotalParam( 'price', 0 - (parseFloat(removableIng.attr('data-price')) * checkedsize) );
         correctTotalParam( 'weight', 0 - (parseFloat(removableIng.attr('data-weight')) * checkedsize) );
         correctTotalParam( 'proteins', 0 - (parseFloat(removableIng.attr('data-proteins')) * checkedsize) );

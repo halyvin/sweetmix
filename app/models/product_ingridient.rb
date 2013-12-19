@@ -17,6 +17,7 @@ class ProductIngridient < ActiveRecord::Base
                   :ingridients_packs_relations_attributes
 
   validates :name, presence: true
+  validates_associated :ingridients_packs_relations
 
   def proteins
     nutr_val[:proteins].to_f

@@ -6,14 +6,12 @@ Sweetmix::Application.routes.draw do
   # This is fix of ActiveAdmin routes bug when AA rewrite root
   root :to => 'home#index'
 
-  # TODO remove
-  get 'sweets/constructor/next' => 'staticuses#create_edited'
-
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   ActiveAdmin.routes(self)
 
   get 'sweets/:category_slug/constructor' => 'products#constructor', as: :products_counstructor
+  post 'sweets/:category_slug/new_receipt' => 'products#create', as: :new_product
   get 'sweets/:category_slug' => 'products#index', as: :products
   get 'sweets' => 'products#index', as: :products_root
 

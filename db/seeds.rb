@@ -361,13 +361,6 @@ categories = ProductCategory.create([
     name_many: "Йогуртов",
     name_other: "Йогурты",
     slug: "yogurt"
-  },
-  {
-    name_one: "Подарочная карта",
-    name_few: "Подарочных карты",
-    name_many: "Подарочных карт",
-    name_other: "Подарочные карты",
-    slug: "presents"
   }
 ])
 

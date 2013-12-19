@@ -1,0 +1,54 @@
+.main role="content"
+  h1.title = @category.name
+  .wrap.content
+
+    / <div class="filters">
+    /   Параметры: 
+    /   <select name="elem_basis">
+    /     <option value="Основа кекса" selected>Основа кекса</option>
+    /     <option value="Основа кекса2">Основа кекса2</option>
+    /     <option value="Основа кекса3">Основа кекса3</option>
+    /   </select>
+    /   <select name="elem_ingredients">
+    /     <option value="Основа кекса" selected>С ингредиентом</option>
+    /     <option value="Основа кекса2">Орех</option>
+    /     <option value="Основа кекса2">Фундук</option>
+    /   </select>
+    /   <select name="elem_basis">
+    /     <option value="Основа кекса" selected>Без ингредиента</option>
+    /     <option value="Основа кекса2">Орех</option>
+    /     <option value="Основа кекса3">Фундук</option>
+    /   </select>
+    / </div>
+
+    .steps_content.basis.current
+      - if @products && @products.any?
+        ul.basis_list
+          - @products.each do |product|
+            li.basis_item
+              .basis_consist
+                h2.title Состав:
+                ul.basis_consist_list
+                  - product.basis.composition.split("\n").each do |composline|
+                    li.basis_consist_item = composline
+                  - product.ingridients.each do |ingridient|
+                    li.basis_consist_item = ingridient.name
+              .basis_func
+                = image_tag product.basis.image.url, :class => "basis_pic"
+                span.basis_price = "%gр" % product.price
+                a.btn href="#" Выбрать
+              .basis_desc
+                h2.title = product.name
+                p = product.descr
+
+      - else
+        p
+          ' Пока нет ни одного готового рецепта
+          = @category.name(5)
+          | .
+          - if @category.constuctable?
+            '  Но вы можете сами создать свой уникальный рецепт в
+            = link_to "конструкторе", products_counstructor_path(@category.slug)
+            | .
+          - else
+            |  Но мы работаем над этим. :)

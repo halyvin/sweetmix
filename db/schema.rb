@@ -157,14 +157,6 @@ ActiveRecord::Schema.define(:version => 20131207071744) do
 
   add_index "product_ingridients", ["type_id"], :name => "index_product_ingridients_on_type_id"
 
-  create_table "product_ingridients_products", :id => false, :force => true do |t|
-    t.integer "product_ingridient_id", :null => false
-    t.integer "product_id",            :null => false
-  end
-
-  add_index "product_ingridients_products", ["product_id"], :name => "index_product_ingridients_products_on_product_id"
-  add_index "product_ingridients_products", ["product_ingridient_id"], :name => "index_product_ingridients_products_on_product_ingridient_id"
-
   create_table "product_packs", :force => true do |t|
     t.integer  "category_id", :null => false
     t.string   "name",        :null => false
@@ -179,24 +171,35 @@ ActiveRecord::Schema.define(:version => 20131207071744) do
 
   create_table "products", :force => true do |t|
     t.boolean  "pcba"
+    t.string   "name",                           :null => false
+    t.float    "price",                          :null => false
+    t.string   "own_image"
+    t.text     "own_descr"
     t.boolean  "plain"
-    t.string   "name"
-    t.string   "article"
-    t.string   "image"
-    t.float    "price",       :null => false
     t.integer  "weight"
     t.integer  "category_id"
     t.integer  "pack_id"
     t.integer  "basis_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "hided",       :default => false, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "products", ["basis_id"], :name => "index_products_on_basis_id"
   add_index "products", ["category_id"], :name => "index_products_on_category_id"
+  add_index "products", ["hided"], :name => "index_products_on_hided"
   add_index "products", ["pack_id"], :name => "index_products_on_pack_id"
   add_index "products", ["pcba"], :name => "index_products_on_pcba"
   add_index "products", ["plain"], :name => "index_products_on_plain"
+
+  create_table "products_ingridients_relations", :force => true do |t|
+    t.integer "product_ingridient_id",                :null => false
+    t.integer "product_id",                           :null => false
+    t.integer "count",                 :default => 1, :null => false
+  end
+
+  add_index "products_ingridients_relations", ["product_id"], :name => "index_products_ingridients_relations_on_product_id"
+  add_index "products_ingridients_relations", ["product_ingridient_id"], :name => "index_products_ingridients_relations_on_product_ingridient_id"
 
   create_table "site_settings", :force => true do |t|
     t.string   "ident",                         :null => false
