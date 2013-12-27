@@ -36,7 +36,6 @@ ActiveAdmin.register SiteSetting do
         f.input :value, as: :boolean, label: t('yep')
       when 2 # number
         f.input :value, as: :number
-      # TODO datetime inputs value setting
       # when 3 # datetime
       #   f.input :value, as: :datetime
       when 4 # content page
