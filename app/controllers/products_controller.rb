@@ -53,13 +53,28 @@ class ProductsController < FrontendController
       prod_params = params[:product]
       if prod_params
         pack = ProductPack.find prod_params[:pack_id]
-        @product = Product.new pcba: true, price: 200, weight: 100,
-                               category_id: pack.category_id, pack_id: pack.id,
-                               basis_id: prod_params[:basis_id], hided: true
-        # TODO calculate price and width
-        # TODO parse ingridients
+        @product = Product.new pcba: true, hided: true,
+                               category_id: pack.category_id,
+                               pack_id: pack.id,
+                               basis_id: prod_params[:basis_id]
+        @product.calculate_price_and_weight!
+        
         if @product.valid?
           @product.save
+          # parse ingridients
+          ingrids_str_parts = prod_params[:ingrids_str].split(',')
+          if ingrids_str_parts.any?
+            ingrids_str_parts.each do |instrprt|
+              choosed_ingridient_data = instrprt.split 'c'
+              if ProductIngridient.where(id: choosed_ingridient_data[0]).count > 0
+                @product.products_ingridients_relations.create(
+                  product_ingridient_id: choosed_ingridient_data[0],
+                  count: choosed_ingridient_data[1])
+              end
+            end
+            @product.calculate_price_and_weight!
+            @product.save
+          end
         else
           @product = nil
         end

@@ -24,8 +24,8 @@ class Product < ActiveRecord::Base
   validates :name, :price, presence: true
   validates :weight, :category, :pack, :basis, presence: true,
                                                :unless => "plain?"
-  # TODO validate category-pack-basis connections
-  # TODO validate pack-ingridients connections
+  # made decision not validate category-pack-basis connections
+  # made decision not validate pack-ingridients connections :)
 
   validates_associated :products_ingridients_relations
 
@@ -40,13 +40,27 @@ class Product < ActiveRecord::Base
     own_descr.blank? && basis.present? ? basis.descr : own_descr
   end
 
-  private
-
-  def check_and_make_name_if_can
-    unless self.name.present? || self.plain?
-      if self.basis.present?
-        self.name = self.basis.name
+  def calculate_price_and_weight!
+    whole_price = 0
+    whole_weight = 0
+    if pack.present? && basis.present?
+      whole_price = basis.price_for(pack)
+      whole_weight = basis.weight_for(pack)
+      ingridients.each do |ingrid|
+        whole_price += ingrid.price_for(pack)
+        whole_weight += ingrid.weight_for(pack)
       end
     end
+    self.price = whole_price
+    self.weight = whole_weight
   end
+
+  private
+    def check_and_make_name_if_can
+      unless self.name.present? || self.plain?
+        if self.basis.present?
+          self.name = self.basis.name
+        end
+      end
+    end
 end
