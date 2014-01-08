@@ -51,7 +51,7 @@ ActiveAdmin.register Product do
       end
     end
     unless pr.plain?
-      panel "Ингридиенты" do
+      panel "Ингредиенты" do
         table_for pr.products_ingridients_relations do
           column "Название", :product_ingridient
           column "Количество", :count

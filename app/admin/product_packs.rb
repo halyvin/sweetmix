@@ -56,7 +56,7 @@ ActiveAdmin.register ProductPack do
     #   end
     # end
 
-    panel "Ингридиенты", style: "overflow: hidden" do
+    panel "Ингредиенты", style: "overflow: hidden" do
       pack.ingridients_packs_relations.each do | ipr |
         div(:style => "float: left; margin: 0 14px 14px 0; border: 1px dashed #666; padding: 0 6px;") do
           attributes_table_for ipr do
@@ -69,7 +69,7 @@ ActiveAdmin.register ProductPack do
       end
     end if pack.ingridients_packs_relations.any?
 
-    # panel "Ингридиенты" do
+    # panel "Ингредиенты" do
     #   table_for pack.ingridients_packs_relations do
     #     column "Изображение", :image do |ipr|
     #       image_tag ipr.product_ingridient.image.url, size: "47x47"

@@ -67,7 +67,7 @@
             p = @pack.name
             p: br
 
-            h2.title Ингридиенты:
+            h2.title Ингредиенты:
             = hidden_field_tag 'product[ingrids_str]', @pack.id
             ul.units_list
               - (0..7).each do |nevermind|

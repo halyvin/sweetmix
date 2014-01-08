@@ -58,10 +58,10 @@ ru:
         many:  "Типов ингредиентов"
         other: "Типы ингредиентов"
       product_ingridient:
-        one:   "Ингридиент"
-        few:   "Ингридиента"
-        many:  "Ингридиентов"
-        other: "Ингридиенты"
+        one:   "Ингредиент"
+        few:   "Ингредиента"
+        many:  "Ингредиентов"
+        other: "Ингредиенты"
       ingridients_packs_relation:
         one:   "Относительно упаковок"
         few:   "Относительно упаковок"
@@ -182,7 +182,7 @@ ru:
         carbohydrates: "Углеводы (на 100г)"
         calories: "Килокалории (на 100г)"
       ingridients_packs_relation:
-        product_ingridient: "Ингридиент"
+        product_ingridient: "Ингредиент"
         product_pack: "Упаковка"
         price: "Стоимость"
         weight: "Вес"
@@ -198,7 +198,7 @@ ru:
         category: "Категория"
         pack: "Упаковка"
         basis: "Основа"
-        ingridients: "Ингридиенты"
+        ingridients: "Ингредиенты"
         hided: "Скрыт?"
       social_link:
         social_type: "Соцсеть"

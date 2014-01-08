@@ -17,14 +17,14 @@ ActiveAdmin.register ProductIngridientType do
     attributes_table do
       row :name
     end
-    panel "Ингридиенты" do
+    panel "Ингредиенты" do
       table_for ingrtype.ingridients do
         column "Название", :name do |ingr|
           link_to ingr.name, admin_product_ingridient_path(ingr)
         end
       end
     end
-    panel "Ингридиенты", style: "overflow: hidden" do
+    panel "Ингредиенты", style: "overflow: hidden" do
       ingrtype.ingridients.each do | ingr |
         div(:style => "float: left; margin: 0 14px 14px 0; border: 1px dashed #666; padding: 0 6px;") do
           attributes_table_for ingr do
