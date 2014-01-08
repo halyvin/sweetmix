@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BasesPacksRelation < ActiveRecord::Base
   belongs_to :product_pack
   belongs_to :product_basis
@@ -6,7 +7,13 @@ class BasesPacksRelation < ActiveRecord::Base
                   :product_basis, :product_basis_id
 
   validates :price, :weight, :product_pack, :product_basis, presence: true
+  validates :weight, numericality: { only_integer: true, greater_than: 0 }
+  validate :weight_cannot_be_greater_then_pack_capacity
 
-  # TODO validates weight less than capacity of pack
-  # then validate pack capacity to be greater than any basis weight
+  private
+    def weight_cannot_be_greater_then_pack_capacity
+      if product_pack.present? && product_pack.capacity < weight
+        errors.add :weight, "Вес не может быть больше, чем емкость упаковки (#{product_pack.capacity})"
+      end
+    end
 end

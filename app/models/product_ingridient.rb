@@ -1,9 +1,10 @@
 class ProductIngridient < ActiveRecord::Base
   belongs_to :type, class_name: "ProductIngridientType"
-  has_and_belongs_to_many :products
-  has_many :ingridients_packs_relations
+  has_many :ingridients_packs_relations, dependent: :destroy
   has_many :packs, through: :ingridients_packs_relations,
                    source: :product_pack
+  has_many :products_ingridients_relations, dependent: :destroy
+  # has_many :products, through: :products_ingridients_relations # don't need right now
 
   accepts_nested_attributes_for :ingridients_packs_relations, :allow_destroy => true, :reject_if => :all_blank
 
