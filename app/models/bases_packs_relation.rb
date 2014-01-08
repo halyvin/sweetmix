@@ -6,4 +6,7 @@ class BasesPacksRelation < ActiveRecord::Base
                   :product_basis, :product_basis_id
 
   validates :price, :weight, :product_pack, :product_basis, presence: true
+
+  # TODO validates weight less than capacity of pack
+  # then validate pack capacity to be greater than any basis weight
 end

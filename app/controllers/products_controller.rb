@@ -47,7 +47,9 @@ class ProductsController < FrontendController
     end
   end
 
+  # creating in constructor
   def create
+    front = chiksa
     if admin_user_signed_in?
       prod_params = params[:product]
       if prod_params
