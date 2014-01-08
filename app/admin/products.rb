@@ -67,7 +67,6 @@ ActiveAdmin.register Product do
       f.input :own_image, hint: "Допустимые форматы .jpg, .jpeg, .png, .gif"
       f.input :price
       f.input :hided
-      # TODO make creating not plain products in case of constructor is turned off
       if f.object.new_record? && f.object.pcba = true && f.object.plain = true
         f.input :pcba, as: :hidden
         f.input :plain, as: :hidden

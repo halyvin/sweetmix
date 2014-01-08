@@ -12,7 +12,7 @@ class ProductsController < FrontendController
     @basis = nil
     @ingridient_structured = []
 
-    if @category.constuctable?
+    if (admin_user_signed_in? && @category.packs.active.any?) || @category.constuctable?
       if @category.packs.count == 1
         @pack = @category.packs.first
       else

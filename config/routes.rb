@@ -2,7 +2,6 @@ Sweetmix::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  # TODO : remove next two lines after update to activeadmin 0.6.1
   # This is fix of ActiveAdmin routes bug when AA rewrite root
   root :to => 'home#index'
 

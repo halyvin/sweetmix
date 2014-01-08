@@ -58,7 +58,6 @@ group :assets do
 end
 
 # using old version of jquery-rails for Active Admin correct work
-# TODO update when update from active_admin 0.6.0
 gem 'jquery-rails', '~>2.3'
 
 # group :development do
