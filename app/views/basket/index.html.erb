@@ -1,7 +1,33 @@
-<div class="main" role="content">
+<% content_for :html_tag_attributes do %>
+  ng-app
+<% end %>
+<% content_for :head do %>
+  <%= javascript_include_tag "products" %>
+<% end %>
+
+<script>
+  window.basket_items = [];
+  <% @basket_items.each do |basket_item| %>
+    <% product = basket_item[0] %>
+    window.basket_items.push({
+      id: <%= product.id %>,
+      name: "<%= product.name %>",
+      image: "<%= product.image.url %>",
+      weight: <%= product.weight %>,
+      price: <%= product.price %>,
+      <% if (ingrids = product.ingridients).any? %>
+      ingridients: [ <% ingrids.each do |ingrid| %> "<%= ingrid.image.url %>", <% end %> ],
+      <% end %>
+      count: <%= basket_item[1] %>
+    });
+  <% end %>
+</script>
+
+<div class="main" role="content" ng-controller="BasketController">
   <h1 class="title">Корзина</h1>
   <div class="wrap content">
-    <table class="basket_table">
+    <p ng-show="basket_items.length < 1">Корзина пустая</p>
+    <table class="basket_table" ng-show="basket_items.length">
       <thead class="basket_thead">
         <tr class="basket_tr">
           <td class="basket_td">Продукты</td>
@@ -10,44 +36,39 @@
           <td class="basket_td">Цена</td>
           <td class="basket_td">Количество</td>
           <td class="basket_td">Сумма</td>
-          <td class="basket_td"><input type="submit" class="btn" value="Удалить всё"></td>
+          <td class="basket_td"><input type="submit" class="btn" value="Удалить всё" ng-click="clearBasket()"></td>
         </tr>
       </thead>
-      <tbody class="basket_tbody">
-        <% @basket_items.each do |basket_item| %>
-          <% product = basket_item[0] %>
-          <tr class="basket_tr">
-            <td class="basket_td">
-              <%= image_tag product.image.url, :class => "product_pic" %>
-              <%= product.name %>
-            </td>
-            <td class="basket_td">
-              <% if (ingrids = product.ingridients).any? %>
-                <ul class="ingredients_list">
-                  <% ingrids.each do |ingrid| %>
-                    <li class="ingredient"><%= image_tag ingrid.image.url, :class => 'basket_ingredient_pic' %></li>
-                  <% end %>
-                </ul>
-              <% end %>
-            </td>
-            <td class="basket_td">
-              <%= "%gг" % product.weight %>
-            </td>
-            <td class="basket_td">
-              <%= "%gр" % product.price %>
-            </td>
-            <td class="basket_td">
-              <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" value="<%= basket_item[1] %>">
-            </td>
-            <td class="basket_td">
-              <%= "%gр" % (product.price * basket_item[1].to_i) %>
-            </td>
-            <td class="basket_td">
-              <%# TODO # <a href="#" class="btn type2">Редактировать</a> %>
-              <input type="submit" class="btn" value="Удалить">
-            </td> 
-          </tr>
-        <% end %>
+      <tbody class="basket_tbody" ng-cloak>
+        <tr class="basket_tr" ng-repeat="item in basket_items">
+          <td class="basket_td">
+            <img ng-src="{{ item.image }}" alt="" class="product_pic">
+            {{ item.name }}
+          </td>
+          <td class="basket_td">
+            <ul class="ingredients_list" ng-if="item.ingridients && item.ingridients.length > 0">
+              <li class="ingredient" ng-repeat="ingrid in item.ingridients">
+                <img ng-src="{{ ingrid }}" alt="" class="basket_ingredient_pic">
+              </li>
+            </ul>
+          </td>
+          <td class="basket_td">
+            {{ item.weight }}г
+          </td>
+          <td class="basket_td">
+            {{ item.price }}р
+          </td>
+          <td class="basket_td">
+            <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" ng-model="item.count" ng-change="recalcTotals()">
+          </td>
+          <td class="basket_td">
+            {{ item.price * item.count }}р
+          </td>
+          <td class="basket_td">
+            <%# TODO # <a href="#" class="btn type2">Редактировать</a> %>
+            <a class="btn" ng-click="removeBasketItem(item.id)">Удалить</a>
+          </td> 
+        </tr>
       </tbody>
     </table>
     <%# TODO
@@ -56,8 +77,8 @@
     </div>
     %>
     <ul class="totals_list">
-      <li class="total_item">Общий вес<span class="delivery_value">140г</span></li>
-      <li class="total_item">Общая стоимость<span class="delivery_value">1000р</span></li>
+      <li class="total_item">Общий вес<span class="delivery_value">{{ total_weight }}г</span></li>
+      <li class="total_item">Общая стоимость<span class="delivery_value">{{ total_price }}р</span></li>
     </ul>
     <div class="submit_wrap elems_at_sides">
       <form action="/checkout" method="GET">

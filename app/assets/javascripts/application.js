@@ -24,5 +24,4 @@
 //= require home
 //= require questions
 //= require comments
-//= require products
-//= require basket
+//= require x_products

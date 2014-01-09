@@ -77,6 +77,7 @@ module Sweetmix
       redactor.js
       redactor_lang_ru.js
       chosen.jquery.js
+      product.js
     )
   end
 end

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="<%= I18n.locale %>">
+<html lang="<%= I18n.locale %>" <%= yield :html_tag_attributes %>>
 <head>
   <meta charset="<%= Rails.application.config.encoding %>">
   <meta name='yandex-verification' content='463cac3e5778ddea'>
@@ -19,6 +19,8 @@
   <%= csrf_meta_tags %>
 
   <%= javascript_include_tag "application" %>
+
+  <%= yield :head %>
 
 </head>
 <body>
