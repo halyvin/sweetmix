@@ -1,6 +1,4 @@
-<% content_for :html_tag_attributes do %>
-  ng-app
-<% end %>
+<% content_for :html_tag_attributes do %>ng-app="sweetapp"<% end %>
 <% content_for :head do %>
   <%= javascript_include_tag "products" %>
 <% end %>
@@ -23,7 +21,7 @@
   <% end %>
 </script>
 
-<div class="main" role="content" ng-controller="BasketController">
+<div class="main" role="content" ng-controller="BasketCtrl">
   <h1 class="title">Корзина</h1>
   <div class="wrap content">
     <p ng-show="basket_items.length < 1">Корзина пустая</p>

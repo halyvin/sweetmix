@@ -1,5 +1,6 @@
-function BasketController($scope) {
+var myApp = angular.module('sweetapp', []);
 
+myApp.controller('BasketCtrl', ['$scope', function($scope){
   $scope.basket_items = window.basket_items;
 
   $scope.total_price = 0;
@@ -32,7 +33,7 @@ function BasketController($scope) {
     $scope.basket_items = [];
     $scope.recalcTotals();
   };
-}
+}]);
 
 // $(document).ready(function(){
 //   if ($('.quantity_select').length) { customQuantity(); }
