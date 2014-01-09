@@ -1,0 +1,69 @@
+<div class="main" role="content">
+  <h1 class="title">Корзина</h1>
+  <div class="wrap content">
+    <table class="basket_table">
+      <thead class="basket_thead">
+        <tr class="basket_tr">
+          <td class="basket_td">Продукты</td>
+          <td class="basket_td">Ингредиенты</td>
+          <td class="basket_td">Вес</td>
+          <td class="basket_td">Цена</td>
+          <td class="basket_td">Количество</td>
+          <td class="basket_td">Сумма</td>
+          <td class="basket_td"><input type="submit" class="btn" value="Удалить всё"></td>
+        </tr>
+      </thead>
+      <tbody class="basket_tbody">
+        <% @basket_items.each do |basket_item| %>
+          <% product = basket_item[0] %>
+          <tr class="basket_tr">
+            <td class="basket_td">
+              <%= image_tag product.image.url, :class => "product_pic" %>
+              <%= product.name %>
+            </td>
+            <td class="basket_td">
+              <% if (ingrids = product.ingridients).any? %>
+                <ul class="ingredients_list">
+                  <% ingrids.each do |ingrid| %>
+                    <li class="ingredient"><%= image_tag ingrid.image.url, :class => 'basket_ingredient_pic' %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </td>
+            <td class="basket_td">
+              <%= "%gг" % product.weight %>
+            </td>
+            <td class="basket_td">
+              <%= "%gр" % product.price %>
+            </td>
+            <td class="basket_td">
+              <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" value="<%= basket_item[1] %>">
+            </td>
+            <td class="basket_td">
+              <%= "%gр" % (product.price * basket_item[1].to_i) %>
+            </td>
+            <td class="basket_td">
+              <%# TODO # <a href="#" class="btn type2">Редактировать</a> %>
+              <input type="submit" class="btn" value="Удалить">
+            </td> 
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%# TODO
+    <div class="retry_order input_wrap">
+      <input type="text" placeholder="Введите Email и повторите последний заказ"> <div class="btn">Повторить заказ</div>
+    </div>
+    %>
+    <ul class="totals_list">
+      <li class="total_item">Общий вес<span class="delivery_value">140г</span></li>
+      <li class="total_item">Общая стоимость<span class="delivery_value">1000р</span></li>
+    </ul>
+    <div class="submit_wrap elems_at_sides">
+      <form action="/checkout" method="GET">
+      <a href="#" class="btn type2">Вернуться в магазин</a>
+      <input type="submit" class="btn" value="Оформить заказ">
+      </form>
+    </div>
+  </div>
+</div>

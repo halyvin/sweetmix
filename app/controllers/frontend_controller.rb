@@ -40,6 +40,26 @@ class FrontendController < ApplicationController
     end
     cookies[:sweetcart] = products_in_da_cart.join CART_PRODUCTS_DELIM
   end
+
+  def get_products_of_cart
+    cart_items = []
+    if cookies[:sweetcart]
+      ids = []
+      counts_by_id = []
+
+      cookies[:sweetcart].split(CART_PRODUCTS_DELIM).each do |prindcstr|
+        prindc = prindcstr.split CART_COUNT_DELIM
+        prindc_id = prindc[0].to_i
+        ids << prindc_id
+        counts_by_id[prindc_id] = prindc[1]
+      end
+
+      Product.where(id: ids).each do |found_product|
+        cart_items << [found_product, counts_by_id[found_product.id]]
+      end
+    end
+    return cart_items
+  end
   # end of cart functional
 
   def seo

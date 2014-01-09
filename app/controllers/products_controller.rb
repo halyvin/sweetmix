@@ -49,33 +49,24 @@ class ProductsController < FrontendController
 
   # creating from constructor
   def create
-    can_create_with_this_params = true
-    new_prod_params = params[:product]
-    can_create_with_this_params = false unless new_prod_params
-    it_is_receipt_creation = new_prod_params[:pcba] &&
-                             new_prod_params[:pcba].present? &&
-                             admin_user_signed_in?
-    if can_create_with_this_params && it_is_receipt_creation
-      can_create_with_this_params = false
-    end
+    if new_prod_params = params[:product]
+      it_is_receipt_creation = new_prod_params[:pcba] &&
+                               new_prod_params[:pcba].present? &&
+                               admin_user_signed_in?
 
-    if can_create_with_this_params
       pack = ProductPack.find new_prod_params[:pack_id]
 
       cr_pars = { category_id: pack.category_id,
                   pack_id: pack.id,
                   basis_id: new_prod_params[:basis_id] }
-
-      if it_is_receipt_creation
-        cr_pars[:pcba] = true
-        cr_pars[:hided] = true
-      end
+      cr_pars[:pcba] = cr_pars[:hided] = true if it_is_receipt_creation
 
       @product = Product.new cr_pars
       @product.calculate_price_and_weight!
         
       if @product.valid?
         @product.save
+
         # parse ingridients
         ingrids_str_parts = new_prod_params[:ingrids_str].split(',')
         if ingrids_str_parts.any?
@@ -90,10 +81,15 @@ class ProductsController < FrontendController
           @product.calculate_price_and_weight!
           @product.save
         end
-        add_product_to_cart(@product, true) unless it_is_receipt_creation
+
+        unless it_is_receipt_creation
+          add_product_to_cart(@product, true)
+          redirect_to basket_path
+        end
       else
         @product = nil
       end
+      # render create view
     else
       redirect_to root_url
     end
