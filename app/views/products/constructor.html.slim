@@ -45,7 +45,7 @@
     - else
       .steps_content.ingredients.current
         aside.ingredients_aside
-          = form_tag new_product_path, method: "post" do
+          = form_tag new_product_path, method: "post", id: "new-product-form" do
             h2.title Основа:
             / TODO
             / select.select_pack
@@ -93,9 +93,10 @@
                 span.microelem Ккал
                 span.microelem_value.calories#total-calories = "%g" % @basis.calories
 
-            input.btn.disable type="submit" value="В корзину"
+            input.btn type="submit" value="В корзину"
             - if admin_user_signed_in?
-              input.btn type="submit" value="Сохранить как готовый рецепт"
+              = hidden_field_tag 'product[pcba]'
+              .btn#ready-recipe-saving Сохранить как готовый рецепт
             ul.totals_list
               li.total_item
                 ' Вес

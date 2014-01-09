@@ -47,37 +47,57 @@ class ProductsController < FrontendController
     end
   end
 
-  # creating in constructor
+  # creating from constructor
   def create
-    if admin_user_signed_in?
-      prod_params = params[:product]
-      if prod_params
-        pack = ProductPack.find prod_params[:pack_id]
-        @product = Product.new pcba: true, hided: true,
-                               category_id: pack.category_id,
-                               pack_id: pack.id,
-                               basis_id: prod_params[:basis_id]
-        @product.calculate_price_and_weight!
+    can_create_with_this_params = true
+    new_prod_params = params[:product]
+    can_create_with_this_params = false unless new_prod_params
+    it_is_receipt_creation = new_prod_params[:pcba] &&
+                             new_prod_params[:pcba].present? &&
+                             admin_user_signed_in?
+    if can_create_with_this_params && it_is_receipt_creation
+      can_create_with_this_params = false
+    end
+
+    if can_create_with_this_params
+      pack = ProductPack.find new_prod_params[:pack_id]
+
+      cr_pars = { category_id: pack.category_id,
+                  pack_id: pack.id,
+                  basis_id: new_prod_params[:basis_id] }
+
+      if it_is_receipt_creation
+        cr_pars[:pcba] = true
+        cr_pars[:hided] = true
+      end
+
+      @product = Product.new cr_pars
+      @product.calculate_price_and_weight!
         
-        if @product.valid?
-          @product.save
-          # parse ingridients
-          ingrids_str_parts = prod_params[:ingrids_str].split(',')
-          if ingrids_str_parts.any?
-            ingrids_str_parts.each do |instrprt|
-              choosed_ingridient_data = instrprt.split 'c'
-              if ProductIngridient.where(id: choosed_ingridient_data[0]).count > 0
-                @product.products_ingridients_relations.create(
-                  product_ingridient_id: choosed_ingridient_data[0],
-                  count: choosed_ingridient_data[1])
-              end
+      if @product.valid?
+        @product.save
+        # parse ingridients
+        ingrids_str_parts = new_prod_params[:ingrids_str].split(',')
+        if ingrids_str_parts.any?
+          ingrids_str_parts.each do |instrprt|
+            choosed_ingridient_data = instrprt.split 'c'
+            if ProductIngridient.where(id: choosed_ingridient_data[0]).count > 0
+              @product.products_ingridients_relations.create(
+                product_ingridient_id: choosed_ingridient_data[0],
+                count: choosed_ingridient_data[1])
             end
-            @product.calculate_price_and_weight!
-            @product.save
           end
-        else
-          @product = nil
+          @product.calculate_price_and_weight!
+          @product.save
+
+          unless it_is_receipt_creation
+            cookies[:sweetcart] = "" unless cookies[:sweetcart]
+            cookies[:sweetcart] += "&" if cookies[:sweetcart].present?
+            cookies[:sweetcart] += "#{@product.id}c1"
+          end
         end
+      else
+        @product = nil
       end
     else
       redirect_to root_url

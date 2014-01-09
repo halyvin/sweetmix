@@ -61,6 +61,11 @@ $(document).ready(function(){
       $("#product_ingrids_str").val( values_arr.join(',') );
     }
 
+    $("#ready-recipe-saving").click(function() {
+      $("#product_pcba").val(true);
+      $("#new-product-form").submit();
+    });
+
     ing.on('click', function(){
       var thisIng = $(this).closest($('.ingredients_item'));
       var checkedsize = thisIng.attr('data-checked-count')-0;
