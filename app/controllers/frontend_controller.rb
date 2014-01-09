@@ -16,6 +16,32 @@ class FrontendController < ApplicationController
     @seo_carrier = @page
   end
 
+  # cart functional
+  CART_PRODUCTS_DELIM = '&'
+  CART_COUNT_DELIM = 'c'
+
+  def add_product_to_cart(product, absolutely_new_product)
+    cookies[:sweetcart] = "" unless cookies[:sweetcart]
+    products_in_da_cart = cookies[:sweetcart].split CART_PRODUCTS_DELIM
+    found_in_cart = false
+    unless absolutely_new_product
+      products_in_da_cart.each_index do |indx|
+        prindc = products_in_da_cart[indx].split(CART_COUNT_DELIM)
+        if prindc[0] == product.id
+          found_in_cart = true
+          new_count = (prindc[0].to_i + 1).to_s
+          products_in_da_cart[indx] = prindc[0] + CART_COUNT_DELIM + new_count
+          break
+        end
+      end
+    end
+    unless found_in_cart
+      products_in_da_cart << "#{product.id}#{CART_COUNT_DELIM}1"
+    end
+    cookies[:sweetcart] = products_in_da_cart.join CART_PRODUCTS_DELIM
+  end
+  # end of cart functional
+
   def seo
     @seo ||= Seo::Basic.new @seo_carrier, false
   end

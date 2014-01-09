@@ -89,13 +89,8 @@ class ProductsController < FrontendController
           end
           @product.calculate_price_and_weight!
           @product.save
-
-          unless it_is_receipt_creation
-            cookies[:sweetcart] = "" unless cookies[:sweetcart]
-            cookies[:sweetcart] += "&" if cookies[:sweetcart].present?
-            cookies[:sweetcart] += "#{@product.id}c1"
-          end
         end
+        add_product_to_cart(@product, true) unless it_is_receipt_creation
       else
         @product = nil
       end
