@@ -11,4 +11,5 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require angular
+//= require angular-cookies
 //= require basket

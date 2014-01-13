@@ -1,10 +1,28 @@
-var myApp = angular.module('sweetapp', []);
+var myApp = angular.module('sweetapp', ['ngCookies']);
 
-myApp.controller('BasketCtrl', ['$scope', function($scope){
+myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
   $scope.basket_items = window.basket_items;
 
   $scope.total_price = 0;
   $scope.total_weight = 0;
+
+  function getSweetcartElements() {
+    return ($cookies.sweetcart || "").split('&');
+  }
+  function putElementsToSweetcart(elements) {
+    $cookies.sweetcart = elements.join('&');
+    return true;
+  }
+  function getIndexByProductId(elements, idshnik) {
+    var found_indx = -1;
+    for (var j = 0; j < elements.length; j++) {
+      if (elements[j].split('c')[0] == idshnik) {
+        found_indx = j;
+        break;
+      }
+    }
+    return found_indx;
+  }
 
   $scope.recalcTotals = function() {
     var totpr = 0, totwt = 0;
@@ -19,10 +37,27 @@ myApp.controller('BasketCtrl', ['$scope', function($scope){
 
   $scope.recalcTotals();
 
+  $scope.saveCount = function (item) {
+    var cart_elements = getSweetcartElements();
+    var j = getIndexByProductId(cart_elements, item.id);
+    if (j > -1) {
+      var elem_parts = cart_elements[j].split('c');
+      elem_parts[1] = item.count.toString();
+      cart_elements[j] = elem_parts.join('c');
+    }
+    putElementsToSweetcart(cart_elements);
+  }
+
   $scope.removeBasketItem = function( itemid ) {
     for (var i = 0; i < $scope.basket_items.length; i++) {
       if ($scope.basket_items[i].id === itemid) {
         $scope.basket_items.splice(i, 1);
+
+        var cart_elements = getSweetcartElements();
+        var j = getIndexByProductId(cart_elements, itemid);
+        if (j > -1) { cart_elements.splice(j, 1); }
+        putElementsToSweetcart(cart_elements);
+
         $scope.recalcTotals();
         break;
       }
@@ -31,6 +66,7 @@ myApp.controller('BasketCtrl', ['$scope', function($scope){
 
   $scope.clearBasket = function() {
     $scope.basket_items = [];
+    $cookies.sweetcart = "";
     $scope.recalcTotals();
   };
 }]);
