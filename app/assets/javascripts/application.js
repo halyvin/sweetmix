@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require jquery-ui.min
 //= require jquery.dropkick-1.0.0
+//= require jquery.cookie
 //= require ui_inputs
 //= require jquery.popapilus
 //= require flash_message

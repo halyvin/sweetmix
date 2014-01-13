@@ -34,9 +34,12 @@
                   - product.ingridients.each do |ingridient|
                     li.basis_consist_item = ingridient.name
               .basis_func
-                = image_tag product.basis.image.url, :class => "basis_pic"
+                = image_tag product.image.url, :class => "basis_pic"
                 span.basis_price = "%gр" % product.price
-                a.btn href="#" Выбрать
+                - if @basket_items.include? product
+                  a.btn href="#{basket_path}" В корзине
+                - else
+                  a.btn.want_to_basket data-id=product.id href="#{basket_path}" В корзину
               .basis_desc
                 h2.title = product.name
                 p = product.descr

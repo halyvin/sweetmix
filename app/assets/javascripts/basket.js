@@ -21,6 +21,7 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
   $scope.total_price = 0;
   $scope.total_weight = 0;
 
+  // TODO refactor (all cart functions in main.js)
   function getSweetcartElements() {
     return ($cookies.sweetcart || "").split('&');
   }

@@ -55,7 +55,8 @@ class FrontendController < ApplicationController
       end
 
       Product.where(id: ids).each do |found_product|
-        cart_items << [found_product, counts_by_id[found_product.id]]
+        found_product.count = counts_by_id[found_product.id];
+        cart_items << found_product
       end
     end
     return cart_items

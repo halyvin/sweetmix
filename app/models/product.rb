@@ -9,6 +9,7 @@ class Product < ActiveRecord::Base
 
   mount_uploader :own_image, ProductBasisImageUploader
 
+  attr_accessor :count #little helper
 
   accepts_nested_attributes_for :products_ingridients_relations,
                                 allow_destroy: true,

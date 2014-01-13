@@ -5,6 +5,8 @@ class ProductsController < FrontendController
 
   def index
     @products = Product.visibles.precreated.where(category_id: @category.id)
+    @basket_items = get_products_of_cart
+    logger.debug @basket_items
   end
 
   def constructor

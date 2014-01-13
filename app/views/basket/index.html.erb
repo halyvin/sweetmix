@@ -7,16 +7,15 @@
   <h1 class="title">Корзина</h1>
   <div class="wrap content" ng-init="basket_items = [
 <% not_first = false %>
-<% @basket_items.each do |basket_item| %>
+<% @basket_items.each do |product| %>
   <% if not_first %>, <% else %><% not_first = true %><% end %>
-  <% product = basket_item[0] %>
   { id: <%= product.id %>,
     name: '<%= product.name %>',
     image: '<%= product.image.url %>',
     weight: <%= product.weight %>,
     price: <%= product.price %>,
     <% if (ingrids = product.ingridients).any? %>ingridients: [<%= ingrids.map {|ingrid| "'#{ingrid.image.url}'" }.join(',').html_safe %>],<% end %>
-    count: <%= basket_item[1] %> }
+    count: <%= product.count %> }
 <% end %> ]">
     <p ng-show="basket_items.length < 1">Корзина пустая</p>
     <table class="basket_table" ng-show="basket_items.length">
