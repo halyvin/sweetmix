@@ -1,7 +1,22 @@
 var myApp = angular.module('sweetapp', ['ngCookies']);
 
+// myApp.directive('onFinishRender', function ($timeout) {
+//   return {
+//     restrict: 'A',
+//     link: function (scope, element, attr) {
+//       if (scope.$last === true) {
+//         $timeout(function () {
+//           scope.$emit('ngRepeatFinished');
+//         });
+//       }
+//     }
+//   }
+// });
+
 myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
-  $scope.basket_items = window.basket_items;
+  $scope.basket_items = [];
+
+  $scope.denis = { vova: 2 }
 
   $scope.total_price = 0;
   $scope.total_weight = 0;
@@ -24,7 +39,7 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
     return found_indx;
   }
 
-  $scope.recalcTotals = function() {
+  function recalcTotals() {
     var totpr = 0, totwt = 0;
     for (var i = 0; i < $scope.basket_items.length; i++) {
       var biCount = $scope.basket_items[i].count;
@@ -35,7 +50,11 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
     $scope.total_weight = totwt;
   }
 
-  $scope.recalcTotals();
+  $scope.$watch('basket_items', function() {
+    recalcTotals();
+  }, true);
+
+  recalcTotals();
 
   $scope.saveCount = function (item) {
     var cart_elements = getSweetcartElements();
@@ -57,8 +76,6 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
         var j = getIndexByProductId(cart_elements, itemid);
         if (j > -1) { cart_elements.splice(j, 1); }
         putElementsToSweetcart(cart_elements);
-
-        $scope.recalcTotals();
         break;
       }
     }
@@ -67,8 +84,13 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
   $scope.clearBasket = function() {
     $scope.basket_items = [];
     $cookies.sweetcart = "";
-    $scope.recalcTotals();
   };
+
+  // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
+  //   window.customQuantity();
+  // });
+  // --- or ---
+  // window.customQuantity();
 }]);
 
 // $(document).ready(function(){

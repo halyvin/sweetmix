@@ -3,27 +3,21 @@
   <%= javascript_include_tag "products" %>
 <% end %>
 
-<script>
-  window.basket_items = [];
-  <% @basket_items.each do |basket_item| %>
-    <% product = basket_item[0] %>
-    window.basket_items.push({
-      id: <%= product.id %>,
-      name: "<%= product.name %>",
-      image: "<%= product.image.url %>",
-      weight: <%= product.weight %>,
-      price: <%= product.price %>,
-      <% if (ingrids = product.ingridients).any? %>
-      ingridients: [ <% ingrids.each do |ingrid| %> "<%= ingrid.image.url %>", <% end %> ],
-      <% end %>
-      count: <%= basket_item[1] %>
-    });
-  <% end %>
-</script>
-
 <div class="main" role="content" ng-controller="BasketCtrl">
   <h1 class="title">Корзина</h1>
-  <div class="wrap content">
+  <div class="wrap content" ng-init="basket_items = [
+<% not_first = false %>
+<% @basket_items.each do |basket_item| %>
+  <% if not_first %>, <% else %><% not_first = true %><% end %>
+  <% product = basket_item[0] %>
+  { id: <%= product.id %>,
+    name: '<%= product.name %>',
+    image: '<%= product.image.url %>',
+    weight: <%= product.weight %>,
+    price: <%= product.price %>,
+    <% if (ingrids = product.ingridients).any? %>ingridients: [<%= ingrids.map {|ingrid| "'#{ingrid.image.url}'" }.join(',').html_safe %>],<% end %>
+    count: <%= basket_item[1] %> }
+<% end %> ]">
     <p ng-show="basket_items.length < 1">Корзина пустая</p>
     <table class="basket_table" ng-show="basket_items.length">
       <thead class="basket_thead">
@@ -57,7 +51,7 @@
             {{ item.price }}р
           </td>
           <td class="basket_td">
-            <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" ng-model="item.count" ng-change="saveCount(item);recalcTotals();">
+            <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" ng-model="item.count" ng-change="saveCount(item)">
           </td>
           <td class="basket_td">
             {{ item.price * item.count }}р
