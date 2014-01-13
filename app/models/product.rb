@@ -7,6 +7,9 @@ class Product < ActiveRecord::Base
   has_many :ingridients, through: :products_ingridients_relations,
                          source: :product_ingridient
 
+  has_many :orders_products_relations, dependent: :destroy
+  has_many :orders, through: :orders_products_relations
+
   mount_uploader :own_image, ProductBasisImageUploader
 
   attr_accessor :count #little helper

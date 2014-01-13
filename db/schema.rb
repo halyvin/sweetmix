@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207071744) do
+ActiveRecord::Schema.define(:version => 20140113224704) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -118,6 +118,36 @@ ActiveRecord::Schema.define(:version => 20131207071744) do
   add_index "main_nav_items", ["hided"], :name => "index_main_nav_items_on_hided"
   add_index "main_nav_items", ["prior"], :name => "index_main_nav_items_on_prior"
   add_index "main_nav_items", ["url_page_id"], :name => "index_main_nav_items_on_url_page_id"
+
+  create_table "orders", :force => true do |t|
+    t.string   "secret",                        :null => false
+    t.integer  "pay_status",     :default => 0, :null => false
+    t.text     "products_hash",                 :null => false
+    t.float    "price",                         :null => false
+    t.float    "products_price",                :null => false
+    t.float    "delivery_price"
+    t.float    "discount_sum"
+    t.string   "clt_email",                     :null => false
+    t.string   "clt_first_name",                :null => false
+    t.string   "clt_last_name"
+    t.string   "clt_phone"
+    t.date     "dlv_date",                      :null => false
+    t.string   "dlv_period"
+    t.string   "dlv_city",                      :null => false
+    t.text     "dlv_address",                   :null => false
+    t.text     "clt_comment"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "orders_products_relations", :force => true do |t|
+    t.integer "order_id",                  :null => false
+    t.integer "product_id",                :null => false
+    t.integer "count",      :default => 1, :null => false
+  end
+
+  add_index "orders_products_relations", ["order_id"], :name => "index_orders_products_relations_on_order_id"
+  add_index "orders_products_relations", ["product_id"], :name => "index_orders_products_relations_on_product_id"
 
   create_table "product_bases", :force => true do |t|
     t.string   "name",        :null => false
