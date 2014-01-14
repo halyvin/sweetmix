@@ -1110,6 +1110,9 @@ textarea:focus {
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		}
+	.inputs_block .field_with_errors input {
+		box-shadow: 0 0 6px red;
+	}
 	.inputs_block .input_wrap+.input_wrap {
 		overflow:visible;
 		padding-right:0px;

@@ -1,0 +1,85 @@
+<div class="main" role="content">
+  <h1 class="title">Оформление заказа</h1>
+  <div class="wrap content">
+    <%= form_for @order, url: checkout_path do |f| %>
+      <div class="checkout">
+        <div class="inputs_block">
+          <div class="input_wrap">
+            <%= f.label :first_name, "Ваше имя*" %>
+            <%= f.text_field :clt_first_name %>
+            <%= f.label :clt_last_name, "Фамилия" %>
+            <%= f.text_field :clt_last_name %>
+          </div><div class="input_wrap">
+            <%= f.label :clt_phone, "Телефон" %>
+            <%= f.text_field :clt_phone %>
+            <%= f.label :clt_email, "E-mail*" %>
+            <%= f.text_field :clt_email, placeholder: "На этот E-mail придет копия заказа" %>
+          </div>
+        </div>
+        <div class="inputs_block">
+          <div class="input_wrap check_delivery_date">
+            <label for="order_dlv_date">Дата доставки*</label>
+            <select name="order[dlv_date]" id="order_dlv_date">
+              <% is_first = true %>
+              <% (Date.tomorrow..(Date.tomorrow + 2.days)).each do |dt| %>
+                <option value="<%= I18n.l(dt, format: '%Y-%m-%d') %>"<% if is_first %> selected<% end %>><%= I18n.l(dt, format: '%d %B') %></option>
+                <% is_first = false %>
+              <% end %>
+            </select> 
+            <select name="order[dlv_period]" id="order_dlv_period">
+              <option value="c 10:00 до 14:00" selected>c 10:00 до 14:00ч</option>
+              <option value="c 14:00 до 18:00">c 14:00 до 18:00ч</option>
+              <option value="c 18:00 до 21:00">c 18:00 до 21:00ч</option>
+            </select>
+          </div><div class="input_wrap check_delivery_city">
+            <label for="order_dlv_city">Город*</label>
+            <select name="order[dlv_city]" id="order_dlv_city">
+              <option value="Красноярск" selected>Красноярск</option>
+              <option value="Сосновоборск">Сосновоборск</option>
+              <option value="Железногорск">Железногорск</option>
+            </select>
+          </div>
+        </div>  
+        <div class="input_wrap fullsize">
+          <%= f.label :dlv_address, "Адрес доставки*" %>
+          <%= f.text_field :dlv_address %>
+        </div>
+        <div class="input_wrap fullsize">
+          <label for="delivery_comment">Комментарии к доставке</label>
+          <input type="text" name="delivery_comment" id="delivery_comment">
+          <%= f.label :clt_comment, "Комментарии к доставке" %>
+          <%= f.text_field :clt_comment %>
+        </div>
+        <div class="payment">
+          <h2 class="payment_title">Способы оплаты:</h2>
+          <div class="input_wrap fullsize">
+            <input type="radio" name="payment_method" value="cash" id="payment_method_cash" class="pradio">
+            <label for="payment_method_cash" class="radio_anatation">Наличными курьеру</label> 
+            <input type="radio" name="payment_method" value="card" id="payment_method_card"  class="pradio">
+            <label for="payment_method_card" class="radio_anatation">Оплата онлайн  (Visa/Mastercard)</label> 
+          </div>
+          <div class="input_wrap fullsize">
+            <input type="checkbox" class="pcheckbox" id="promo">
+            <label for="promo" class="radio_anatation">У меня есть промо код:</label>
+            <input type="text">
+          </div>
+          <div class="input_wrap fullsize">
+            <input type="checkbox" class="pcheckbox" id="soglasen">
+            <label for="soglasen" class="radio_anatation">Согласен на всё,только продайте мне еще печенек</label>
+          </div>
+        </div>  
+      </div>
+      <ul class="totals_list">
+        <% total = @basket_items.map{|prod| prod.price }.reduce(:+) %>
+        <li class="total_item">Корзина<span class="delivery_value"><%= "%g" % total %>р</span></li>
+        <li class="total_item">Доставка<span class="delivery_value">0р</span></li>
+        <li class="total_item">Скидка по купону<span class="delivery_value">0р</span></li>
+        <li class="total_item">Всего к оплате<span class="delivery_value"><%= "%g" % total %>р</span></li>
+      </ul>
+      <div class="submit_wrap elems_at_sides">
+        <a href="#" class="btn type2">Вернуться в корзину</a>
+        <input type="submit" class="btn" value="Сделать заказ">
+      </div>
+    <% end %>
+  </div>
+</div>

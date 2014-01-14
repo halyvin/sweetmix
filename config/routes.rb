@@ -9,7 +9,9 @@ Sweetmix::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  get 'basket' => 'basket#index', as: :basket
+  post 'checkout' => 'orders#create' 
+  get 'checkout' => 'orders#new', as: :checkout
+  get 'basket' => 'orders#basket', as: :basket
 
   get 'sweets/:category_slug/constructor' => 'products#constructor', as: :products_counstructor
   post 'sweets/:category_slug/new_receipt' => 'products#create', as: :new_product
@@ -32,7 +34,7 @@ Sweetmix::Application.routes.draw do
 
   # get 'info/delivery' => 'staticuses#delivery' # delivery.html
 
-  get 'checkout' => 'staticuses#checkout' # checkout.html
+  # get 'checkout' => 'staticuses#checkout' # checkout.html
   # get 'basket' => 'staticuses#basket'     # basket.html
 
   # -------------
