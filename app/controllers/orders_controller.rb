@@ -23,6 +23,7 @@ class OrdersController < FrontendController
    
     respond_to do |format|
       if @order.save
+        # TODO email notices
         format.html  { redirect_to(basket_url,
                       :notice => 'Post was successfully created.') }
         format.json  { render :json => @order,
@@ -36,6 +37,10 @@ class OrdersController < FrontendController
                       :status => :unprocessable_entity }
       end
     end
+  end
+
+  def show
+    @order = Order.find_by_secret! params[:secret]
   end
 
   private

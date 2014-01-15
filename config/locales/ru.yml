@@ -72,6 +72,11 @@ ru:
         few:   "Товара"
         many:  "Товаров"
         other: "Товары"
+      order:
+        one:   "Заказ"
+        few:   "Заказа"
+        many:  "Заказов"
+        other: "Заказы"
       social_link:
         one:   "Социальная ссылка"
         few:   "Социальные ссылки"
@@ -200,6 +205,21 @@ ru:
         basis: "Основа"
         ingridients: "Ингредиенты"
         hided: "Скрыт?"
+      order:
+        price: "Полная стоимость заказа"
+        products_price: "Стоимость товаров"
+        delivery_price: "Стоимость доставки"
+        discount_sum: "Сумма скидки"
+        clt_email: "Email клиента"
+        clt_first_name: "Имя клиента"
+        clt_last_name: "Фамилия клиента"
+        clt_full_name: "Имя клиента"
+        clt_phone: "Телефон клиента"
+        dlv_date: "Дата доставки"
+        dlv_period: "Время доставки"
+        dlv_city: "Город доставки"
+        dlv_address: "Адрес доставки"
+        clt_comment: "Комментарий клиента"
       social_link:
         social_type: "Соцсеть"
         url: "Ссылка"

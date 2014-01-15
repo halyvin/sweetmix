@@ -9,7 +9,9 @@ Sweetmix::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  post 'checkout' => 'orders#create' 
+  get 'hfyTF-RGJNyF-FDK47F-JKFE57/CBB57-CA1f9-877D1-F7a03-5e68F-D2c22-97/:secret' => 'orders#show', as: :order
+
+  post 'checkout' => 'orders#create'
   get 'checkout' => 'orders#new', as: :checkout
   get 'basket' => 'orders#basket', as: :basket
 
