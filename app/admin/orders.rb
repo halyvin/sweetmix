@@ -7,108 +7,136 @@ ActiveAdmin.register Order do
 
   # menu priority: 1
 
+  filter :pay_status, label: "Оплата",
+                      as: :select,
+                      collection: [ ["Наличными", 0],
+                                    ["Онлайн (не оплачено)", 1],
+                                    ["Онлайн (оплачено)", 2] ]
+  filter :price
+  filter :email
+  filter :clt_first_name
+  filter :clt_last_name
+  filter :dlv_date
+  filter :dlv_city, as: :select,
+                    collection: ["Красноярск", "Сосновоборск", "Железногорск"]
+  filter :dlv_address
+  filter :created_at
+
   index download_links: false do
     column "#", :id
     column "Сумма", :price
-    column("Статус", :pay_status) {|order| ["Наличн", "Онлайн (неопл.)", "Онлайн (опл!)"][order.pay_status] }
+    column("Оплата", :pay_status) {|order| ["Наличн", "Онлайн (неопл.)", "Онлайн (опл!)"][order.pay_status] }
     column "Клиент", :clt_first_name do |order|
       (order.clt_full_name + "<br>" + mail_to(order.clt_email)).html_safe
     end
     column("Доставка", :dlv_date) {|order| (I18n.l(order.dlv_date) + "<br>" + order.dlv_period.to_s).html_safe }
-    # column "Информация" do |pr|
-    #   if pr.plain?
-    #     image_tag pr.image.url
-    #   else
-    #     [ pr.category.name,
-    #       pr.pack.name,
-    #       pr.basis.name,
-    #       "#{pr.weight} грамм" ].join('<br>').html_safe
-    #   end
-    # end
-    # column(:hided) { |pr| pr.hided? ? t('yep') : t('nope') }
+    column("Создан", :created_at) {|order| I18n.l order.created_at, format: "%d.%m.%Y %H:%M" }
     default_actions
   end
 
-  # show do |page|
-  #   attributes_table do
-  #     unless page.home?
-  #       row :title
-  #       row :page_path do
-  #         link_to page.full_slug, page.page_path, target: "_blank"
-  #       end
-  #       row :parent
-  #     end
+  show do |order|
+    attributes_table do
+      row("Вид и статус оплаты") do
+        [ "Наличными при получении",
+          "Онлайн (еще не оплачено)",
+          "Онлайн (оплачено!)" ][order.pay_status]
+      end
+      row :products_price
+      row :delivery_price
+      row :discount_sum
+      row :price
 
-  #     unless (page == SiteSetting.value_of('page_of_contacts') ||
-  #             page == SiteSetting.value_of('page_of_sertificates') ||
-  #             page == SiteSetting.value_of('page_of_comments') )
-  #       row :behavior_type do
-  #         page.behavior_type_humanized
-  #       end
-  #       row :rct_page if page.behavior_type == 2
-  #       row :rct_lnk do
-  #         page.rct_lnk.present? ? link_to(page.rct_lnk, page.rct_lnk) : ""
-  #       end if page.behavior_type == 3
-  #     end
-  #     unless page.redirector?
-  #       row :body do
-  #         page.body.nil? ? '' : page.body.html_safe
-  #       end
-  #       row :description do
-  #         (page.description.nil? || page.description == "") ? '<span style="color:#bbb">Используется значение по умолчанию, заданное в настройках</span>'.html_safe : page.description
-  #       end
-  #       row :keywords do
-  #         (page.keywords.nil? || page.keywords == "") ? '<span style="color:#bbb">Используется значение по умолчанию, заданное в настройках</span>'.html_safe : page.keywords
-  #       end
-  #     end
-  #   end
-  #   active_admin_comments
-  # end
+      row(:clt_email) { mail_to order.clt_email }
+      row :clt_first_name
+      row :clt_last_name
+      row :clt_phone
 
-  # sidebar 'Дополнительные данные', only: :show do
-  #   attributes_table_for resource do
-  #     row :hided do
-  #       resource.hided ? t('yep') : t('nope')
-  #     end
-  #     row :prior
-  #     row :created_at
-  #     row :updated_at
-  #   end
-  # end
+      row :dlv_date
+      row :dlv_period
+      row :dlv_city
+      row :dlv_address
 
-  # form do |f|
-  #   f.inputs "" do
-  #     unless f.object.home?
-  #       f.input :title
-  #       f.input :slug, hint: 'Часть URL адреса, которая обозначает эту страницу. Например для адреса `example.com/dictionary/pages/foton.html` часть `foton` - slug страницы. Больше - в <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug">Википедии</a>. Для главной страницы нужно просто оставить поле пустым.'.html_safe
-  #       f.input :parent_id,
-  #               as: :select,
-  #               collection: content_pages_tree_ordered_collection(true, f.object, true),
-  #               include_blank: true,
-  #               input_html: { :class => 'chzn-select' }
-  #     end
-  #     unless (f.object == SiteSetting.value_of('page_of_contacts') ||
-  #             f.object == SiteSetting.value_of('page_of_sertificates') ||
-  #             f.object == SiteSetting.value_of('page_of_comments') )
-  #       f.input :behavior_type,
-  #               as: :radio,
-  #               collection: ContentPage.behavior_type_variants,
-  #               include_blank: false
-  #       f.input :rct_page,
-  #               collection: content_pages_tree_ordered_collection(false, f.object),
-  #               input_html: { :class => 'chzn-select' }
-  #       f.input :rct_lnk
-  #     end
-  #     f.input :body, input_html: { :class => ( f.object.home? ? '' : 'editor' ) }
-  #     f.input :prior, hint: "Меньше значение => Раньше в списке"
-  #     f.input :hided
-  #   end
-  #   f.inputs "SEO параметры" do
-  #     f.input :description
-  #     f.input :keywords
-  #   end
-  #   f.actions
-  # end
+      row :clt_comment
+    end
+    active_admin_comments
+  end
+
+  sidebar 'Дополнительные данные', only: :show do
+    attributes_table_for resource do
+      row :id
+      row("Ссылка") {|order| link_to order.secret, order_path(order.secret), target: "_blank" }
+      row :created_at
+      row :updated_at
+    end
+  end
+
+  form do |f|
+    f.inputs "Стоимость заказа" do
+      f.input :products_price, input_html: { style: "width: 128px" }
+      f.input :delivery_price, input_html: { style: "width: 128px" }
+      f.input :discount_sum, input_html: { style: "width: 128px" }
+      f.input :price, input_html: { style: "width: 128px" }
+    end
+
+    f.inputs "Информация о клиенте" do
+      f.input :clt_email
+      f.input :clt_first_name
+      f.input :clt_last_name
+      f.input :clt_phone
+    end
+    f.inputs "Информация о доставке" do
+      f.input :dlv_date
+      f.input :dlv_period, as: :select,
+                           include_blank: false,
+                           collection: [ "c 10:00 до 14:00",
+                                         "c 14:00 до 18:00",
+                                         "c 18:00 до 21:00" ]
+      f.input :dlv_city, as: :select,
+                         include_blank: false,
+                         collection: [ "Красноярск",
+                                       "Сосновоборск",
+                                       "Железногорск" ]
+      f.input :dlv_address, input_html: { rows: 2 }
+      f.input :clt_comment, input_html: { rows: 2 }
+    end
+    if f.object.new_record?
+      f.inputs "" do
+        f.input :terms_of_service, as: :boolean
+      end
+    end
+
+    # f.inputs "" do
+    #   unless f.object.home?
+    #     f.input :title
+    #     f.input :slug, hint: 'Часть URL адреса, которая обозначает эту страницу. Например для адреса `example.com/dictionary/pages/foton.html` часть `foton` - slug страницы. Больше - в <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug">Википедии</a>. Для главной страницы нужно просто оставить поле пустым.'.html_safe
+    #     f.input :parent_id,
+    #             as: :select,
+    #             collection: content_pages_tree_ordered_collection(true, f.object, true),
+    #             include_blank: true,
+    #             input_html: { :class => 'chzn-select' }
+    #   end
+    #   unless (f.object == SiteSetting.value_of('page_of_contacts') ||
+    #           f.object == SiteSetting.value_of('page_of_sertificates') ||
+    #           f.object == SiteSetting.value_of('page_of_comments') )
+    #     f.input :behavior_type,
+    #             as: :radio,
+    #             collection: ContentPage.behavior_type_variants,
+    #             include_blank: false
+    #     f.input :rct_page,
+    #             collection: content_pages_tree_ordered_collection(false, f.object),
+    #             input_html: { :class => 'chzn-select' }
+    #     f.input :rct_lnk
+    #   end
+    #   f.input :body, input_html: { :class => ( f.object.home? ? '' : 'editor' ) }
+    #   f.input :prior, hint: "Меньше значение => Раньше в списке"
+    #   f.input :hided
+    # end
+    # f.inputs "SEO параметры" do
+    #   f.input :description
+    #   f.input :keywords
+    # end
+    f.actions
+  end
 
   # sidebar 'Памятка', only: :edit do
   #   para "Прошу не забывать, что при вводе текста в редакторе он будет выглядеть не точно так же как и на сайте. Причина в том, что на сайте используются свои стили текста, свои отступы, а у редактора свои настройки. Так что, редактируя текст тут, вы задаете только структуру и содержание (параграфы, ссылки, текст и т.п.). Ну и маленькая подсказка напоследок - кнопка Enter при редактировании переводит на новый параграф. Если нужно просто перевести строку в текущем парарафе, используйте сочетание клавиш Shift+Enter."

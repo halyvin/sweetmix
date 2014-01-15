@@ -206,7 +206,8 @@ ru:
         ingridients: "Ингредиенты"
         hided: "Скрыт?"
       order:
-        price: "Полная стоимость заказа"
+        id: "#"
+        price: "Сумма итого"
         products_price: "Стоимость товаров"
         delivery_price: "Стоимость доставки"
         discount_sum: "Сумма скидки"
@@ -220,6 +221,9 @@ ru:
         dlv_city: "Город доставки"
         dlv_address: "Адрес доставки"
         clt_comment: "Комментарий клиента"
+        terms_of_service: "Согласие с условиями сервиса"
+        created_at: "Создана"
+        updated_at: "Обновлена"
       social_link:
         social_type: "Соцсеть"
         url: "Ссылка"
