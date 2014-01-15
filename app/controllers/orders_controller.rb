@@ -21,9 +21,15 @@ class OrdersController < FrontendController
     respond_to do |format|
       if @order.save
         # TODO email notices
-        format.html  { redirect_to(basket_url,
-                      :notice => 'Post was successfully created.') }
-        format.json  { render :json => @order,
+        format.html do
+          @basket_items.each do |basket_product|
+            @order.orders_products_relations.create product: basket_product,
+                                                    count: basket_product.count
+          end
+          clear_all_products_in_cart
+          redirect_to order_path(@order.secret)
+        end
+        format.json { render :json => @order,
                       :status => :created, :location => @order }
       else
         format.html do

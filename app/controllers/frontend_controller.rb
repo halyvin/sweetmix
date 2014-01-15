@@ -61,6 +61,10 @@ class FrontendController < ApplicationController
     end
     return cart_items
   end
+
+  def clear_all_products_in_cart
+    cookies[:sweetcart] = ""
+  end
   # end of cart functional
 
   def seo

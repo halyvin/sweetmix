@@ -58,6 +58,22 @@ ActiveAdmin.register Order do
 
       row :clt_comment
     end
+
+    panel "Товары" do
+      table_for order.orders_products_relations do
+        column "Товар" do |rel|
+          rel.product.name
+        end
+        column "Стоимость" do |rel|
+          rel.product.price
+        end
+        column :count
+        column "Итого" do |rel|
+          rel.product.price * rel.count
+        end
+      end
+    end
+
     active_admin_comments
   end
 

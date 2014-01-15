@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
                   :clt_comment, :terms_of_service
 
   validates :secret, :price, :products_price, :clt_email, :clt_first_name,
-            :dlv_date, :dlv_city, :dlv_address, :products_hash,
+            :dlv_date, :dlv_city, :dlv_address,
             presence: true
 
   validates :secret, uniqueness: true
