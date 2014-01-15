@@ -104,47 +104,7 @@ ActiveAdmin.register Order do
         f.input :terms_of_service, as: :boolean
       end
     end
-
-    # f.inputs "" do
-    #   unless f.object.home?
-    #     f.input :title
-    #     f.input :slug, hint: 'Часть URL адреса, которая обозначает эту страницу. Например для адреса `example.com/dictionary/pages/foton.html` часть `foton` - slug страницы. Больше - в <a href="http://en.wikipedia.org/wiki/Slug_(web_publishing)#Slug">Википедии</a>. Для главной страницы нужно просто оставить поле пустым.'.html_safe
-    #     f.input :parent_id,
-    #             as: :select,
-    #             collection: content_pages_tree_ordered_collection(true, f.object, true),
-    #             include_blank: true,
-    #             input_html: { :class => 'chzn-select' }
-    #   end
-    #   unless (f.object == SiteSetting.value_of('page_of_contacts') ||
-    #           f.object == SiteSetting.value_of('page_of_sertificates') ||
-    #           f.object == SiteSetting.value_of('page_of_comments') )
-    #     f.input :behavior_type,
-    #             as: :radio,
-    #             collection: ContentPage.behavior_type_variants,
-    #             include_blank: false
-    #     f.input :rct_page,
-    #             collection: content_pages_tree_ordered_collection(false, f.object),
-    #             input_html: { :class => 'chzn-select' }
-    #     f.input :rct_lnk
-    #   end
-    #   f.input :body, input_html: { :class => ( f.object.home? ? '' : 'editor' ) }
-    #   f.input :prior, hint: "Меньше значение => Раньше в списке"
-    #   f.input :hided
-    # end
-    # f.inputs "SEO параметры" do
-    #   f.input :description
-    #   f.input :keywords
-    # end
     f.actions
   end
 
-  # sidebar 'Памятка', only: :edit do
-  #   para "Прошу не забывать, что при вводе текста в редакторе он будет выглядеть не точно так же как и на сайте. Причина в том, что на сайте используются свои стили текста, свои отступы, а у редактора свои настройки. Так что, редактируя текст тут, вы задаете только структуру и содержание (параграфы, ссылки, текст и т.п.). Ну и маленькая подсказка напоследок - кнопка Enter при редактировании переводит на новый параграф. Если нужно просто перевести строку в текущем парарафе, используйте сочетание клавиш Shift+Enter."
-  # end
-
-  # sidebar 'О контентных страницах' do
-  #   para "Контентные страницы составляют основу сайта. Имея древовидную структуру страницы могут составлять любые множества разделов."
-  #   para "Они могу являться как самостоятельными страницами, так и дополнениями для страниц других объектов. Например, содержанием на главной странице является содержание контентной страницы с пустым slug, а для, например, галереи с адресом /about/gallery дополнением будет страница с slug равным gallery, и родительской страницей со slug равной about."
-  #   para "В качестве дополнения контентные страницы нужны для разных целей: во первых, на некоторых неконтентных страницах могут быть вставки с содержанием - они как раз для содержания страницы-дополнения. Так же контентные страницы содержат в себе SEO данные, которые будут использованы для страниц, в которых они являются дополнениями."
-  # end
 end
