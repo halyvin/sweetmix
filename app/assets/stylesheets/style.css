@@ -1102,6 +1102,9 @@ textarea:focus {
 	padding-left:100px;	
 	padding-right:100px;	
 	}
+	.checkout .field_with_errors input { box-shadow: 0 0 6px red; }
+	.checkout .field_with_errors .soglasen-label { color: red; }
+	.checkout .one-line-errors .field_with_errors { display: inline-block; }
 	.inputs_block .input_wrap {
 		vertical-align:top;
 		overflow:visible;
@@ -1110,9 +1113,6 @@ textarea:focus {
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		}
-	.inputs_block .field_with_errors input {
-		box-shadow: 0 0 6px red;
-	}
 	.inputs_block .input_wrap+.input_wrap {
 		overflow:visible;
 		padding-right:0px;

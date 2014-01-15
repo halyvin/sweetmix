@@ -4,7 +4,6 @@ class OrdersController < FrontendController
   before_filter :collect_basket_items
 
   def basket
-    
   end
 
   def new
@@ -14,6 +13,13 @@ class OrdersController < FrontendController
 
   def create
     @order = Order.new(params[:order])
+    total_of_basket = @basket_items.map{|prod| prod.price }.reduce(:+)
+    @order.price = total_of_basket
+    @order.products_price = total_of_basket
+    @order.pay_status = params[:payment_method] == "1" ? 1 : 0
+    
+    # TODO products hash
+    @order.products_hash = "tramparpa"
    
     respond_to do |format|
       if @order.save
@@ -22,8 +28,11 @@ class OrdersController < FrontendController
         format.json  { render :json => @order,
                       :status => :created, :location => @order }
       else
-        format.html  { render :action => "new" }
-        format.json  { render :json => @order.errors,
+        format.html do
+          @order.terms_of_service = false
+          render :action => "new"
+        end
+        format.json { render :json => @order.errors,
                       :status => :unprocessable_entity }
       end
     end
