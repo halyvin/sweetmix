@@ -17,9 +17,6 @@ class OrdersController < FrontendController
     @order.price = total_of_basket
     @order.products_price = total_of_basket
     @order.pay_status = params[:payment_method] == "1" ? 1 : 0
-    
-    # TODO products hash
-    @order.products_hash = "tramparpa"
    
     respond_to do |format|
       if @order.save
