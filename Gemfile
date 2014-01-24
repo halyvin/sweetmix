@@ -60,10 +60,12 @@ end
 # using old version of jquery-rails for Active Admin correct work
 gem 'jquery-rails', '~>2.3'
 
-# group :development do
+group :development do
   # Fix some bugs on Linux of Rails work (make rails console works as example)
   # gem 'rb-readline'
-# end
+  
+  gem 'letter_opener'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
