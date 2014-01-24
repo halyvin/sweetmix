@@ -1,3 +1,5 @@
+@import url("//hello.myfonts.net/count/292006");
+
 @font-face {
   font-family: "a_Romanus";
   src: url("a_romanus-webfont.eot");
@@ -10,23 +12,22 @@
 }
 
 @font-face {
-  font-family: "Academy";
-  src: url("292008_0_0.eot");
-  src: url("292008_0_0.eot?#iefix") format("embedded-opentype"),
-       url("292006_0_0.woff") format("woff"),
-       url("292006_0_0.ttf") format("truetype"),
-       url("292008_0_0.svg#academy-bold") format("svg");
+  font-family: 'Academy';
+  src: url('292006_0_0.eot');
+  src: url('292006_0_0.eot?#iefix') format('embedded-opentype'),
+       url('292006_0_0.woff') format('woff'),
+       url('292006_0_0.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
-
+ 
+  
 @font-face {
-  font-family: "Academy";
-  src: url("292006_1_0.eot");
-  src: url("292006_1_0.eot?#iefix") format("embedded-opentype"),
-       url("292006_1_0.woff") format("woff"),
-       url("292006_1_0.ttf") format("truetype")
-       url("292008_1_0.svg#academy-regular") format("svg");
+  font-family: 'Academy';
+  src: url('292006_1_0.eot');
+  src: url('292006_1_0.eot?#iefix') format('embedded-opentype'),
+       url('292006_1_0.woff') format('woff'),
+       url('292006_1_0.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
