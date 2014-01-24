@@ -74,7 +74,7 @@
     <div class="submit_wrap elems_at_sides">
       <form action="/checkout" method="GET">
       <a href="<%= root_url %>" class="btn type2">Вернуться в магазин</a>
-      <a href="<%= checkout_path %>" class="btn">Оформить заказ</a>
+      <a id="checkout-link" href="<%= checkout_path %>" class="btn" ng-class="{disable: !basket_items.length}" ng-disabled="!basket_items.length">Оформить заказ</a>
       </form>
     </div>
   </div>

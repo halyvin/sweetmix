@@ -128,3 +128,13 @@ window.customQuantity = function(){
   return true;
   });
 };
+
+$(document).ready(function() {
+  $("#checkout-link").click(function(evnt) {
+    var linkDisabled;
+    if (linkDisabled = $(this).hasClass('disable')) {
+      evnt.preventDefault();
+    }
+    return !linkDisabled;
+  });
+});

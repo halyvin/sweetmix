@@ -7,8 +7,12 @@ class OrdersController < FrontendController
   end
 
   def new
-    total_of_basket = @basket_items.map{|prod| prod.price }.reduce(:+)
-    @order = Order.new price: total_of_basket, products_price: total_of_basket
+    if @basket_items.any?
+      total_of_basket = @basket_items.map{|prod| prod.price }.reduce(:+)
+      @order = Order.new price: total_of_basket, products_price: total_of_basket
+    else
+      redirect_to basket_path
+    end
   end
 
   def create
