@@ -249,7 +249,7 @@ EOS
 main_nav_items_roots = MainNavItem.create([
   { title: "Мюсли", prior: 1, url_text: "/sweets/muesli" },
   { title: "Выпечка", prior: 4, url_text: "/sweets" },
-  { title: "Мороженное", prior: 8, url_text: "/sweets/ice-cream" },
+  { title: "Мороженое", prior: 8, url_text: "/sweets/ice-cream" },
   { title: "Йогурт", prior: 9, url_text: "/sweets/yogurt", hided: true }
 ])
 main_nav_items_seconds = MainNavItem.create([
@@ -303,7 +303,7 @@ slides[2].save
 InfoProductCircle.create([
   { title: "Мюсли", url: "/sweets/muesli", prodcode: 0, prior: 1 },
   { title: "Выпечка", url: "/sweets/cake", prodcode: 1, prior: 1 },
-  { title: "Мороженное", url: "/sweets/ice-cream", prodcode: 2, prior: 1 },
+  { title: "Мороженое", url: "/sweets/ice-cream", prodcode: 2, prior: 1 },
   { title: "Йогурт", url: "/sweets/yogurt", prodcode: 3, prior: 1, hided: true }
 ])
 
@@ -349,10 +349,10 @@ categories = ProductCategory.create([
     slug: "macaron"
   },
   {
-    name_one: "Мороженное",
+    name_one: "Мороженое",
     name_few: "Мороженных",
     name_many: "Мороженных",
-    name_other: "Мороженное",
+    name_other: "Мороженое",
     slug: "ice-cream"
   },
   {
