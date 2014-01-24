@@ -21,8 +21,8 @@
     /   </select>
     / </div>
 
-    .steps_content.basis.current
-      - if @products && @products.any?
+    - if @products && @products.any?
+      .steps_content.basis.current
         ul.basis_list
           - @products.each do |product|
             li.basis_item
@@ -43,11 +43,15 @@
               .basis_desc
                 h2.title = product.name
                 p = product.descr
+      - if @category.constuctable?
+        .submit_wrap.elems_centered
+          = link_to "Создать #{@category.name(1).mb_chars.downcase} по своему рецепту", products_counstructor_path(@category.slug), :class => 'btn'
 
-      - else
+    - else
+      .steps_content.basis.current
         p
           ' Пока нет ни одного готового рецепта
-          = @category.name(5)
+          = @category.name(5).mb_chars.downcase
           | .
           - if @category.constuctable?
             '  Но вы можете сами создать свой уникальный рецепт в
