@@ -1,17 +1,10 @@
 var myApp = angular.module('sweetapp', ['ngCookies']);
 
-// myApp.directive('onFinishRender', function ($timeout) {
-//   return {
-//     restrict: 'A',
-//     link: function (scope, element, attr) {
-//       if (scope.$last === true) {
-//         $timeout(function () {
-//           scope.$emit('ngRepeatFinished');
-//         });
-//       }
-//     }
-//   }
-// });
+myApp.directive('myRepeatDirective', function() {
+  return function(scope, element, attrs) {
+    if (scope.$last) { scope.$evalAsync( window.customQuantity ); }
+  };
+});
 
 myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, $http, $cookies) {
   $scope.basket_items = [];
@@ -87,16 +80,7 @@ myApp.controller('BasketCtrl', ['$scope', '$http', '$cookies', function($scope, 
     $cookies.sweetcart = "";
   };
 
-  // $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
-  //   window.customQuantity();
-  // });
-  // --- or ---
-  // window.customQuantity();
 }]);
-
-// $(document).ready(function(){
-//   if ($('.quantity_select').length) { customQuantity(); }
-// });
 
 window.customQuantity = function(){
 
@@ -104,7 +88,7 @@ window.customQuantity = function(){
     var el   = $(this);
     var name = el.attr('name');
     var id   = el.attr('id');
-    var val  = el.attr('value');
+    var val  = el.val();// el.attr('value');
 
     var html = '<div class="custom_quantity" data-name="'+name+'" data-id="'+id+'"><div class="cq_output">'+val+'</div><div class="cq_up"></div><div class="cq_down"></div></div>'
     el.after(html).hide();

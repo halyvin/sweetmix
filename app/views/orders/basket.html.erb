@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody class="basket_tbody" ng-cloak>
-        <tr class="basket_tr" ng-repeat="item in basket_items">
+        <tr class="basket_tr" ng-repeat="item in basket_items" my-repeat-directive>
           <td class="basket_td">
             <img ng-src="{{ item.image }}" alt="" class="product_pic">
             {{ item.name }}
@@ -50,7 +50,7 @@
             {{ item.price }}р
           </td>
           <td class="basket_td">
-            <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" ng-model="item.count" ng-change="saveCount(item)">
+            <input type="number" id="id1" name="quantity" min="1" max="5" class="quantity_select" ng-model="item.count" ng-change="saveCount(item)" value="{{item.count}}">
           </td>
           <td class="basket_td">
             {{ item.price * item.count }}р
